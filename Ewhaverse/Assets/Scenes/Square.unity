@@ -338,7 +338,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 270762377}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 306899280}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &270762377
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -528,7 +540,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &306899281
 RectTransform:
   m_ObjectHideFlags: 0
@@ -672,7 +684,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 329019141}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 306899280}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &329019141
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -900,7 +924,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -89, y: 38}
+  m_AnchoredPosition: {x: -89, y: 40}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &497677687
@@ -1382,7 +1406,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 700573b9556b78f4493e26e81584573d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: {fileID: 0}
   userIDText: {fileID: 0}
 --- !u!4 &806046560
 Transform:
@@ -1924,7 +1947,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 93, y: 47}
+  m_AnchoredPosition: {x: 93, y: 40}
   m_SizeDelta: {x: 160, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1141759626
@@ -2641,7 +2664,43 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1501141360}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 306899280}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1161016944}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1593784322}
+        m_TargetAssemblyTypeName: RoomListing, Assembly-CSharp
+        m_MethodName: CreateRoom
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1501141360
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2936,8 +2995,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roomPrefab: {fileID: 90300257255611251, guid: dfffb10e54a154f4988dc1261af53aad, type: 3}
   scrollContent: {fileID: 1258963534}
-  informText: {fileID: 0}
-  roomNameText: {fileID: 0}
+  roomNameText: {fileID: 1141759626}
 --- !u!1 &1805148283
 GameObject:
   m_ObjectHideFlags: 0
