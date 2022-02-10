@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-using UnityEngine.UI;
 using Photon.Realtime;
 using Photon.Pun;
+
+using UnityEngine.UI;
+using TMPro;
 
 public class RoomListing : MonoBehaviourPunCallbacks
 {
@@ -17,12 +19,11 @@ public class RoomListing : MonoBehaviourPunCallbacks
     [SerializeField]
     private Transform scrollContent;
 
-    public Text informText;
-    public InputField roomNameText;
+    public TMP_InputField roomNameText;
 
     public void CreateRoom()
     {
-        informText.text = "방 생성 중...잠시만 기다려주세요";
+        Debug.Log("방 생성 중...잠시만 기다려주세요");
 
         RoomOptions ro = new RoomOptions();
         ro.IsOpen = true;

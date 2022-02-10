@@ -8,7 +8,6 @@ using UnityEngine.UI;
 public class Launcher : MonoBehaviourPunCallbacks
 {
     string gameVersion = "1";   //버전
-    public Text text;   //서버 연결 알림 
 
     public InputField userIDText;   //userId
 
@@ -20,11 +19,9 @@ public class Launcher : MonoBehaviourPunCallbacks
         //게임 버전
         PhotonNetwork.GameVersion = gameVersion;
         
+        /* 나중에 userId 설정하게 되면 수정 필요 */
         //서버 접속
-        //if(!PhotonNetwork.IsConnected)
-            //PhotonNetwork.ConnectUsingSettings();
-
-        
+        PhotonNetwork.ConnectUsingSettings();
 
     }
 
@@ -32,22 +29,22 @@ public class Launcher : MonoBehaviourPunCallbacks
     public override void OnConnectedToMaster()
     {
         PhotonNetwork.JoinLobby();
-        text.text = "서버 연결 성공!";
+        Debug.Log("서버 연결 성공!");
     }
 
     //마스터 서버 연결 실패시 자동 실행
     public override void OnDisconnected(DisconnectCause cause)
     {
-        text.text = "연결 중...";
+        Debug.Log("연결 중...");
         PhotonNetwork.ConnectUsingSettings();
     }
 
-    //아이디 입력
+    //아이디 설정 
     public void IDConfirm()
     {
         AuthenticationValues authValues = new AuthenticationValues(userIDText.text);
         PhotonNetwork.AuthValues = authValues;
-        Debug.Log(PhotonNetwork.AuthValues.UserId);
+     
         //서버 접속
         if (!PhotonNetwork.IsConnected)
             PhotonNetwork.ConnectUsingSettings();
@@ -56,7 +53,7 @@ public class Launcher : MonoBehaviourPunCallbacks
 
     public override void OnJoinedLobby()
     {
-        text.text = "로비 입장";
+        Debug.Log("로비 입장");
         //PhotonNetwork.FindFriends(new string[] { "1" });
     }
 
