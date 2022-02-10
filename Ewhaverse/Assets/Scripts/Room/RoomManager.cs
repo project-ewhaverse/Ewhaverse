@@ -15,7 +15,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
     [Tooltip("The prefab to use for representing the player")]
     public GameObject playerPrefab;
 
-    public Text roomname;
+    public TMP_Text roomname;
 
     public Button DeleteRoom;
 
