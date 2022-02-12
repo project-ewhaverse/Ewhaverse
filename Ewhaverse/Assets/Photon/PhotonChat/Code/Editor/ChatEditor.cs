@@ -12,7 +12,7 @@
 using System.Collections.Generic;
 using System.Text;
 using UnityEngine.Networking;
-#if !PHOTON_UNITY_NETWORKING
+#if UNITY_EDITOR
 using System;
 using UnityEditor;
 using UnityEngine;

@@ -1257,6 +1257,10 @@ PrefabInstance:
       propertyPath: DeleteRoom
       value: 
       objectReference: {fileID: 1538493714}
+    - target: {fileID: 1502335547949360440, guid: 58268282ce93abd438e3cc29b3590ee5, type: 3}
+      propertyPath: playerPrefab
+      value: 
+      objectReference: {fileID: 4769300697098549758, guid: 1ef4a98e54105a246b96723fc046d637, type: 3}
     - target: {fileID: 1502335547949360441, guid: 58268282ce93abd438e3cc29b3590ee5, type: 3}
       propertyPath: m_Name
       value: RoomManager

@@ -1,4 +1,3 @@
-#if !PHOTON_UNITY_NETWORKING
 // ----------------------------------------------------------------------------
 // <copyright file="AccountService.cs" company="Exit Games GmbH">
 //   Photon Cloud Account Service - Copyright (C) 2012 Exit Games GmbH
@@ -225,6 +224,4 @@ public enum ServiceTypes
     Thunder = 6,
     Bolt = 20
 }
-#endif
-
 #endif

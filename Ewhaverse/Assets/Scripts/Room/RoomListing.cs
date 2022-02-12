@@ -13,6 +13,7 @@ public class RoomListing : MonoBehaviourPunCallbacks
     //룸 목록 저장
     private Dictionary<string, GameObject> roomDict = new Dictionary<string, GameObject>();
 
+
     //룸 표시 프리팹 & 프리팹이 차일드화시킬 부모 객체
     [SerializeField]
     private GameObject roomPrefab;
@@ -50,6 +51,11 @@ public class RoomListing : MonoBehaviourPunCallbacks
 
     public override void OnRoomListUpdate(List<RoomInfo> roomList)
     {
+        bool isActive = scrollContent.gameObject.activeSelf;
+
+        if (!isActive)
+            scrollContent.gameObject.SetActive(true);
+
         GameObject tempRoom = null;
         foreach (var room in roomList)
         {
@@ -78,5 +84,8 @@ public class RoomListing : MonoBehaviourPunCallbacks
                 }
             }
         }
+
+        if (!isActive)
+            scrollContent.gameObject.SetActive(false);
     }
 }
