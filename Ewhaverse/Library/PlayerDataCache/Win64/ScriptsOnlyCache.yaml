@@ -1780,4 +1780,8 @@ ScriptsOnlyBuild:
   scenePathNames:
   - Assets/Scenes/Square.unity
   - Assets/Scenes/Room.unity
+<<<<<<< Updated upstream
   playerPath: "C:/Users/haein/Desktop/\uC878\uD504\uC720\uB2C8\uD2F0/Ewhaverse.exe"
+=======
+  playerPath: "C:/Users/user/Desktop/\uC0C8 \uD3F4\uB354/Ewhaverse.exe"
+>>>>>>> Stashed changes
