@@ -15,6 +15,8 @@ public class RoomListing : MonoBehaviourPunCallbacks
 
     //룸 표시 프리팹 & 프리팹이 차일드화시킬 부모 객체
     [SerializeField]
+    private GameObject LoomListView;
+    [SerializeField]
     private GameObject roomPrefab;
     [SerializeField]
     private Transform scrollContent;
@@ -50,6 +52,17 @@ public class RoomListing : MonoBehaviourPunCallbacks
 
     public override void OnRoomListUpdate(List<RoomInfo> roomList)
     {
+        bool check = true;
+
+        if (LoomListView.gameObject.activeSelf)
+            check = false;
+
+        if(check)
+        {
+            LoomListView.gameObject.SetActive(true);
+        }
+            
+        
         GameObject tempRoom = null;
         foreach (var room in roomList)
         {
@@ -77,6 +90,11 @@ public class RoomListing : MonoBehaviourPunCallbacks
                     tempRoom.GetComponent<RoomData>().RoomInfo = room;
                 }
             }
+        }
+
+        if(check)
+        {
+            LoomListView.gameObject.SetActive(false);
         }
     }
 }
