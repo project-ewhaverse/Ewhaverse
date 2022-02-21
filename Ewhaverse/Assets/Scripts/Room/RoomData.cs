@@ -4,14 +4,14 @@ using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine.UI;
+using TMPro;
 
 
 public class RoomData : MonoBehaviour
 {
-    private Text RoomInfoText;
+    private TMP_Text RoomInfoText;
     private RoomInfo _roomInfo;
 
-    public InputField userIDText;
 
     public RoomInfo RoomInfo
     {
@@ -31,9 +31,7 @@ public class RoomData : MonoBehaviour
 
     private void Awake()
     {
-        RoomInfoText = GetComponentInChildren<Text>();
-        userIDText = GameObject.Find("userId").GetComponent<InputField>();
-
+        RoomInfoText = GetComponentInChildren<TMP_Text>();
     }
     
     void OnEnterRoom(string roomName)
@@ -43,7 +41,6 @@ public class RoomData : MonoBehaviour
         room.IsVisible = true;
         room.MaxPlayers = 10;
 
-        PhotonNetwork.NickName = userIDText.text;
         PhotonNetwork.JoinOrCreateRoom(roomName, room, TypedLobby.Default);
     }
 }
