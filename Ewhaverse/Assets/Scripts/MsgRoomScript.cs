@@ -36,7 +36,7 @@ public class MsgRoomScript : MonoBehaviour
 		rid = File.ReadAllText(Application.persistentDataPath + "/SyncMsg1.txt");
 		userName = File.ReadAllText(Application.persistentDataPath + "/Sync.txt");
 		otherName = File.ReadAllText(Application.persistentDataPath + "/SyncMsg2.txt");
-		midcount = 0;
+		midcount = 1;
 		InvokeRepeating("call", 2, 5);
 	}
 	IEnumerator MsendCoroutine(string command, string rid, string sender, string receiver, string time, string message)
