@@ -33,7 +33,7 @@ public class MsgListScript : MonoBehaviour
 		Application.runInBackground = true;
 		userName = File.ReadAllText(Application.persistentDataPath + "/Sync.txt");
 		listcount = 0;
-		InvokeRepeating("call", 2, 25);
+		InvokeRepeating("call", 2, 10);
 	}
 	IEnumerator McreateCoroutine(string command, string othername)
 	{
@@ -57,14 +57,17 @@ public class MsgListScript : MonoBehaviour
 		UnityWebRequest www = UnityWebRequest.Post(url, form);
 		yield return www.SendWebRequest();
 		string rdata = www.downloadHandler.text;
-		string rdata1 = rdata.Substring(1, rdata.Length - 2);
-		string rdata2 = rdata1.Replace("}], [{", "}, {");
-		File.WriteAllText(Application.persistentDataPath + "/MmtJson.txt", rdata2);
-		mmtlist.Clear();
-		mmtlist = JsonConvert.DeserializeObject<List<Mmtlist>>(rdata2);
-		if (mmtlist.Count > listcount)
+		if (rdata != "[]")
 		{
-			mmtlistload();
+			string rdata1 = rdata.Substring(1, rdata.Length - 2);
+			string rdata2 = rdata1.Replace("}], [{", "}, {");
+			File.WriteAllText(Application.persistentDataPath + "/MmtJson.txt", rdata2);
+			mmtlist.Clear();
+			mmtlist = JsonConvert.DeserializeObject<List<Mmtlist>>(rdata2);
+			if (mmtlist.Count > listcount)
+			{
+				mmtlistload();
+			}
 		}
 	}
 	public void onclick()
