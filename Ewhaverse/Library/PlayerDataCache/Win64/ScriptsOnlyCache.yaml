@@ -2,6 +2,8 @@ ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
     - AreaScript
+    - FriendData
+    - FriendListing
     - Launcher
     - PlayerControl
     - RoomData
@@ -37,13 +39,6 @@ ScriptsOnlyBuild:
     - TMPro.TMP_SpriteAsset
     - TMPro.TMP_StyleSheet
     - TMPro.TextMeshProUGUI
-    UnityEditor.Graphs.dll:
-    - UnityEditor.Graphs.AnimationBlendTree.Graph
-    - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
-    - UnityEditor.Graphs.AnimationStateMachine.Graph
-    - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
     - UnityEditor.TestTools.TestRunner.TestListCacheData
@@ -106,31 +101,31 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1480}
     - Class: 114
-      Script: {instanceID: 1724}
+      Script: {instanceID: 1716}
     - Class: 114
-      Script: {instanceID: 1818}
+      Script: {instanceID: 1810}
     - Class: 114
-      Script: {instanceID: 2290}
+      Script: {instanceID: 2282}
     - Class: 114
-      Script: {instanceID: 2478}
+      Script: {instanceID: 2470}
     - Class: 114
-      Script: {instanceID: 2604}
+      Script: {instanceID: 2596}
     - Class: 114
-      Script: {instanceID: 2648}
+      Script: {instanceID: 2640}
     - Class: 114
-      Script: {instanceID: 2786}
+      Script: {instanceID: 2778}
+    - Class: 114
+      Script: {instanceID: 2982}
     - Class: 114
       Script: {instanceID: 2990}
     - Class: 114
-      Script: {instanceID: 2998}
+      Script: {instanceID: 2992}
     - Class: 114
-      Script: {instanceID: 3000}
+      Script: {instanceID: 3084}
     - Class: 114
-      Script: {instanceID: 3092}
+      Script: {instanceID: 3896}
     - Class: 114
-      Script: {instanceID: 3904}
-    - Class: 114
-      Script: {instanceID: 4514}
+      Script: {instanceID: 4506}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -199,87 +194,91 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1482}
     - Class: 114
-      Script: {instanceID: 1568}
+      Script: {instanceID: 1560}
     - Class: 114
-      Script: {instanceID: 1586}
+      Script: {instanceID: 1578}
     - Class: 114
-      Script: {instanceID: 1670}
+      Script: {instanceID: 1662}
     - Class: 114
-      Script: {instanceID: 1672}
+      Script: {instanceID: 1664}
     - Class: 114
-      Script: {instanceID: 1722}
+      Script: {instanceID: 1714}
     - Class: 114
-      Script: {instanceID: 1754}
+      Script: {instanceID: 1746}
     - Class: 114
-      Script: {instanceID: 1758}
+      Script: {instanceID: 1750}
     - Class: 114
-      Script: {instanceID: 1818}
+      Script: {instanceID: 1810}
     - Class: 114
-      Script: {instanceID: 2020}
+      Script: {instanceID: 2012}
     - Class: 114
-      Script: {instanceID: 2134}
+      Script: {instanceID: 2126}
     - Class: 114
-      Script: {instanceID: 2244}
+      Script: {instanceID: 2220}
     - Class: 114
-      Script: {instanceID: 2290}
+      Script: {instanceID: 2236}
     - Class: 114
-      Script: {instanceID: 2478}
+      Script: {instanceID: 2282}
     - Class: 114
-      Script: {instanceID: 2604}
+      Script: {instanceID: 2470}
     - Class: 114
-      Script: {instanceID: 2648}
+      Script: {instanceID: 2596}
     - Class: 114
-      Script: {instanceID: 2786}
+      Script: {instanceID: 2640}
+    - Class: 114
+      Script: {instanceID: 2778}
+    - Class: 114
+      Script: {instanceID: 2982}
     - Class: 114
       Script: {instanceID: 2990}
     - Class: 114
-      Script: {instanceID: 2998}
+      Script: {instanceID: 2992}
     - Class: 114
-      Script: {instanceID: 3000}
+      Script: {instanceID: 2996}
     - Class: 114
-      Script: {instanceID: 3004}
+      Script: {instanceID: 3084}
     - Class: 114
-      Script: {instanceID: 3092}
+      Script: {instanceID: 3260}
     - Class: 114
-      Script: {instanceID: 3268}
+      Script: {instanceID: 3332}
     - Class: 114
-      Script: {instanceID: 3392}
+      Script: {instanceID: 3384}
     - Class: 114
-      Script: {instanceID: 3560}
+      Script: {instanceID: 3552}
     - Class: 114
-      Script: {instanceID: 3734}
+      Script: {instanceID: 3726}
     - Class: 114
-      Script: {instanceID: 3884}
+      Script: {instanceID: 3876}
     - Class: 114
-      Script: {instanceID: 3890}
+      Script: {instanceID: 3882}
     - Class: 114
-      Script: {instanceID: 3904}
+      Script: {instanceID: 3896}
     - Class: 114
-      Script: {instanceID: 3944}
+      Script: {instanceID: 3936}
     - Class: 114
-      Script: {instanceID: 4064}
+      Script: {instanceID: 4056}
     - Class: 114
-      Script: {instanceID: 4088}
+      Script: {instanceID: 4080}
     - Class: 114
-      Script: {instanceID: 4108}
+      Script: {instanceID: 4100}
     - Class: 114
-      Script: {instanceID: 4112}
+      Script: {instanceID: 4104}
     - Class: 114
-      Script: {instanceID: 4158}
+      Script: {instanceID: 4150}
     - Class: 114
-      Script: {instanceID: 4194}
+      Script: {instanceID: 4186}
     - Class: 114
-      Script: {instanceID: 4212}
+      Script: {instanceID: 4204}
     - Class: 114
-      Script: {instanceID: 4370}
+      Script: {instanceID: 4362}
     - Class: 114
-      Script: {instanceID: 4514}
+      Script: {instanceID: 4506}
     - Class: 114
-      Script: {instanceID: 4516}
+      Script: {instanceID: 4508}
     - Class: 114
-      Script: {instanceID: 4666}
+      Script: {instanceID: 4658}
     - Class: 114
-      Script: {instanceID: 4984}
+      Script: {instanceID: 4976}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1057,7 +1056,7 @@ ScriptsOnlyBuild:
     className: Outline
   - hash:
       serializedVersion: 2
-      Hash: b8453ddc1bbe00d6ab2f6a7ac8d4279c
+      Hash: 37db118d524863b4647d79a40b3e7011
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: FriendListing
@@ -1261,7 +1260,7 @@ ScriptsOnlyBuild:
     className: LoginScript
   - hash:
       serializedVersion: 2
-      Hash: 3a43e061a5c8d3f80e25695c3bedb231
+      Hash: af089819549e2a4d7a16829605e6162d
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Launcher

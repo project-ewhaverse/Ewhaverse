@@ -148,7 +148,7 @@ GameObject:
   - component: {fileID: 805412836864378161}
   - component: {fileID: 8669374476607649872}
   m_Layer: 5
-  m_Name: Btn_RoomEntity
+  m_Name: RoomEntity
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -280,4 +280,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8faede7dcfcd874f89ba5c7c9bc2547, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  userIDText: {fileID: 0}
