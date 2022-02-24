@@ -4,6 +4,7 @@ using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine.UI;
+using TMPro;
 
 public class FriendListing : MonoBehaviourPunCallbacks
 {
@@ -11,18 +12,38 @@ public class FriendListing : MonoBehaviourPunCallbacks
     private List<string> friendList = new List<string>();
 
     [SerializeField]
+    private GameObject FriendUI;
+    [SerializeField]
     private GameObject friendPrefab;
     [SerializeField]
     private Transform content;
     [SerializeField]
-    private InputField addFriend;
+    private TMP_InputField addFriend;
 
+    private void Awake()
+    {
+        StartCoroutine(FriendUpdate());
+    }
+
+    //친구 목록 10초마다 업데이트
+    private IEnumerator FriendUpdate()
+    {
+        while (true)
+        {
+            if(PhotonNetwork.InLobby && FriendUI.gameObject.activeSelf)
+                PhotonNetwork.FindFriends(friendList.ToArray());
+            yield return new WaitForSeconds(10.0f);
+        }
+    }
+
+    //친구 추가
     public void AddFriend()
     {
         friendList.Add(addFriend.text);
         PhotonNetwork.FindFriends(friendList.ToArray());
     }
 
+    //친구 목록 업데이트시 호출
     public override void OnFriendListUpdate(List<FriendInfo> friendList)
     {
         base.OnFriendListUpdate(friendList);
@@ -58,19 +79,12 @@ public class FriendListing : MonoBehaviourPunCallbacks
     }
 
   
-    public void SetActiveFriendList()
+    public void SetActiveFriend()
     {
-        gameObject.transform.Find("FriendsList").gameObject.SetActive(true);
-        //foreach (Transform child in gameObject.transform)
-            //child.gameObject.SetActive(true);
-        /*
-        Component[] child = content.GetComponentsInChildren<Text>();
-        foreach(var friend in child)
-        {
-            friend.GetComponent<FriendData>().showName();
-            //Debug.Log(friend);
-        }
-        */
+        if (FriendUI.gameObject.activeSelf)
+            FriendUI.gameObject.SetActive(false);
+        else
+            FriendUI.gameObject.SetActive(true);
     }
     
 }

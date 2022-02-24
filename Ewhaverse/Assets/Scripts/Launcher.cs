@@ -5,11 +5,13 @@ using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine.UI;
 
+using TMPro;
+
 public class Launcher : MonoBehaviourPunCallbacks
 {
     string gameVersion = "1";   //버전
 
-    public InputField userIDText;   //userId
+    public TMP_InputField userIDText;   //userId
 
     void Awake()
     {
@@ -21,15 +23,15 @@ public class Launcher : MonoBehaviourPunCallbacks
         
         /* 나중에 userId 설정하게 되면 수정 필요 */
         //서버 접속
-        PhotonNetwork.ConnectUsingSettings();
+        //PhotonNetwork.ConnectUsingSettings();
 
     }
 
     //마스터 서버 연결 성공시 자동 실행
     public override void OnConnectedToMaster()
     {
-        PhotonNetwork.JoinLobby();
         Debug.Log("서버 연결 성공!");
+        PhotonNetwork.JoinLobby();       
     }
 
     //마스터 서버 연결 실패시 자동 실행
@@ -39,6 +41,7 @@ public class Launcher : MonoBehaviourPunCallbacks
         PhotonNetwork.ConnectUsingSettings();
     }
 
+    
     //아이디 설정 
     public void IDConfirm()
     {
@@ -50,11 +53,11 @@ public class Launcher : MonoBehaviourPunCallbacks
             PhotonNetwork.ConnectUsingSettings();
 
     }
+    
 
     public override void OnJoinedLobby()
     {
         Debug.Log("로비 입장");
-        //PhotonNetwork.FindFriends(new string[] { "1" });
     }
 
 

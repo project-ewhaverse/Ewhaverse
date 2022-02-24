@@ -4,11 +4,15 @@ using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine.UI;
+using TMPro;
 
 public class FriendData : MonoBehaviour
 {
-    private Text FriendID;
     private FriendInfo _friendInfo;
+    private TMP_Text FriendID;      //친구 ID
+    private TMP_Text FriendWhere;   //친구 어디에 있는지
+    private Image LoginMark;        //친구 로그인 상태
+    
 
     public FriendInfo FriendInfo
     {
@@ -23,7 +27,10 @@ public class FriendData : MonoBehaviour
     }
     void Awake()
     {
-        FriendID = GetComponent<Text>();
+        FriendID = GameObject.Find("FriendName").GetComponent<TMP_Text>();
+        FriendWhere = GameObject.Find("Where").GetComponent<TMP_Text>();
+        LoginMark = GameObject.Find("Login_Mark").GetComponent<Image>();
+
     }
 
     public void showName()
@@ -36,7 +43,13 @@ public class FriendData : MonoBehaviour
             onlineStatus = "offline";
         FriendID.text = _friendInfo.UserId + " " + onlineStatus;
         */
-        FriendID.text = _friendInfo.UserId + " " + _friendInfo.IsOnline;
+        FriendID.text = _friendInfo.UserId;
+        FriendWhere.text = _friendInfo.Room;
+        if (_friendInfo.IsOnline)
+            LoginMark.sprite = Resources.Load<Sprite>("UI/Login_Mark");
+        
         Debug.Log(_friendInfo.IsOnline);
     }
+
+    
 }
