@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
-public class PlayerControl : MonoBehaviour
+public class PlayerControl : MonoBehaviourPun
 {
     [HideInInspector] public CharacterController controller;
     Animator animator;
@@ -39,9 +40,15 @@ public class PlayerControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Translate();
-        CameraLookAt();
-        Jump();
+        if (!photonView.IsMine)
+            return;
+        else
+        {
+            Translate();
+            CameraLookAt();
+            Jump();
+        }
+       
 
     }
 

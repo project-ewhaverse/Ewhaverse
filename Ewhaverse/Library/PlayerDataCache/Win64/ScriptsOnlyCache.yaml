@@ -9,8 +9,6 @@ ScriptsOnlyBuild:
     - RoomData
     - RoomListing
     - RoomManager
-    PhotonChat.dll:
-    - ChatSettings
     PhotonUnityNetworking.Demos.dll:
     - Photon.Pun.Demo.Asteroids.Asteroid
     - Photon.Pun.Demo.Asteroids.Bullet
@@ -101,34 +99,32 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1480}
     - Class: 114
-      Script: {instanceID: 1716}
+      Script: {instanceID: 1718}
     - Class: 114
-      Script: {instanceID: 1810}
+      Script: {instanceID: 1812}
     - Class: 114
-      Script: {instanceID: 2282}
+      Script: {instanceID: 2284}
     - Class: 114
-      Script: {instanceID: 2470}
+      Script: {instanceID: 2472}
     - Class: 114
-      Script: {instanceID: 2596}
+      Script: {instanceID: 2598}
     - Class: 114
-      Script: {instanceID: 2640}
+      Script: {instanceID: 2642}
     - Class: 114
-      Script: {instanceID: 2778}
+      Script: {instanceID: 2780}
     - Class: 114
-      Script: {instanceID: 2982}
-    - Class: 114
-      Script: {instanceID: 2990}
+      Script: {instanceID: 2984}
     - Class: 114
       Script: {instanceID: 2992}
     - Class: 114
-      Script: {instanceID: 3084}
+      Script: {instanceID: 2994}
+    - Class: 114
+      Script: {instanceID: 3086}
     - Class: 114
       Script: {instanceID: 3896}
     - Class: 114
       Script: {instanceID: 4506}
     - Class: 115
-      Script: {instanceID: 0}
-    - Class: 128
       Script: {instanceID: 0}
     - Class: 137
       Script: {instanceID: 0}
@@ -198,47 +194,49 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1578}
     - Class: 114
-      Script: {instanceID: 1662}
-    - Class: 114
       Script: {instanceID: 1664}
     - Class: 114
-      Script: {instanceID: 1714}
+      Script: {instanceID: 1666}
     - Class: 114
-      Script: {instanceID: 1746}
+      Script: {instanceID: 1716}
     - Class: 114
-      Script: {instanceID: 1750}
+      Script: {instanceID: 1718}
     - Class: 114
-      Script: {instanceID: 1810}
+      Script: {instanceID: 1748}
     - Class: 114
-      Script: {instanceID: 2012}
+      Script: {instanceID: 1752}
     - Class: 114
-      Script: {instanceID: 2126}
+      Script: {instanceID: 1812}
     - Class: 114
-      Script: {instanceID: 2220}
+      Script: {instanceID: 2014}
     - Class: 114
-      Script: {instanceID: 2236}
+      Script: {instanceID: 2128}
     - Class: 114
-      Script: {instanceID: 2282}
+      Script: {instanceID: 2222}
     - Class: 114
-      Script: {instanceID: 2470}
+      Script: {instanceID: 2238}
     - Class: 114
-      Script: {instanceID: 2596}
+      Script: {instanceID: 2284}
     - Class: 114
-      Script: {instanceID: 2640}
+      Script: {instanceID: 2472}
     - Class: 114
-      Script: {instanceID: 2778}
+      Script: {instanceID: 2598}
     - Class: 114
-      Script: {instanceID: 2982}
+      Script: {instanceID: 2642}
     - Class: 114
-      Script: {instanceID: 2990}
+      Script: {instanceID: 2780}
+    - Class: 114
+      Script: {instanceID: 2984}
     - Class: 114
       Script: {instanceID: 2992}
     - Class: 114
-      Script: {instanceID: 2996}
+      Script: {instanceID: 2994}
     - Class: 114
-      Script: {instanceID: 3084}
+      Script: {instanceID: 2998}
     - Class: 114
-      Script: {instanceID: 3260}
+      Script: {instanceID: 3086}
+    - Class: 114
+      Script: {instanceID: 3262}
     - Class: 114
       Script: {instanceID: 3332}
     - Class: 114
@@ -264,8 +262,6 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 4104}
     - Class: 114
-      Script: {instanceID: 4150}
-    - Class: 114
       Script: {instanceID: 4186}
     - Class: 114
       Script: {instanceID: 4204}
@@ -278,7 +274,7 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 4658}
     - Class: 114
-      Script: {instanceID: 4976}
+      Script: {instanceID: 4978}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -394,6 +390,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: SignalAsset
+  - hash:
+      serializedVersion: 2
+      Hash: e16986fe0a1acb5b5487c61b29d39260
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: MsgRoomScript
   - hash:
       serializedVersion: 2
       Hash: c656dcc13ae391b68d594cc8f9c590b0
@@ -1042,12 +1044,6 @@ ScriptsOnlyBuild:
     assemblyName: PhotonUnityNetworking.Demos.dll
     namespaceName: Photon.Pun.Demo.Cockpit.Forms
     className: ConnectToRegionUIForm
-  - hash:
-      serializedVersion: 2
-      Hash: 73ef10518b9e6a5c48bbb6865ed7f06c
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: MessageScript
   - hash:
       serializedVersion: 2
       Hash: caa533b001ae39b864ba8425019e2268
@@ -1714,6 +1710,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: TMPro.Examples
     className: ObjectSpin
+  - hash:
+      serializedVersion: 2
+      Hash: 3aeaf641273712212306bcbff7991b95
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: MsgListScript
   - hash:
       serializedVersion: 2
       Hash: e1e615eaf73e560828f53edc8952e615
