@@ -7,6 +7,11 @@ public class MouseInteraction : MonoBehaviour
     public GameObject panel;
     //public RectTransform panel_transform;
 
+    private void Update()
+    {
+        GetMouseInput();
+    }
+
     void GetMouseInput()
     {
         if (Input.GetMouseButtonUp(1))
@@ -17,19 +22,21 @@ public class MouseInteraction : MonoBehaviour
             {
                 if(hit.collider.name == "cube")
                 {
-                    Vector3 mousePos = Input.mousePosition;
+                    Vector3 mousePos = Input.mousePosition + new Vector3(10.0f, 10.0f, 0);
                     panel.SetActive(true);
                     panel.transform.position = mousePos;
                 }
             }
-            
         }
     }
 
-    private void Update()
+    void RequestFriend()
     {
-        GetMouseInput();
+
     }
+
+
+    
 }
 
    
