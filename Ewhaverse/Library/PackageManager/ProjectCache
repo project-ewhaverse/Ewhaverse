@@ -5,7 +5,7 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637802569331366329
+      ticks: 637820246860000000
     m_Hash: 1483526855
   m_LockFileStatus:
     m_FilePath: C:/Users/seung/Desktop/Ewhaverse/Ewhaverse/Packages/packages-lock.json
@@ -13,7 +13,7 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637802569331376312
+      ticks: 637820246860000000
     m_Hash: 3506349706
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
