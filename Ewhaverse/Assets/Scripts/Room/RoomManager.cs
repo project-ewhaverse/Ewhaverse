@@ -37,7 +37,8 @@ public class RoomManager : MonoBehaviourPunCallbacks
         else
         {
             //룸 안에서 플레이어 인스턴스 나타냄
-            PhotonNetwork.Instantiate(this.playerPrefab.name, new Vector3(0f, 5f, 0f), Quaternion.identity, 0);
+            GameObject Player = (GameObject)PhotonNetwork.Instantiate(this.playerPrefab.name, new Vector3(0f, 5f, 0f), Quaternion.identity, 0);
+            Player.transform.Find("Camera").Find("MainCamera").gameObject.SetActive(true);
         }
 
         if(PhotonNetwork.IsMasterClient)
