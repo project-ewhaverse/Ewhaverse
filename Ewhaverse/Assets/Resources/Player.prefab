@@ -123,8 +123,8 @@ MonoBehaviour:
   player: {fileID: 4262950323200496766}
   speed: 4
   rotationSpeed: 10
-  camera: {fileID: 9208409707157729644}
-  cameraArm: {fileID: 5021542200964413566}
+  camera: {fileID: 5556443898256999127}
+  cameraArm: {fileID: 9208409707157729644}
   camSens: 2
   Gravity: 9.81
   jumpHeight: 1
@@ -233,7 +233,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5556443898256999127
 Transform:
   m_ObjectHideFlags: 0
