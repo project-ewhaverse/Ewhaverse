@@ -19,8 +19,6 @@ ScriptsOnlyBuild:
     - Photon.Pun.Demo.PunBasics.PlayerUI
     - Photon.Pun.Demo.SlotRacer.PlayerControl
     - Photon.Pun.Demo.SlotRacer.Utils.SplineWalker
-    PhotonUnityNetworking.Editor.dll:
-    - Photon.Pun.PunSceneSettings
     PhotonUnityNetworking.dll:
     - Photon.Pun.PhotonAnimatorView
     - Photon.Pun.PhotonRigidbodyView
@@ -274,7 +272,7 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 4658}
     - Class: 114
-      Script: {instanceID: 4978}
+      Script: {instanceID: 4980}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1784,6 +1782,12 @@ ScriptsOnlyBuild:
     className: SlotRacerSplashScreen
   - hash:
       serializedVersion: 2
+      Hash: 235a1e8275c5d1ab2a1c0f017d90e1b5
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: MouseInteraction
+  - hash:
+      serializedVersion: 2
       Hash: 7ab0e790220bdca831fdd886b339039d
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -1846,4 +1850,4 @@ ScriptsOnlyBuild:
   scenePathNames:
   - Assets/Scenes/Square.unity
   - Assets/Scenes/Room.unity
-  playerPath: "C:/Users/haein/Desktop/\uC878\uD504\uC720\uB2C8\uD2F0/1/Ewhaverse.exe"
+  playerPath: "C:/Users/haein/Desktop/\uC878\uD504/\uCE5C\uAD6C/Ewhaverse.exe"

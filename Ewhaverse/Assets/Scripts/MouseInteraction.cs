@@ -27,6 +27,10 @@ public class MouseInteraction : MonoBehaviour
                     panel.transform.position = mousePos;
                 }
             }
+            else
+            {
+                panel.SetActive(false);
+            }
         }
     }
 
