@@ -27,29 +27,17 @@ public class FriendData : MonoBehaviour
     }
     void Awake()
     {
-        FriendID = GameObject.Find("FriendName").GetComponent<TMP_Text>();
-        FriendWhere = GameObject.Find("Where").GetComponent<TMP_Text>();
-        LoginMark = GameObject.Find("Login_Mark").GetComponent<Image>();
-
+        FriendID = transform.Find("FriendName").GetComponent<TMP_Text>();
+        FriendWhere = transform.Find("Where").GetComponent<TMP_Text>();
+        LoginMark = transform.Find("Login_Mark").GetComponent<Image>();
     }
 
     public void showName()
     {
-        /*
-        string onlineStatus;
-        if (_friendInfo.IsOnline)
-            onlineStatus = "online";
-        else
-            onlineStatus = "offline";
-        FriendID.text = _friendInfo.UserId + " " + onlineStatus;
-        */
         FriendID.text = _friendInfo.UserId;
         FriendWhere.text = _friendInfo.Room;
         if (_friendInfo.IsOnline)
             LoginMark.sprite = Resources.Load<Sprite>("UI/Login_Mark");
-        
-        Debug.Log(_friendInfo.IsOnline);
     }
-
-    
+   
 }

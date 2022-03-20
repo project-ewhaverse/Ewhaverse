@@ -30,9 +30,9 @@ public class FriendListing : MonoBehaviourPunCallbacks
     {
         while (true)
         {
-            if(PhotonNetwork.InLobby && FriendUI.gameObject.activeSelf)
+            if(PhotonNetwork.InLobby && FriendUI.gameObject.activeSelf && friendList.Count != 0)
                 PhotonNetwork.FindFriends(friendList.ToArray());
-            yield return new WaitForSeconds(10.0f);
+            yield return new WaitForSeconds(1.0f);
         }
     }
 
@@ -40,22 +40,12 @@ public class FriendListing : MonoBehaviourPunCallbacks
     public void AddFriend()
     {
         friendList.Add(addFriend.text);
-        PhotonNetwork.FindFriends(friendList.ToArray());
+        //PhotonNetwork.FindFriends(friendList.ToArray());
     }
 
     //친구 목록 업데이트시 호출
     public override void OnFriendListUpdate(List<FriendInfo> friendList)
     {
-        base.OnFriendListUpdate(friendList);
-        /*
-        Debug.Log(friendList.Count);
-        for(int i = 0; i < friendList.Count; i++)
-        {
-            FriendInfo friend = friendList[i];
-            Debug.LogFormat("{0}", friend);
-        }
-        */
-
         foreach (var friend in friendList)
         {
             
@@ -73,8 +63,6 @@ public class FriendListing : MonoBehaviourPunCallbacks
                 tempFriend.GetComponent<FriendData>().FriendInfo = friend;
                 tempFriend.GetComponent<FriendData>().showName();
             }
-            
-            Debug.Log("Friend info received " + friend.UserId + " is online? " + friend.IsOnline);
         }      
     }
 
