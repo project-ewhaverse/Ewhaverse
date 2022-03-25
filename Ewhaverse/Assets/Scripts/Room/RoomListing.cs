@@ -13,6 +13,10 @@ public class RoomListing : MonoBehaviourPunCallbacks
     //룸 목록 저장
     private Dictionary<string, GameObject> roomDict = new Dictionary<string, GameObject>();
 
+    //대화방 테마 씬 로드
+    
+    
+
     //룸 표시 프리팹 & 프리팹이 차일드화시킬 부모 객체
     [SerializeField]
     private GameObject LoomListView;
