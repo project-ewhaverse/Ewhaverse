@@ -21,7 +21,16 @@ public class MouseInteraction : MonoBehaviour
                     panel.SetActive(true);
                     panel.transform.position = mousePos;
                 }
+                else
+                {
+                    panel.SetActive(false);
+                }
             }
+            else
+            {
+                panel.SetActive(false);
+            }
+
             
         }
     }
