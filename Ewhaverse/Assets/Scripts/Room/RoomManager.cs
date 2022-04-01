@@ -36,7 +36,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
         }
         else
         {
-            //·ë ¾È¿¡¼­ ÇÃ·¹ÀÌ¾î ÀÎ½ºÅÏ½º ³ªÅ¸³¿
+            //ë£¸ ì•ˆì—ì„œ í”Œë ˆì´ì–´ ì¸ìŠ¤í„´ìŠ¤ ë‚˜íƒ€ëƒ„
             GameObject Player = (GameObject)PhotonNetwork.Instantiate(this.playerPrefab.name, new Vector3(0f, 5f, 0f), Quaternion.identity, 0);
             Player.transform.Find("Camera").Find("MainCamera").gameObject.SetActive(true);
         }
@@ -57,17 +57,17 @@ public class RoomManager : MonoBehaviourPunCallbacks
 
     public override void OnLeftRoom()
     {
-        SceneManager.LoadScene(0);  //0¹ø ¾À(·Îºñ) ·Îµå
+        SceneManager.LoadScene(0);  //0ë²ˆ ì”¬(ë¡œë¹„) ë¡œë“œ
         //PhotonNetwork.JoinLobby();
         //PhotonNetwork.LoadLevel("Lobby");
     }
 
     [PunRPC]
-    //¹æÀ» ³ª°¡´Â ¸Ş¼Òµå
+    //ë°©ì„ ë‚˜ê°€ëŠ” ë©”ì†Œë“œ
     public void LeaveRoom()
     {
         PhotonNetwork.LeaveRoom();
-        Debug.Log("³ª°¡±â");
+        Debug.Log("ë‚˜ê°€ê¸°");
     }
 
     public void LeaveAll()
