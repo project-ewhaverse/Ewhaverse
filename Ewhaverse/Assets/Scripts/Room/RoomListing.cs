@@ -13,20 +13,28 @@ public class RoomListing : MonoBehaviourPunCallbacks
     //룸 목록 저장
     private Dictionary<string, GameObject> roomDict = new Dictionary<string, GameObject>();
 
-    //대화방 테마 씬 로드
-    
-    
-
     //룸 표시 프리팹 & 프리팹이 차일드화시킬 부모 객체
-    [SerializeField]
-    private GameObject LoomListView;
-    [SerializeField]
-    private GameObject roomPrefab;
-    [SerializeField]
-    private Transform scrollContent;
+    [SerializeField]    private GameObject LoomListView;
+    [SerializeField]    private GameObject roomPrefab;
+    [SerializeField]    private Transform scrollContent;
 
-    public TMP_InputField roomNameText;
+    //룸 생성 설정
+    public TMP_InputField roomname_text;
+    public ToggleGroup room_theme;
+    private string theme_scene;
 
+    //룸 테마 선택
+    public void SelectTheme()
+    {
+        IEnumerable<Toggle> theme_selected = room_theme.ActiveToggles();
+        foreach (Toggle t in theme_selected)
+        {
+            theme_scene = t.name;
+            Debug.Log(theme_scene);
+        }
+    }
+
+    /*룸 생성*/
     public void CreateRoom()
     {
         Debug.Log("방 생성 중...잠시만 기다려주세요");
@@ -38,22 +46,26 @@ public class RoomListing : MonoBehaviourPunCallbacks
         ro.PublishUserId = true;
 
         //인풋필드가 비어있으면
-        if (string.IsNullOrEmpty(roomNameText.text))
+        if (string.IsNullOrEmpty(roomname_text.text))
         {
             //랜덤 이름 부여
-            roomNameText.text = $"ROOM_{Random.Range(1, 100):000}";
+            roomname_text.text = $"ROOM_{Random.Range(1, 100):000}";
         }
 
-        PhotonNetwork.CreateRoom(roomNameText.text, ro);
+        PhotonNetwork.CreateRoom(roomname_text.text, ro);
     }
 
-    // 룸에 들어갈 때 호출
+    /*룸에 들어갈 때 호출*/
     public override void OnJoinedRoom()
     {
-        //Debug.Log("We load a " + currevent);
-        PhotonNetwork.LoadLevel("Room");
+        //PhotonNetwork.LoadLevel("Room");
+        if (string.IsNullOrEmpty(theme_scene))
+            PhotonNetwork.LoadLevel("ClassRoom");
+        else 
+            PhotonNetwork.LoadLevel(theme_scene);
     }
 
+    /*룸 목록이 업데이트될 때 호출*/
     public override void OnRoomListUpdate(List<RoomInfo> roomList)
     {
         bool check = true;
