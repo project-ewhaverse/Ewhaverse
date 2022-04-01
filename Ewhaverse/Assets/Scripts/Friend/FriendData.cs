@@ -8,12 +8,10 @@ using TMPro;
 
 public class FriendData : MonoBehaviour
 {
-    private FriendInfo _friendInfo;
-    private TMP_Text FriendID;      //친구 ID
-    private TMP_Text FriendWhere;   //친구 어디에 있는지
-    private Image LoginMark;        //친구 로그인 상태
-    
-
+    public FriendInfo _friendInfo;
+    public TMP_Text flistName;
+    public TMP_Text flistWhere;
+    public Image flistMark;
     public FriendInfo FriendInfo
     {
         get
@@ -27,17 +25,25 @@ public class FriendData : MonoBehaviour
     }
     void Awake()
     {
-        FriendID = transform.Find("FriendName").GetComponent<TMP_Text>();
-        FriendWhere = transform.Find("Where").GetComponent<TMP_Text>();
-        LoginMark = transform.Find("Login_Mark").GetComponent<Image>();
+        flistName = transform.Find("Name").GetComponent<TMP_Text>();
+        flistWhere = transform.Find("Where").GetComponent<TMP_Text>();
+        flistMark = transform.Find("Mark").GetComponent<Image>();
     }
-
-    public void showName()
+    public void showFriend()
     {
-        FriendID.text = _friendInfo.UserId;
-        FriendWhere.text = _friendInfo.Room;
+        flistName.text = _friendInfo.UserId;
         if (_friendInfo.IsOnline)
-            LoginMark.sprite = Resources.Load<Sprite>("UI/Login_Mark");
+        {
+            if (_friendInfo.Room == "")
+                flistWhere.text = "대광장";
+            else
+                flistWhere.text = _friendInfo.Room;
+            flistMark.sprite = Resources.Load<Sprite>("UI/Login_Mark");
+        }
+        else
+        {
+            flistWhere.text = "";
+            flistMark.sprite = Resources.Load<Sprite>("UI/Logout_Mark");
+        }
     }
-   
 }
