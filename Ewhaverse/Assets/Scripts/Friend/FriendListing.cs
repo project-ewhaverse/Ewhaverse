@@ -26,17 +26,17 @@ public class FriendListing : MonoBehaviourPunCallbacks
 {
     public Dictionary<string, GameObject> friendDict = new Dictionary<string, GameObject>();
     public List<string> friendList = new List<string>();
+    public List<Dbflist> dbflist = new List<Dbflist>();
+    IEnumerator coroutine1, coroutine2;
     [SerializeField] GameObject friendUI;
     [SerializeField] GameObject friendPrefab;
     [SerializeField] Transform content;
     [SerializeField] TMP_InputField addFriend;
     [SerializeField] string url;
-    IEnumerator coroutine1, coroutine2;
-    public List<Dbflist> dbflist = new List<Dbflist>();
     void Awake()
     {
-        coroutine1 = friendUpdate();
-        coroutine2 = dbFriendCheck();
+        coroutine1 = dbFriendCheck();
+        coroutine2 = friendUpdate();
     }
     public void SetActiveFList()
     {
@@ -53,35 +53,6 @@ public class FriendListing : MonoBehaviourPunCallbacks
             StartCoroutine(coroutine2);
         }
     }
-    IEnumerator friendUpdate()
-    {
-        while (true)
-        {
-            if(PhotonNetwork.InLobby && friendUI.gameObject.activeSelf && friendList.Count != 0)
-                PhotonNetwork.FindFriends(friendList.ToArray());
-            yield return new WaitForSeconds(3.0f);
-        }
-    }
-    public override void OnFriendListUpdate(List<FriendInfo> friendList)
-    {
-        foreach (var friend in friendList)
-        {
-            GameObject tempFriend;
-            if(!friendDict.ContainsKey(friend.UserId))
-            {
-                GameObject _friend = Instantiate(friendPrefab, content);
-                _friend.GetComponent<FriendData>().FriendInfo = friend;
-                _friend.GetComponent<FriendData>().showFriend();
-                friendDict.Add(friend.UserId, _friend);
-            }
-            else
-            {
-                friendDict.TryGetValue(friend.UserId, out tempFriend);
-                tempFriend.GetComponent<FriendData>().FriendInfo = friend;
-                tempFriend.GetComponent<FriendData>().showFriend();
-            }
-        }
-    }
     IEnumerator dbFriendCheck()
     {
         while (true)
@@ -93,8 +64,10 @@ public class FriendListing : MonoBehaviourPunCallbacks
             UnityWebRequest www = UnityWebRequest.Post(url, form);
             yield return www.SendWebRequest();
             string result = www.downloadHandler.text;
-            if(result != friendList.Count.ToString())
+            if (result != dbflist.Count.ToString())
             {
+                dbflist.Clear();
+                friendList.Clear();
                 WWWForm form1 = new WWWForm();
                 form1.AddField("command", "flistload");
                 form1.AddField("id1", File.ReadAllText(Application.persistentDataPath + "/Sync.txt"));
@@ -104,16 +77,40 @@ public class FriendListing : MonoBehaviourPunCallbacks
                 string rdata = www1.downloadHandler.text;
                 if (rdata != "[]")
                 {
-                    dbflist.Clear();
                     dbflist = JsonConvert.DeserializeObject<List<Dbflist>>(rdata);
-                    friendList.Clear();
-                    for(int i = 0; i < dbflist.Count; i++)
+                    for (int i = 0; i < dbflist.Count; i++)
                     {
                         friendList.Add(dbflist[i].id2);
                     }
                 }
             }
             yield return new WaitForSeconds(3.0f);
+        }
+    }
+    IEnumerator friendUpdate()
+    {
+        while (true)
+        {
+            if (friendList.Count != 0)
+                PhotonNetwork.FindFriends(friendList.ToArray());
+            yield return new WaitForSeconds(3.0f);
+        }
+    }
+    public override void OnFriendListUpdate(List<FriendInfo> friendList)
+    {
+        foreach (var friend in friendList)
+        {
+            if (!friendDict.ContainsKey(friend.UserId))
+            {
+                GameObject _friend = Instantiate(friendPrefab, content);
+                _friend.GetComponent<FriendData>().showFriend(friend.UserId, friend.IsOnline, friend.Room);
+                friendDict.Add(friend.UserId, _friend);
+            }
+            else
+            {
+                GameObject tempFriend = friendDict[friend.UserId];
+                tempFriend.GetComponent<FriendData>().showFriend(friend.UserId, friend.IsOnline, friend.Room);
+            }
         }
     }
 }
