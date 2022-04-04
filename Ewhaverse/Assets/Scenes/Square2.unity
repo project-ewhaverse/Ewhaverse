@@ -572,7 +572,7 @@ MonoBehaviour:
   requestPrefab: {fileID: 2297641200010258977, guid: 20725b7f7d671e14a95d99c70c752bfc, type: 3}
   content: {fileID: 638464704}
   addFriend: {fileID: 993592996}
-  accpetFriend: {fileID: 1737250556}
+  acceptFriend: {fileID: 1737250556}
   url: https://tzf1sruiah.execute-api.ap-northeast-2.amazonaws.com/default/ewhaverse-ld3
   dbrlist: []
 --- !u!1 &125272047
@@ -947,9 +947,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 108423675}
-        m_TargetAssemblyTypeName: FriendListing, Assembly-CSharp
-        m_MethodName: AddFriend
+      - m_Target: {fileID: 108423676}
+        m_TargetAssemblyTypeName: FriendRequest, Assembly-CSharp
+        m_MethodName: ClickAddBtn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1960,9 +1960,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 108423675}
-        m_TargetAssemblyTypeName: FriendListing, Assembly-CSharp
-        m_MethodName: AddFriend
+      - m_Target: {fileID: 108423676}
+        m_TargetAssemblyTypeName: FriendRequest, Assembly-CSharp
+        m_MethodName: ClickAddCancelBtn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3729,9 +3729,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 108423675}
-        m_TargetAssemblyTypeName: FriendListing, Assembly-CSharp
-        m_MethodName: AddFriend
+      - m_Target: {fileID: 108423676}
+        m_TargetAssemblyTypeName: FriendRequest, Assembly-CSharp
+        m_MethodName: ClickAcceptBtn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6547,9 +6547,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 108423675}
-        m_TargetAssemblyTypeName: FriendListing, Assembly-CSharp
-        m_MethodName: AddFriend
+      - m_Target: {fileID: 108423676}
+        m_TargetAssemblyTypeName: FriendRequest, Assembly-CSharp
+        m_MethodName: ClickRejectBtn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -13178,7 +13178,8 @@ MonoBehaviour:
   LoomListView: {fileID: 1161016944}
   roomPrefab: {fileID: 3237629876317459922, guid: 9825aac5ca72ce745b066c8b07382588, type: 3}
   scrollContent: {fileID: 1258963534}
-  roomNameText: {fileID: 1141759626}
+  roomname_text: {fileID: 0}
+  room_theme: {fileID: 0}
 --- !u!1 &2117657432
 GameObject:
   m_ObjectHideFlags: 0

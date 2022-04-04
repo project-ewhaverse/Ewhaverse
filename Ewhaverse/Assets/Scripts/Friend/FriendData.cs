@@ -8,36 +8,24 @@ using TMPro;
 
 public class FriendData : MonoBehaviour
 {
-    public FriendInfo _friendInfo;
     public TMP_Text flistName;
     public TMP_Text flistWhere;
     public Image flistMark;
-    public FriendInfo FriendInfo
-    {
-        get
-        {
-            return _friendInfo;
-        }
-        set
-        {
-            _friendInfo = value;
-        }
-    }
     void Awake()
     {
         flistName = transform.Find("Name").GetComponent<TMP_Text>();
         flistWhere = transform.Find("Where").GetComponent<TMP_Text>();
         flistMark = transform.Find("Mark").GetComponent<Image>();
     }
-    public void showFriend()
+    public void showFriend(string id, bool online, string room)
     {
-        flistName.text = _friendInfo.UserId;
-        if (_friendInfo.IsOnline)
+        flistName.text = id;
+        if (online)
         {
-            if (_friendInfo.Room == "")
+            if (room == "")
                 flistWhere.text = "¥Î±§¿Â";
             else
-                flistWhere.text = _friendInfo.Room;
+                flistWhere.text = room;
             flistMark.sprite = Resources.Load<Sprite>("UI/Login_Mark");
         }
         else
