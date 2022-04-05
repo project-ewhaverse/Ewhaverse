@@ -57,12 +57,3 @@ sysinfo.txt
 
 # Crashlytics generated file
 crashlytics-build.properties
-
-#Ewhaverse
-/Ewhaverse/[Ll]ibrary/
-/Ewhaverse/[Tt]emp/
-/Ewhaverse/[Oo]bj/
-/Ewhaverse/[Bb]uild/
-/Ewhaverse/[Bb]uilds/
-/Ewhaverse/[Ll]ogs/
-/Ewhaverse/[Mm]emoryCaptures/
