@@ -9,55 +9,61 @@ using TMPro;
 
 public class Launcher : MonoBehaviourPunCallbacks
 {
-    string gameVersion = "1";   //¹öÀü
+    string gameVersion = "1";   //ë²„ì „
 
-    public TMP_InputField userIDText;   //userId
+    public TMP_InputField userID_text;   //userId
+    public TMP_InputField nickname_text; //nickname
 
     void Awake()
     {
-        //¹æÀåÀÌ ¾ÀÀ» ·ÎµùÇÏ¸é, ³ª¸ÓÁö »ç¶÷µéµµ ÀÚµ¿ ½ÌÅ©
+        //ë°©ì¥ì´ ì”¬ì„ ë¡œë”©í•˜ë©´, ë‚˜ë¨¸ì§€ ì‚¬ëŒë“¤ë„ ìë™ ì‹±í¬
         PhotonNetwork.AutomaticallySyncScene = true;
         
-        //°ÔÀÓ ¹öÀü
+        //ê²Œì„ ë²„ì „
         PhotonNetwork.GameVersion = gameVersion;
         
-        /* ³ªÁß¿¡ userId ¼³Á¤ÇÏ°Ô µÇ¸é ¼öÁ¤ ÇÊ¿ä */
-        //¼­¹ö Á¢¼Ó
+        /* ë‚˜ì¤‘ì— userId ì„¤ì •í•˜ê²Œ ë˜ë©´ ìˆ˜ì • í•„ìš” */
+        //ì„œë²„ ì ‘ì†
         //PhotonNetwork.ConnectUsingSettings();
 
     }
 
-    //¸¶½ºÅÍ ¼­¹ö ¿¬°á ¼º°ø½Ã ÀÚµ¿ ½ÇÇà
+    //ë§ˆìŠ¤í„° ì„œë²„ ì—°ê²° ì„±ê³µì‹œ ìë™ ì‹¤í–‰
     public override void OnConnectedToMaster()
     {
-        Debug.Log("¼­¹ö ¿¬°á ¼º°ø!");
+        Debug.Log("ì„œë²„ ì—°ê²° ì„±ê³µ!");
         PhotonNetwork.JoinLobby();       
     }
 
-    //¸¶½ºÅÍ ¼­¹ö ¿¬°á ½ÇÆĞ½Ã ÀÚµ¿ ½ÇÇà
+    //ë§ˆìŠ¤í„° ì„œë²„ ì—°ê²° ì‹¤íŒ¨ì‹œ ìë™ ì‹¤í–‰
     public override void OnDisconnected(DisconnectCause cause)
     {
-        Debug.Log("¿¬°á Áß...");
+        Debug.Log("ì—°ê²° ì¤‘...");
         PhotonNetwork.ConnectUsingSettings();
     }
 
     
-    //¾ÆÀÌµğ ¼³Á¤ 
+    //ì•„ì´ë”” ì„¤ì • 
     public void IDConfirm()
     {
-        AuthenticationValues authValues = new AuthenticationValues(userIDText.text);
+        AuthenticationValues authValues = new AuthenticationValues(userID_text.text);
         PhotonNetwork.AuthValues = authValues;
      
-        //¼­¹ö Á¢¼Ó
+        //ì„œë²„ ì ‘ì†
         if (!PhotonNetwork.IsConnected)
             PhotonNetwork.ConnectUsingSettings();
 
     }
-    
+
+    //ë‹‰ë„¤ì„ ì„¤ì •
+    public void NicknameConfirm()
+    {
+        PhotonNetwork.NickName = nickname_text.text;
+    }
 
     public override void OnJoinedLobby()
     {
-        Debug.Log("·Îºñ ÀÔÀå");
+        Debug.Log("ë¡œë¹„ ì…ì¥");
     }
 
 
