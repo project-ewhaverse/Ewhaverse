@@ -29,9 +29,14 @@ public class PlayerControl : MonoBehaviourPun
     bool isJumping = false;
     Vector3 velocity;
 
+    [Header("Player Name")]
+    [SerializeField] private TextMesh player_name;
+
     // Start is called before the first frame update
     void Start()
     {
+        player_name.text = PhotonNetwork.NickName;
+
         controller = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
         isWalkingHash = Animator.StringToHash("isWalking");
