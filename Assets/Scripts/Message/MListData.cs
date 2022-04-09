@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using System.Text;
 using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
@@ -27,6 +29,17 @@ public class MListData : MonoBehaviour
         {
             mlistMtext.text = mtext;
         }
-        mlistTime.text = time;
+        if (time == "0000-00-00-00-00")
+        {
+            mlistTime.text = "";
+        }
+        else
+        {
+            mlistTime.text = time.Substring(2, 2) + "/" + time.Substring(5, 2) + "/" + time.Substring(8, 2) + " " + time.Substring(11, 2) + ":" + time.Substring(14, 2);
+        }
+    }
+    public void m1ClickRoom()
+    {
+        File.WriteAllText(Application.persistentDataPath + "/SyncM1.txt", mlistName.text);
     }
 }

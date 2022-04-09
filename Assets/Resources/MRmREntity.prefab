@@ -92,8 +92,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 15
-  m_fontSizeBase: 15
+  m_fontSize: 12.5
+  m_fontSizeBase: 12.5
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -346,8 +346,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 15
-  m_fontSizeBase: 15
+  m_fontSize: 17.5
+  m_fontSizeBase: 17.5
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -549,7 +549,7 @@ GameObject:
   - component: {fileID: 6399179042599445180}
   - component: {fileID: 6399179042599445178}
   - component: {fileID: 6399179042599445177}
-  - component: {fileID: 3678247224070544054}
+  - component: {fileID: 4132143225948873596}
   m_Layer: 5
   m_Name: MRmREntity
   m_TagString: Untagged
@@ -625,7 +625,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalFit: 0
   m_VerticalFit: 2
---- !u!114 &3678247224070544054
+--- !u!114 &4132143225948873596
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -634,6 +634,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 6399179042599445159}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e7d2352c3903643448e2850598f7f303, type: 3}
+  m_Script: {fileID: 11500000, guid: 2eb07572e6a4c8248b9a11a272d0fa70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mrmrName: {fileID: 0}
+  mrmrMtext: {fileID: 0}
+  mrmrTime: {fileID: 0}
