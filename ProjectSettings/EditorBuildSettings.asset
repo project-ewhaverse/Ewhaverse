@@ -20,10 +20,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LoginScene.unity
     guid: 5ca94622574ff1e47919028d9fc1e0cb
-  - enabled: 1
-    path: Assets/Scenes/MsgListScene.unity
-    guid: 5b951452546784c4f8f5ee654c9a53cd
-  - enabled: 1
-    path: Assets/Scenes/MsgRoomScene.unity
-    guid: 7f18f883269377e4383926b2881588d3
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   m_configObjects: {}

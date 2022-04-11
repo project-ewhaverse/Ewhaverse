@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System;
+using System.IO;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -18,7 +19,7 @@ public class ChatTest : MonoBehaviour, IChatClientListener
 	void Start()
 	{
 		Application.runInBackground = true;
-		userName = System.Environment.UserName;
+		userName = File.ReadAllText(Application.persistentDataPath + "/Sync.txt");
 		currentChannelName = "Channel 001";
 		chatClient = new ChatClient(this);
 		chatClient.Connect(PhotonNetwork.PhotonServerSettings.AppSettings.AppIdChat, "1.0", new AuthenticationValues(userName));
