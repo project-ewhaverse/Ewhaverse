@@ -6034,8 +6034,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 700573b9556b78f4493e26e81584573d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  userID_text: {fileID: 0}
-  nickname_text: {fileID: 0}
+  userID_text: {fileID: 1380169298}
+  nickname_text: {fileID: 1380169298}
 --- !u!4 &806046560
 Transform:
   m_ObjectHideFlags: 0
