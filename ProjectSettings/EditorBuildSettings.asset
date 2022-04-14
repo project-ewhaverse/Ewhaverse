@@ -6,24 +6,24 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/LoginScene.unity
+    guid: 5ca94622574ff1e47919028d9fc1e0cb
+  - enabled: 1
+    path: Assets/Scenes/RegisterScene.unity
+    guid: d846417dd34f380498bb0dd804f8d3dd
+  - enabled: 1
     path: Assets/Scenes/Square.unity
     guid: a738cc2e0a9c6df49b79c655a337f300
-  - enabled: 1
-    path: Assets/Scenes/Rooms/LibraryRoom.unity
-    guid: a87a54841142d9c44b678cfc8bbc8902
   - enabled: 1
     path: Assets/Scenes/Rooms/ClassRoom.unity
     guid: 08ab0d44937df1f40ac1494e9e065048
   - enabled: 1
+    path: Assets/Scenes/Rooms/LibraryRoom.unity
+    guid: a87a54841142d9c44b678cfc8bbc8902
+  - enabled: 1
     path: Assets/Scenes/Rooms/StairsRoom.unity
     guid: 721dd51a98bf56543a4eed34e4ad8457
   - enabled: 1
-    path: Assets/Scenes/LoginScene.unity
-    guid: 5ca94622574ff1e47919028d9fc1e0cb
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
+    path: Assets/Scenes/Square2.unity
+    guid: 0733ff07be7b31548bd953f0eb5a4fbe
   m_configObjects: {}
