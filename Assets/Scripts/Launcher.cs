@@ -12,21 +12,16 @@ public class Launcher : MonoBehaviourPunCallbacks
 {
     string gameVersion = "1";   //버전
 
-    //public TMP_InputField userID_text;   //userId
-    //public TMP_InputField nickname_text; //nickname
-
     void Awake()
     {
         //방장이 씬을 로딩하면, 나머지 사람들도 자동 싱크
         PhotonNetwork.AutomaticallySyncScene = true;
-
         //게임 버전
         PhotonNetwork.GameVersion = gameVersion;
-
-        /* 나중에 userId 설정하게 되면 수정 필요 */
         //서버 접속
         //PhotonNetwork.ConnectUsingSettings();
-
+        IDConfirm();
+        NicknameConfirm();
     }
 
     //마스터 서버 연결 성공시 자동 실행
@@ -48,11 +43,9 @@ public class Launcher : MonoBehaviourPunCallbacks
     {
         AuthenticationValues authValues = new AuthenticationValues(File.ReadAllText(Application.persistentDataPath + "/Sync.txt"));
         PhotonNetwork.AuthValues = authValues;
-     
         //서버 접속
         if (!PhotonNetwork.IsConnected)
             PhotonNetwork.ConnectUsingSettings();
-
     }
 
     //닉네임 설정
