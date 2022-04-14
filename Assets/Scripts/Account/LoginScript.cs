@@ -23,30 +23,11 @@ public class LoginScript : MonoBehaviour
         form.AddField("command", command);
         form.AddField("id", LoginInputField1.text);
         form.AddField("password", LoginInputField2.text);
-        form.AddField("nickname", "");
-        form.AddField("item", "");
+        form.AddField("email", "");
         UnityWebRequest www = UnityWebRequest.Post(url, form);
         yield return www.SendWebRequest();
         string result = UnityWebRequest.UnEscapeURL(www.downloadHandler.text);
         print(result);
         File.WriteAllText(Application.persistentDataPath + "/Sync.txt", result);
-        if (!result.Contains("failure"))
-        {
-            StartCoroutine(CustomizeCoroutine("customizeload"));
-        }
-    }
-    IEnumerator CustomizeCoroutine(string command)
-    {
-        WWWForm form = new WWWForm();
-        form.AddField("command", command);
-        form.AddField("id", LoginInputField1.text);
-        form.AddField("password", "");
-        form.AddField("nickname", "");
-        form.AddField("item", "");
-        UnityWebRequest www = UnityWebRequest.Post(url, form);
-        yield return www.SendWebRequest();
-        string result = UnityWebRequest.UnEscapeURL(www.downloadHandler.text);
-        print(result);
-        File.WriteAllText(Application.persistentDataPath + "/ItemJson.txt", result);
     }
 }
