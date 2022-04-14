@@ -59,8 +59,6 @@ public class RegisterScript : MonoBehaviour
         form.AddField("command", command);
         form.AddField("id", RegisterInputField1.text);
         form.AddField("password", RegisterInputField3.text);
-        form.AddField("nickname", RegisterInputField1.text);
-        form.AddField("item", "ia1,ib1,ic1,id1,ie1");
         form.AddField("email", RegisterInputField2.text);
         UnityWebRequest www = UnityWebRequest.Post(url, form);
         yield return www.SendWebRequest();
