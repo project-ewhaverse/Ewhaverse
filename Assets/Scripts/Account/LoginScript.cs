@@ -29,5 +29,9 @@ public class LoginScript : MonoBehaviour
         string result = UnityWebRequest.UnEscapeURL(www.downloadHandler.text);
         print(result);
         File.WriteAllText(Application.persistentDataPath + "/Sync.txt", result);
+        if(!result.Contains("login failure"))
+        {
+            SceneManager.LoadScene("Square");
+        }
     }
 }
