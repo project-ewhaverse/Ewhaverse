@@ -23,7 +23,7 @@ public class RegisterScript : MonoBehaviour
     public void RegisterButtonaClick()
     {
         string addr = RegisterInputField2.text.ToString();
-        if (addr.Contains("@ewhain.net") || addr.Contains("@ewhain.net") || addr.Contains("guigim0312@"))
+        if (addr.Contains("@ewhain.net") || addr.Contains("@ewha.ac.kr") || addr.Contains("guigim0312@"))
         {
             int authnum = UnityEngine.Random.Range(1000000, 10000000);
             authstr = addr + authnum.ToString();
@@ -59,8 +59,6 @@ public class RegisterScript : MonoBehaviour
         form.AddField("command", command);
         form.AddField("id", RegisterInputField1.text);
         form.AddField("password", RegisterInputField3.text);
-        form.AddField("nickname", RegisterInputField1.text);
-        form.AddField("item", "ia1,ib1,ic1,id1,ie1");
         form.AddField("email", RegisterInputField2.text);
         UnityWebRequest www = UnityWebRequest.Post(url, form);
         yield return www.SendWebRequest();
