@@ -12,21 +12,14 @@ public class Launcher : MonoBehaviourPunCallbacks
 {
     string gameVersion = "1";   //버전
 
-    public GameObject player_prefab;
-
-    private bool isinsquare;
-
     void Awake()
     {
-        isinsquare = true;
-
         //방장이 씬을 로딩하면, 나머지 사람들도 자동 싱크
         PhotonNetwork.AutomaticallySyncScene = true;
-        
         //게임 버전
         PhotonNetwork.GameVersion = gameVersion;
-        
-        //userID, 닉네임 설정
+        //서버 접속
+        //PhotonNetwork.ConnectUsingSettings();
         IDConfirm();
         NicknameConfirm();
     }
@@ -64,43 +57,5 @@ public class Launcher : MonoBehaviourPunCallbacks
     public override void OnJoinedLobby()
     {
         Debug.Log("로비 입장");
-        
-        if(isinsquare)
-            EnterSqaure();
-        else
-            GameObject.Find("RoomListing").GetComponent<RoomListing>().CreateRoom();
     }
-
-    //대광장 입장
-    public void EnterSqaure()
-    {     
-        //대광장용 방
-        RoomOptions square = new RoomOptions();
-        square.IsOpen = true;
-        square.IsVisible = false;
-
-        PhotonNetwork.JoinOrCreateRoom("Sqare", square, TypedLobby.Default);
-    }
-
-    public override void OnJoinedRoom()
-    {
-        //대광장 플레이어 생성
-        if (player_prefab != null)
-        {
-            GameObject Player = (GameObject)PhotonNetwork.Instantiate(this.player_prefab.name, new Vector3(0f, 2f, 0f), Quaternion.identity, 0);
-            Player.transform.parent = null;
-            Player.transform.localScale = new Vector3(0.7f, 0.7f, 0.7f);
-            Player.transform.Find("Camera").Find("MainCamera").gameObject.SetActive(true);
-        }
-    }
-
-    #region
-    public void LeaveSquare()
-    {
-        isinsquare = false;
-        PhotonNetwork.LeaveRoom();
-    }
-
-    #endregion
-
 }
