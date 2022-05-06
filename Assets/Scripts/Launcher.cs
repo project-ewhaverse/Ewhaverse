@@ -25,10 +25,19 @@ public class Launcher : MonoBehaviourPunCallbacks
         
         //게임 버전
         PhotonNetwork.GameVersion = gameVersion;
+
         
         //userID, 닉네임 설정
-        IDConfirm();
-        NicknameConfirm();
+        if(!PhotonNetwork.IsConnected)
+        {
+            IDConfirm();
+            NicknameConfirm();
+        }
+        else
+        {
+            Debug.Log(PhotonNetwork.AuthValues.UserId);
+            Debug.Log(PhotonNetwork.NickName);
+        }
     }
 
     //마스터 서버 연결 성공시 자동 실행
@@ -94,13 +103,11 @@ public class Launcher : MonoBehaviourPunCallbacks
         }
     }
 
-    #region
     public void LeaveSquare()
     {
         isinsquare = false;
         PhotonNetwork.LeaveRoom();
     }
 
-    #endregion
 
 }
