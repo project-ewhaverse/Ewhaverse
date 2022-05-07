@@ -321,7 +321,6 @@ MonoBehaviour:
   jumpHeight: 1
   jumpForwardAppliedForce: 0.5
   airControl: 0.5
-  stepDown: 0.2
   player_name: {fileID: 2244417547968508809}
 --- !u!95 &6130112002647950097
 Animator:
@@ -519,7 +518,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7227478815571439757, guid: 4a195f8a14f5e6f4792569b5ca9c5f74, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 885
+      value: 830
       objectReference: {fileID: 0}
     - target: {fileID: 7227478815571439759, guid: 4a195f8a14f5e6f4792569b5ca9c5f74, type: 3}
       propertyPath: m_Padding.m_Top
@@ -539,7 +538,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7227478816065906400, guid: 4a195f8a14f5e6f4792569b5ca9c5f74, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 67
+      value: 56
       objectReference: {fileID: 0}
     - target: {fileID: 7227478816065906400, guid: 4a195f8a14f5e6f4792569b5ca9c5f74, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -547,7 +546,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7227478816065906400, guid: 4a195f8a14f5e6f4792569b5ca9c5f74, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -467.5
+      value: -440
       objectReference: {fileID: 0}
     - target: {fileID: 7227478816065906401, guid: 4a195f8a14f5e6f4792569b5ca9c5f74, type: 3}
       propertyPath: m_Text
@@ -563,7 +562,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7227478816065906401, guid: 4a195f8a14f5e6f4792569b5ca9c5f74, type: 3}
       propertyPath: m_FontData.m_FontSize
-      value: 60
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 7227478817077257480, guid: 4a195f8a14f5e6f4792569b5ca9c5f74, type: 3}
       propertyPath: m_Pivot.x

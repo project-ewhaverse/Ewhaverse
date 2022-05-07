@@ -24,7 +24,6 @@ public class PlayerControl : MonoBehaviourPun
     [SerializeField] float jumpHeight = 1f;
     [SerializeField] float jumpForwardAppliedForce = .5f;
     [SerializeField] float airControl = .5f;
-    [SerializeField] float stepDown = .2f;
 
     bool isJumping = false;
     Vector3 velocity;

@@ -17,8 +17,8 @@ public class ChatTest : MonoBehaviour, IChatClientListener
 	public InputField inputField;
 	public Text outputText;
 
-	public GameObject textbox;
-	public Text boxtext;
+	public static GameObject textbox;
+	public static Text boxtext;
 
 	void Start()
 	{

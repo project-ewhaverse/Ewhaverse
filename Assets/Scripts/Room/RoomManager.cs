@@ -20,6 +20,8 @@ public class RoomManager : MonoBehaviourPunCallbacks
     public Button DeleteRoom;
     public Transform startlocation;
 
+    public ChatTest Chat;
+
     PhotonView photonview;
 
     void Start()
@@ -41,6 +43,14 @@ public class RoomManager : MonoBehaviourPunCallbacks
             GameObject Player = (GameObject)PhotonNetwork.Instantiate(this.playerPrefab.name, startlocation.position, Quaternion.identity, 0);
             Player.transform.parent = null;
             Player.transform.Find("Camera").Find("MainCamera").gameObject.SetActive(true);
+
+            Transform tmp = Player.transform.Find("Canvas");
+            tmp.gameObject.GetComponent<Canvas>().worldCamera = Camera.main;
+            
+            tmp = tmp.Find("textbox");
+            ChatTest.textbox = tmp.gameObject;
+            ChatTest.boxtext = tmp.Find("box").Find("text").GetComponent<Text>();
+
         }
 
         if(PhotonNetwork.IsMasterClient)
