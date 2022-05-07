@@ -16,6 +16,10 @@ public class ChatTest : MonoBehaviour, IChatClientListener
 	private string currentChannelName;
 	public InputField inputField;
 	public Text outputText;
+
+	public GameObject textbox;
+	public Text boxtext;
+
 	void Start()
 	{
 		Application.runInBackground = true;
@@ -105,12 +109,21 @@ public class ChatTest : MonoBehaviour, IChatClientListener
 		if (Input.GetKey(KeyCode.Return) || Input.GetKey(KeyCode.KeypadEnter))
 		{
 			this.SendChatMessage(this.inputField.text);
+			boxtext.text = this.inputField.text;
 			this.inputField.text = "";
 			this.inputField.Select();
 
-			this.inputField.ActivateInputField();
+			this.inputField.ActivateInputField();textbox.SetActive(true);
+			CancelInvoke();
+			Invoke("disappear", 4.0f);
 		}
 	}
+
+	public void disappear()
+	{
+		textbox.SetActive(false);
+	}
+
 	private void SendChatMessage(string inputLine)
 	{
 		if (string.IsNullOrEmpty(inputLine))
