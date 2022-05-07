@@ -18,6 +18,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
     public TMP_Text roomname;
 
     public Button DeleteRoom;
+    public Transform startlocation;
 
     PhotonView photonview;
 
@@ -37,9 +38,8 @@ public class RoomManager : MonoBehaviourPunCallbacks
         else
         {
             //룸 안에서 플레이어 인스턴스 나타냄
-            GameObject Player = (GameObject)PhotonNetwork.Instantiate(this.playerPrefab.name, new Vector3(0f, 5f, 0f), Quaternion.identity, 0);
+            GameObject Player = (GameObject)PhotonNetwork.Instantiate(this.playerPrefab.name, startlocation.position, Quaternion.identity, 0);
             Player.transform.parent = null;
-            Player.transform.localScale = new Vector3(0.7f, 0.7f, 0.7f);
             Player.transform.Find("Camera").Find("MainCamera").gameObject.SetActive(true);
         }
 
