@@ -113,9 +113,10 @@ public class ChatTest : MonoBehaviour, IChatClientListener
 			this.inputField.text = "";
 			this.inputField.Select();
 
-			this.inputField.ActivateInputField();textbox.SetActive(true);
-			CancelInvoke();
-			Invoke("disappear", 4.0f);
+			this.inputField.ActivateInputField();
+			//textbox.SetActive(true);
+			//CancelInvoke();
+			//Invoke("disappear", 4.0f);
 		}
 	}
 

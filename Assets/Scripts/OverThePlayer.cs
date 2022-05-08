@@ -8,11 +8,14 @@ public class OverThePlayer : MonoBehaviour
     private Canvas canvas;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        this.canvas = this.GetComponent<Canvas>();
+        this.canvas = this.GetComponent<Canvas>();        
     }
-
+    void Start()
+	{
+        this.canvas.worldCamera = Camera.main;
+    }
 
     private void LateUpdate()
     {
