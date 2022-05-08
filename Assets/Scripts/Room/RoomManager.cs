@@ -44,12 +44,9 @@ public class RoomManager : MonoBehaviourPunCallbacks
             Player.transform.parent = null;
             Player.transform.Find("Camera").Find("MainCamera").gameObject.SetActive(true);
 
-            Transform tmp = Player.transform.Find("Canvas");
-            tmp.gameObject.GetComponent<Canvas>().worldCamera = Camera.main;
-            
-            tmp = tmp.Find("textbox");
-            ChatTest.textbox = tmp.gameObject;
-            ChatTest.boxtext = tmp.Find("box").Find("text").GetComponent<Text>();
+            Transform tb = Player.transform.Find("Canvas").Find("textbox");
+            ChatTest.textbox = tb.gameObject;
+            ChatTest.boxtext = tb.Find("box").Find("text").GetComponent<Text>();
 
         }
 
