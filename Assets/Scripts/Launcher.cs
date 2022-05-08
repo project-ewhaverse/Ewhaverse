@@ -71,8 +71,6 @@ public class Launcher : MonoBehaviourPunCallbacks
 
         if (isinsquare)
             EnterSqaure();
-        else
-            GameObject.Find("RoomListing").GetComponent<RoomListing>().CreateRoom();
     }
 
     //대광장 입장
@@ -104,5 +102,8 @@ public class Launcher : MonoBehaviourPunCallbacks
         PhotonNetwork.LeaveRoom();
     }
 
-
+    public void CreateRoom()
+    {
+        GameObject.Find("RoomListing").GetComponent<RoomListing>().CreateRoom();
+    }
 }
