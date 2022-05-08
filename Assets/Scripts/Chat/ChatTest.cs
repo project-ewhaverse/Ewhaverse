@@ -109,11 +109,8 @@ public class ChatTest : MonoBehaviour, IChatClientListener
 		if (Input.GetKey(KeyCode.Return) || Input.GetKey(KeyCode.KeypadEnter))
 		{
 			this.SendChatMessage(this.inputField.text);
-			boxtext.text = this.inputField.text;
-			this.inputField.text = "";
-			this.inputField.Select();
-
-			this.inputField.ActivateInputField();
+			//boxtext.text = this.inputField.text;
+			//this.inputField.text = "";
 			//textbox.SetActive(true);
 			//CancelInvoke();
 			//Invoke("disappear", 4.0f);
@@ -133,4 +130,5 @@ public class ChatTest : MonoBehaviour, IChatClientListener
 		}
 		this.chatClient.PublishMessage(currentChannelName, inputLine);
 	}
+
 }
