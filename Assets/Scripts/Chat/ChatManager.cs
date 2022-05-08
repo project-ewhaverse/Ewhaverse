@@ -19,19 +19,22 @@ public class ChatManager : MonoBehaviour
         chatInput = GameObject.Find("InputField_Chat").GetComponent<InputField>();
     }
 
-    // Update is called once per frame
-    void Update()
+    void Start()
     {
-		if (photonView.IsMine)
-		{
-            if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter)) 
-			{
-                photonView.RPC("send", RpcTarget.All, chatInput.text);
+        chatInput.onEndEdit.AddListener(delegate { synchTextBubble(chatInput);});
+    }
+
+
+    void synchTextBubble(InputField input)
+	{
+        if (Input.GetKey(KeyCode.Return) || Input.GetKey(KeyCode.KeypadEnter))
+        {
+            if (input.text != "")            
+            {
+                photonView.RPC("send", RpcTarget.All, input.text);
                 textBox.SetActive(true);
             }
-
         }
-        
     }
 
     [PunRPC]

@@ -19,10 +19,10 @@ public class RoomManager : MonoBehaviourPunCallbacks
 
     public Button DeleteRoom;
     public Transform startlocation;
-
-    public ChatTest Chat;
-
     PhotonView photonview;
+
+    //public ChatTest Chat;
+
 
     void Start()
     {
@@ -33,11 +33,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
             roomname.text = "";
         roomname.text = ro.Name;
         
-        if (playerPrefab == null)
-        {
-            Debug.LogError("< Color = Red >< a > Missing </ a ></ Color > playerPrefab Reference.Please set it up in GameObject 'Game Manager'", this);
-        }
-        else
+        if (playerPrefab != null)
         {
             //룸 안에서 플레이어 인스턴스 나타냄
             GameObject Player = (GameObject)PhotonNetwork.Instantiate(this.playerPrefab.name, startlocation.position, Quaternion.identity, 0);

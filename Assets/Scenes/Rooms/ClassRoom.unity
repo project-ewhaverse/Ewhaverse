@@ -1601,6 +1601,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 289648963}
+  - component: {fileID: 289648965}
   - component: {fileID: 289648964}
   m_Layer: 5
   m_Name: Chat
@@ -1643,6 +1644,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputField: {fileID: 119091647}
   outputText: {fileID: 1706933234}
+  photonView: {fileID: 0}
+--- !u!114 &289648965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 289648962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 2
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1001 &289997259
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5836,7 +5860,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1237422487}
-  m_RootOrder: 116
+  m_RootOrder: 90
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!108 &1016644299
 Light:
@@ -7727,6 +7751,7 @@ Transform:
   - {fileID: 1688168221}
   - {fileID: 97432719}
   - {fileID: 1804628227}
+  - {fileID: 1016644298}
   - {fileID: 167477568}
   - {fileID: 1123168483}
   - {fileID: 1351821262}
@@ -7753,7 +7778,6 @@ Transform:
   - {fileID: 2139654469}
   - {fileID: 1189348082}
   - {fileID: 155968308}
-  - {fileID: 1016644298}
   - {fileID: 84286838}
   - {fileID: 635306188}
   - {fileID: 933173257}

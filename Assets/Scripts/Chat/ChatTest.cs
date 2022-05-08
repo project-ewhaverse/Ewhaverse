@@ -24,7 +24,7 @@ public class ChatTest : MonoBehaviour, IChatClientListener
 	{
 		Application.runInBackground = true;
 		userName = File.ReadAllText(Application.persistentDataPath + "/Sync.txt");
-		currentChannelName = "Channel 001";
+		currentChannelName = PhotonNetwork.CurrentRoom.Name;
 		chatClient = new ChatClient(this);
 		chatClient.Connect(PhotonNetwork.PhotonServerSettings.AppSettings.AppIdChat, "1.0", new AuthenticationValues(userName));
 		AddLine(string.Format("연결시도", userName));
