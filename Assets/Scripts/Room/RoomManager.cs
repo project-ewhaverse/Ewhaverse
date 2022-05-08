@@ -69,7 +69,6 @@ public class RoomManager : MonoBehaviourPunCallbacks
     public void LeaveRoom()
     {
         PhotonNetwork.LeaveRoom();
-        Debug.Log("나가기");
     }
 
     public void LeaveAll()

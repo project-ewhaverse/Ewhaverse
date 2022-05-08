@@ -22,7 +22,8 @@ public class MouseInteraction : MonoBehaviour
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if(Physics.Raycast(ray.origin, ray.direction, out hit))
             {
-                if(hit.collider.name == "Player")
+                PhotonView pv = hit.collider.gameObject.GetPhotonView();
+                if(hit.collider.name == "Player" && !pv.IsMine)
                 {
                     Vector3 mousePos = Input.mousePosition;
                     panel.SetActive(true);
