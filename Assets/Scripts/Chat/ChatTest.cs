@@ -13,7 +13,7 @@ public class ChatTest : MonoBehaviour, IChatClientListener
 {
 	private ChatClient chatClient;
 	private string userName;
-	private string currentChannelName;
+	private string currentChannelName="Square";
 	public InputField inputField;
 	public Text outputText;
 
@@ -24,7 +24,7 @@ public class ChatTest : MonoBehaviour, IChatClientListener
 	{
 		Application.runInBackground = true;
 		userName = File.ReadAllText(Application.persistentDataPath + "/Sync.txt");
-		currentChannelName = PhotonNetwork.CurrentRoom.Name;
+		if(PhotonNetwork.CurrentRoom!=null) currentChannelName = PhotonNetwork.CurrentRoom.Name;
 		chatClient = new ChatClient(this);
 		chatClient.Connect(PhotonNetwork.PhotonServerSettings.AppSettings.AppIdChat, "1.0", new AuthenticationValues(userName));
 		AddLine(string.Format("연결시도", userName));
