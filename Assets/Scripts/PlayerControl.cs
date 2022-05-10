@@ -5,17 +5,26 @@ using Photon.Pun;
 
 public class PlayerControl : MonoBehaviourPun
 {
-    [HideInInspector] public CharacterController controller;
+    [HideInInspector] 
     Animator animator;
-    int isWalkingHash;
-    
+
+    bool isWalking = false;
+    bool isJumping = false;
+    Vector3 velocity;
+    float hAxis;
+    float vAxis;
+    Vector3 moveVec;
+
+    private bool chatenter = false;
+
     [Header("Player")]
     [SerializeField] private Transform player;
     [SerializeField] private float speed = 4f;
     [SerializeField] private float rotationSpeed = 10f;
+    [SerializeField] public CharacterController controller;
 
     [Header("Camera")]
-    [SerializeField] private Transform camera;
+    [SerializeField] private new Transform camera;
     [SerializeField] private Transform cameraArm;
     [SerializeField] private float camSens = 2f;
 
@@ -25,43 +34,40 @@ public class PlayerControl : MonoBehaviourPun
     [SerializeField] float jumpForwardAppliedForce = .5f;
     [SerializeField] float airControl = .5f;
 
-    bool isJumping = false;
-    Vector3 velocity;
-
+  
     [Header("Player Name")]
     [SerializeField] private TextMesh player_name;
 
     // Start is called before the first frame update
     void Start()
     {
+        if (!photonView.IsMine)
+            this.enabled = false;
+
         player_name.text = PhotonNetwork.NickName;
 
         controller = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
-        isWalkingHash = Animator.StringToHash("isWalking");
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!photonView.IsMine)
-            return;
-        else
+		if (Input.GetKeyDown(KeyCode.Return)) { chatenter = !chatenter; }
+
+        if (!chatenter)
         {
             Translate();
-            CameraLookAt();
             Jump();
         }
-       
+        CameraLookAt();
 
     }
 
     void Translate()
     {
-        float hAxis = Input.GetAxis("Horizontal");
-        float vAxis = Input.GetAxis("Vertical");
-        Vector3 moveVec;
-        bool isWalking = animator.GetBool(isWalkingHash);
+        hAxis = Input.GetAxis("Horizontal");
+        vAxis = Input.GetAxis("Vertical");
 
         if (isJumping)
         {
@@ -87,7 +93,6 @@ public class PlayerControl : MonoBehaviourPun
             {
                 isJumping = false;
                 animator.SetBool("isJumping", false);
-                animator.SetBool("isGrounded", true);
             }
         }
 
@@ -103,12 +108,20 @@ public class PlayerControl : MonoBehaviourPun
                 Quaternion LookAt = Quaternion.LookRotation(moveVec);
                 player.rotation = Quaternion.Slerp(player.rotation, LookAt, Time.deltaTime * rotationSpeed);
 
-                if (!isWalking) animator.SetBool("isWalking", true);
+                if (!isWalking)
+                {
+                    isWalking = true;
+                    animator.SetBool("isWalking", true);
+                }
 
 			}
 			else
 			{
-                if (isWalking) animator.SetBool("isWalking", false);
+                if (isWalking)
+                {
+                    isWalking = false;
+                    animator.SetBool("isWalking", false);
+                }
             }
 
             if (!controller.isGrounded)
@@ -137,7 +150,7 @@ public class PlayerControl : MonoBehaviourPun
 
     void Jump()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && !isJumping)
+        if (Input.GetKey(KeyCode.Space) && !isJumping)
         {
             animator.SetBool("isJumping", true);
             isJumping = true;
