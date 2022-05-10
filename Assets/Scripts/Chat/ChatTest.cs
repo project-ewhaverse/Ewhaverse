@@ -24,7 +24,7 @@ public class ChatTest : MonoBehaviour, IChatClientListener
 	{
 		Application.runInBackground = true;
 		userName = File.ReadAllText(Application.persistentDataPath + "/Sync.txt");
-		currentChannelName = "Channel 001";
+		currentChannelName = PhotonNetwork.CurrentRoom.Name;
 		chatClient = new ChatClient(this);
 		chatClient.Connect(PhotonNetwork.PhotonServerSettings.AppSettings.AppIdChat, "1.0", new AuthenticationValues(userName));
 		AddLine(string.Format("연결시도", userName));
@@ -109,11 +109,8 @@ public class ChatTest : MonoBehaviour, IChatClientListener
 		if (Input.GetKey(KeyCode.Return) || Input.GetKey(KeyCode.KeypadEnter))
 		{
 			this.SendChatMessage(this.inputField.text);
-			boxtext.text = this.inputField.text;
-			this.inputField.text = "";
-			this.inputField.Select();
-
-			this.inputField.ActivateInputField();
+			//boxtext.text = this.inputField.text;
+			//this.inputField.text = "";
 			//textbox.SetActive(true);
 			//CancelInvoke();
 			//Invoke("disappear", 4.0f);
@@ -133,4 +130,5 @@ public class ChatTest : MonoBehaviour, IChatClientListener
 		}
 		this.chatClient.PublishMessage(currentChannelName, inputLine);
 	}
+
 }

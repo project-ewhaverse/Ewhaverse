@@ -137,7 +137,7 @@ public class PlayerControl : MonoBehaviourPun
 
     void Jump()
     {
-        if (Input.GetKey(KeyCode.Space) && !isJumping)
+        if (Input.GetKeyDown(KeyCode.Space) && !isJumping)
         {
             animator.SetBool("isJumping", true);
             isJumping = true;
