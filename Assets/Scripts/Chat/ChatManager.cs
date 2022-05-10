@@ -7,16 +7,16 @@ using Photon.Pun;
 
 public class ChatManager : MonoBehaviour
 {
-    public PhotonView photonView;
+    private PhotonView photonView;
+    public InputField chatInput;
+
     public GameObject textBox;
     public Text boxText;
-
-    public InputField chatInput;
 
     void Awake()
     {
         photonView = PhotonView.Get(this);
-        chatInput = GameObject.Find("InputField_Chat").GetComponent<InputField>();
+        chatInput = GameObject.Find("ChatUI").transform.FindChild("InputField_Chat").GetComponent<InputField>();
     }
 
     void Start()
@@ -46,9 +46,6 @@ public class ChatManager : MonoBehaviour
         CancelInvoke();
         Invoke("disappear", 4.0f);
 
-        chatInput.text = "";
-        chatInput.Select();
-        chatInput.ActivateInputField();
     }
 
     void disappear()

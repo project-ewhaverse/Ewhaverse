@@ -398,13 +398,13 @@ GameObject:
   m_Component:
   - component: {fileID: 5021542200964413566}
   - component: {fileID: 6874478349373957264}
+  - component: {fileID: 845833006006838297}
   - component: {fileID: 6502336374818580296}
   - component: {fileID: 6130112002647950097}
   - component: {fileID: 3889408710624784588}
   - component: {fileID: 4223030083732034688}
   - component: {fileID: 7675689666876593497}
   - component: {fileID: 4833267265045789902}
-  - component: {fileID: 845833006006838297}
   - component: {fileID: 76922236468089490}
   m_Layer: 0
   m_Name: Player
@@ -449,6 +449,21 @@ CharacterController:
   m_SkinWidth: 0.0001
   m_MinMoveDistance: 0
   m_Center: {x: 0, y: 3, z: 0}
+--- !u!114 &845833006006838297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5272581566704171222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64d524af1b71907448170e04e041d4cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chatInput: {fileID: 0}
+  textBox: {fileID: 2505703983922362581}
+  boxText: {fileID: 2505703982902623035}
 --- !u!114 &6502336374818580296
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -461,10 +476,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99db0449e865bf84d9c8b14dff5ca6fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 0}
   player: {fileID: 6693345563444965108}
   speed: 4
   rotationSpeed: 10
+  controller: {fileID: 0}
   camera: {fileID: 5556443898256999127}
   cameraArm: {fileID: 9208409707157729644}
   camSens: 2
@@ -578,22 +593,6 @@ MonoBehaviour:
   m_SynchronizeLayers:
   - SynchronizeType: 0
     LayerIndex: 0
---- !u!114 &845833006006838297
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5272581566704171222}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64d524af1b71907448170e04e041d4cf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  photonView: {fileID: 0}
-  textBox: {fileID: 2505703983922362581}
-  boxText: {fileID: 2505703982902623035}
-  chatInput: {fileID: 0}
 --- !u!114 &76922236468089490
 MonoBehaviour:
   m_ObjectHideFlags: 0

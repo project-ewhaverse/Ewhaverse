@@ -21,7 +21,6 @@ public class RoomManager : MonoBehaviourPunCallbacks
     public Transform startlocation;
     PhotonView photonview;
 
-    //public ChatTest Chat;
 
 
     void Start()
@@ -39,11 +38,6 @@ public class RoomManager : MonoBehaviourPunCallbacks
             GameObject Player = (GameObject)PhotonNetwork.Instantiate(this.playerPrefab.name, startlocation.position, Quaternion.identity, 0);
             Player.transform.parent = null;
             Player.transform.Find("Camera").Find("MainCamera").gameObject.SetActive(true);
-
-            Transform tb = Player.transform.Find("Canvas").Find("textbox");
-            ChatTest.textbox = tb.gameObject;
-            ChatTest.boxtext = tb.Find("box").Find("text").GetComponent<Text>();
-
         }
 
         if(PhotonNetwork.IsMasterClient)
@@ -62,7 +56,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
 
     public override void OnLeftRoom()
     {
-        SceneManager.LoadScene(2);  //0번 씬(로비) 로드
+        SceneManager.LoadScene(2);  //2번 씬(로비) 로드
         //PhotonNetwork.JoinLobby();
         //PhotonNetwork.LoadLevel("Lobby");
     }
