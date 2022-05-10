@@ -94,6 +94,8 @@ public class Launcher : MonoBehaviourPunCallbacks
             Player.transform.localScale = new Vector3(0.7f, 0.7f, 0.7f);
             Player.transform.Find("Camera").Find("MainCamera").gameObject.SetActive(true);
         }
+
+        Debug.Log(PhotonNetwork.CurrentRoom.Name);
     }
 
     public void LeaveSquare()
