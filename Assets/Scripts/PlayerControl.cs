@@ -31,11 +31,14 @@ public class PlayerControl : MonoBehaviourPun
     [Header("Player Name")]
     [SerializeField] private TextMesh player_name;
 
+    private void Awake()
+    {
+        this.gameObject.name = PhotonNetwork.AuthValues.UserId;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        player_name.text = PhotonNetwork.NickName;
-
         controller = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
         isWalkingHash = Animator.StringToHash("isWalking");
@@ -48,12 +51,12 @@ public class PlayerControl : MonoBehaviourPun
             return;
         else
         {
+            player_name.text = PhotonNetwork.NickName;
+
             Translate();
             CameraLookAt();
             Jump();
-        }
-       
-
+        }   
     }
 
     void Translate()

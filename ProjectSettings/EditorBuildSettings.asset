@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Square.unity
     guid: a738cc2e0a9c6df49b79c655a337f300
   - enabled: 1
+    path: Assets/Scenes/RoomLobby.unity
+    guid: 0b3e72e2a6a4f1e44aee3302b679ad0c
+  - enabled: 1
     path: Assets/Scenes/Rooms/ClassRoom.unity
     guid: 08ab0d44937df1f40ac1494e9e065048
   - enabled: 1
