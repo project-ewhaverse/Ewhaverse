@@ -32,9 +32,8 @@ public class Launcher : MonoBehaviourPunCallbacks
         {
             IDConfirm();
             NicknameConfirm();
-        }      
+        }
     }
-
 
     //마스터 서버 연결 성공시 자동 실행
     public override void OnConnectedToMaster()
@@ -88,28 +87,22 @@ public class Launcher : MonoBehaviourPunCallbacks
     public override void OnJoinedRoom()
     {
         //대광장 플레이어 생성
-        if (player_prefab != null && isinsquare)
+        if (player_prefab != null)
         {
-            Debug.Log("대광장 입장!");
-            GameObject Player = (GameObject)PhotonNetwork.Instantiate(player_prefab.name, new Vector3(0f, 2f, 0f), Quaternion.identity, 0);
+            GameObject Player = (GameObject)PhotonNetwork.Instantiate(this.player_prefab.name, new Vector3(0f, 2f, 0f), Quaternion.identity, 0);
             Player.transform.parent = null;
             Player.transform.localScale = new Vector3(0.7f, 0.7f, 0.7f);
             Player.transform.Find("Camera").Find("MainCamera").gameObject.SetActive(true);
-
-            PlayerInfo.inlobby = true;
-            PlayerInfo.FindPlayerObject();
-            Debug.Log(PlayerInfo.inlobby);
-            PlayerInfo.UpdateSquarePos();
         }
+
+        Debug.Log(PhotonNetwork.CurrentRoom.Name);
     }
 
     public void LeaveSquare()
     {
-        if(isinsquare)
-            PhotonNetwork.LeaveRoom();
         isinsquare = false;
+        PhotonNetwork.LeaveRoom();
     }
-
 
     public void CreateRoom()
     {

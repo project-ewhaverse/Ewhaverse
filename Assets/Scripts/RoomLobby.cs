@@ -6,9 +6,14 @@ using Photon.Pun;
 
 public class RoomLobby : MonoBehaviour
 {
-    PlayerControl player;
-
+    
     void Start()
+    {
+        
+    }
+
+
+    void Update()
     {
         
     }
@@ -17,6 +22,5 @@ public class RoomLobby : MonoBehaviour
     public void BackToSquare()
     {
         PhotonNetwork.LoadLevel("Square");
-        PhotonNetwork.JoinLobby();
     }
 }
