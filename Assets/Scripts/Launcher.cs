@@ -33,7 +33,10 @@ public class Launcher : MonoBehaviourPunCallbacks
         {
             IDConfirm();
             NicknameConfirm();
-        }      
+        }
+
+        if (PhotonNetwork.InLobby)
+            EnterSqaure();
     }
 
 
@@ -93,8 +96,8 @@ public class Launcher : MonoBehaviourPunCallbacks
         {
             Debug.Log("대광장 입장!");
             GameObject Player = (GameObject)PhotonNetwork.Instantiate(player_prefab.name, new Vector3(0f, 2f, 0f), Quaternion.identity, 0);
-            Player.transform.parent = null;
-            Player.transform.localScale = new Vector3(0.7f, 0.7f, 0.7f);
+            //Player.transform.parent = null;
+            //Player.transform.localScale = new Vector3(0.7f, 0.7f, 0.7f);
             Player.transform.Find("Camera").Find("MainCamera").gameObject.SetActive(true);
             maincamera.gameObject.SetActive(false);
 
