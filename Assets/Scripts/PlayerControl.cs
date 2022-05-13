@@ -38,7 +38,11 @@ public class PlayerControl : MonoBehaviourPun
     [Header("Player Name")]
     [SerializeField] private TextMesh player_name;
 
-    // Start is called before the first frame update
+    private void Awake()
+    {
+        this.gameObject.name = PhotonNetwork.AuthValues.UserId;
+    }
+
     void Start()
     {
         if (!photonView.IsMine)
@@ -50,10 +54,13 @@ public class PlayerControl : MonoBehaviourPun
         animator = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
-		if (Input.GetKeyDown(KeyCode.Return)) { chatenter = !chatenter; }
+        if (photonView.IsMine)
+            player_name.text = PhotonNetwork.NickName;
+
+        if (Input.GetKeyDown(KeyCode.Return)) { chatenter = !chatenter; }
 
         if (!chatenter)
         {
