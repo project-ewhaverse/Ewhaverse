@@ -5241,6 +5241,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player_prefab: {fileID: 5272581566704171222, guid: 054a995b60f42d5499d09231cc338015, type: 3}
+  maincamera: {fileID: 1426049718}
 --- !u!4 &806046560
 Transform:
   m_ObjectHideFlags: 0
@@ -9869,7 +9870,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!81 &1426049719
 AudioListener:
   m_ObjectHideFlags: 0
@@ -10974,18 +10975,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 1519225041}
-        m_TargetAssemblyTypeName: MoveRoomLobby, Assembly-CSharp
-        m_MethodName: SetShowLobbyOn
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 0
 --- !u!114 &1519225039
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -13,6 +13,7 @@ public class Launcher : MonoBehaviourPunCallbacks
     string gameVersion = "1";   //버전
 
     public GameObject player_prefab;
+    public GameObject maincamera;
 
     private bool isinsquare;
 
@@ -95,6 +96,7 @@ public class Launcher : MonoBehaviourPunCallbacks
             Player.transform.parent = null;
             Player.transform.localScale = new Vector3(0.7f, 0.7f, 0.7f);
             Player.transform.Find("Camera").Find("MainCamera").gameObject.SetActive(true);
+            maincamera.gameObject.SetActive(false);
 
             PlayerInfo.inlobby = true;
             PlayerInfo.FindPlayerObject();
@@ -105,11 +107,17 @@ public class Launcher : MonoBehaviourPunCallbacks
 
     public void LeaveSquare()
     {
-        if(isinsquare)
+        if (isinsquare)
             PhotonNetwork.LeaveRoom();
+
         isinsquare = false;
     }
 
+    public override void OnLeftRoom()
+    {
+        PhotonNetwork.LoadLevel("RoomLobby");
+        maincamera.gameObject.SetActive(true);
+    }
 
     public void CreateRoom()
     {

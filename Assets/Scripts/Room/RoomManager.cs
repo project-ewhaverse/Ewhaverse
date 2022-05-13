@@ -56,7 +56,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
 
     public override void OnLeftRoom()
     {
-        SceneManager.LoadScene(2);  //2번 씬(로비) 로드
+        SceneManager.LoadScene("Square");  //2번 씬(로비) 로드
         //PhotonNetwork.JoinLobby();
         //PhotonNetwork.LoadLevel("Lobby");
     }

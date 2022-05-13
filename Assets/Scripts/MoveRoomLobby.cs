@@ -22,8 +22,5 @@ public class MoveRoomLobby : MonoBehaviourPunCallbacks
 
     // Update is called once per frame
     
-    public override void OnLeftRoom()
-    {
-        PhotonNetwork.LoadLevel("RoomLobby");
-    }
+    
 }

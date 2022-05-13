@@ -16,7 +16,7 @@ public class ChatManager : MonoBehaviour
     void Awake()
     {
         photonView = PhotonView.Get(this);
-        chatInput = GameObject.Find("ChatUI").transform.FindChild("InputField_Chat").GetComponent<InputField>();
+        chatInput = GameObject.Find("ChatUI").transform.Find("InputField_Chat").GetComponent<InputField>();
     }
 
     void Start()
