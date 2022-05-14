@@ -56,6 +56,10 @@ public class MouseInteraction : MonoBehaviour
     }
 
     //1:1 메시지 요청 버튼 실행
+    public void RequestOnetoOneMessage()
+    {
+        //othername으로 하시면 돼요!
+    }
 }
 
    
