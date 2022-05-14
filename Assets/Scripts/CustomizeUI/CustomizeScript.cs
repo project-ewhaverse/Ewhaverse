@@ -164,8 +164,8 @@ public class CustomizeScript : MonoBehaviour
     }
     public void ConfirmClicked()
     {
-        //확인되면 customlist의 내용을 CustomJson.txt에 저장한다
-        //customlist의 내용을 가공해 DB에 저장한다
+        //확인되면 customlist의 내용을 가공해 CustomJson.txt에 저장한다
+        //CustomJson.txt의 내용도 DB에 저장한다
         ConfirmProcess();
         StartCoroutine(coroutine2);
         //이전 화면으로 이동한다
