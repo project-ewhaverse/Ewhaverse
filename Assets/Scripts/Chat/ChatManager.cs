@@ -27,6 +27,9 @@ public class ChatManager : MonoBehaviour
 
     void synchTextBubble(InputField input)
 	{
+        if (!photonView.IsMine)
+            return;
+
         if (Input.GetKey(KeyCode.Return) || Input.GetKey(KeyCode.KeypadEnter))
         {
             if (input.text != "")            

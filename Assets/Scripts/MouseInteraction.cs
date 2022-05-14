@@ -7,6 +7,7 @@ using Photon.Realtime;
 public class MouseInteraction : MonoBehaviour
 {
     public GameObject panel;
+    private string othername;
     //public RectTransform panel_transform;
 
     private void Update()
@@ -22,8 +23,9 @@ public class MouseInteraction : MonoBehaviour
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if(Physics.Raycast(ray.origin, ray.direction, out hit))
             {
-                if(hit.collider.name == "Player")
+                if(hit.collider.tag == "Player" && !hit.collider.gameObject.GetPhotonView().IsMine)
                 {
+                    othername = hit.collider.name;
                     Vector3 mousePos = Input.mousePosition;
                     panel.SetActive(true);
                     panel.transform.position = mousePos;
@@ -48,10 +50,9 @@ public class MouseInteraction : MonoBehaviour
     
 
     //친구 요청 버튼 실행
-    public void RequestFriend(Player player)
+    public void RequestFriend()
     {
-        string userid = player.UserId;
-        Debug.Log(userid);
+        Debug.Log(othername);
     }
 
     //1:1 메시지 요청 버튼 실행

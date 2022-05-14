@@ -40,7 +40,7 @@ public class PlayerControl : MonoBehaviourPun
 
     private void Awake()
     {
-        this.gameObject.name = PhotonNetwork.AuthValues.UserId;
+        this.gameObject.name = photonView.Owner.NickName;
     }
 
     void Start()
@@ -48,7 +48,7 @@ public class PlayerControl : MonoBehaviourPun
         if (!photonView.IsMine)
             this.enabled = false;
 
-        player_name.text = PhotonNetwork.NickName;
+        player_name.text = photonView.Owner.NickName;
 
         controller = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
@@ -57,9 +57,6 @@ public class PlayerControl : MonoBehaviourPun
     
     void Update()
     {
-        if (photonView.IsMine)
-            player_name.text = PhotonNetwork.NickName;
-
         if (Input.GetKeyDown(KeyCode.Return)) { chatenter = !chatenter; }
 
         if (!chatenter)
