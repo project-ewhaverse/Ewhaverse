@@ -76,7 +76,7 @@ public class PlayerInfo : MonoBehaviourPunCallbacks
     {
         my_player = GameObject.Find(PhotonNetwork.AuthValues.UserId).gameObject;
         child = my_player.transform.Find("avatar_eyefin").gameObject;
-        Debug.Log("내 플레이어 오브젝트 찾았음");
+        //Debug.Log("내 플레이어 오브젝트 찾았음");
     }
 
     public static void UpdateSquarePos()
