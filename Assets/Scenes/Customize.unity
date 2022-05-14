@@ -10932,7 +10932,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df850de3d4eaacc4ba25d8ca9ab38122, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  url: 
+  url: https://h73wm835d1.execute-api.ap-northeast-2.amazonaws.com/default/ewhaverse-ld2
   customlist: []
   confirmlist: []
   typename:
