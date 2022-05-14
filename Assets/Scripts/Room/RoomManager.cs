@@ -21,8 +21,6 @@ public class RoomManager : MonoBehaviourPunCallbacks
     public Transform startlocation;
     PhotonView photonview;
 
-
-
     void Start()
     {
         photonview = PhotonView.Get(this);
@@ -56,9 +54,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
 
     public override void OnLeftRoom()
     {
-        SceneManager.LoadScene("Square");  //2번 씬(로비) 로드
-        //PhotonNetwork.JoinLobby();
-        //PhotonNetwork.LoadLevel("Lobby");
+        SceneManager.LoadScene("RoomLobby");  //로비 로드
     }
 
     [PunRPC]
@@ -66,7 +62,6 @@ public class RoomManager : MonoBehaviourPunCallbacks
     public void LeaveRoom()
     {
         PhotonNetwork.LeaveRoom();
-        Debug.Log("나가기");
     }
 
     public void LeaveAll()
