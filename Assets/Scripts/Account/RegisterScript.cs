@@ -60,6 +60,7 @@ public class RegisterScript : MonoBehaviour
         form.AddField("id", RegisterInputField1.text);
         form.AddField("password", RegisterInputField3.text);
         form.AddField("email", RegisterInputField2.text);
+        form.AddField("item", "");
         UnityWebRequest www = UnityWebRequest.Post(url, form);
         yield return www.SendWebRequest();
         string result = UnityWebRequest.UnEscapeURL(www.downloadHandler.text);

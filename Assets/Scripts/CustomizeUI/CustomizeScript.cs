@@ -26,13 +26,16 @@ public class CustomizeScript : MonoBehaviour
     public List<custominfo> customlist, confirmlist;
     public String[] typename = { "Skin", "Eye", "Mouse", "Hair", "Top", "Bottom", "Shoes", "Accessory" };
     public GameObject tabtype, viewentity;
+    IEnumerator coroutine1, coroutine2;
     public bool done;
     void Start()
     {
         //가입 시 DB에 Ski1,Eye1,Mou1,Hai1,Top1,Bot1,Sho1,Acc1이 저장된다
         //로그인 때에 custominfo에 대한 list를 CustomJson.txt에 저장해둔다
         //CustomJson.txt를 불러와서 customlist에 추가한다
-        CustomCoroutine("startcustom");
+        coroutine1 = CustomCoroutine("startcustom");
+        coroutine2 = CustomCoroutine("confirmcustom");
+        StartCoroutine(coroutine1);
         //list를 참고하여 캐릭터를 그린다(다른 맵에서도 txt->list->draw)
     }
     IEnumerator CustomCoroutine(string command)
@@ -46,15 +49,16 @@ public class CustomizeScript : MonoBehaviour
         form.AddField("item", File.ReadAllText(Application.persistentDataPath + "/CustomJson.txt"));
         UnityWebRequest www = UnityWebRequest.Post(url, form);
         yield return www.SendWebRequest();
+        string result = www.downloadHandler.text;
+        done = true;
         if (command.Contains("startcustom"))
         {
-            done = true;
-            StartProcess(UnityWebRequest.UnEscapeURL(www.downloadHandler.text));
+            StartProcess(result);
+            StopCoroutine(coroutine1);
         }
         if (command.Contains("confirmcustom"))
         {
-            done = true;
-            ConfirmProcess();
+            StopCoroutine(coroutine2);
         }
     }
     public void StartProcess(string result)
@@ -162,8 +166,8 @@ public class CustomizeScript : MonoBehaviour
     {
         //확인되면 customlist의 내용을 CustomJson.txt에 저장한다
         //customlist의 내용을 가공해 DB에 저장한다
-        File.WriteAllText(Application.persistentDataPath + "/CustomJson.txt", JsonConvert.SerializeObject(customlist));
-        CustomCoroutine("confirmcustom");
+        ConfirmProcess();
+        StartCoroutine(coroutine2);
         //이전 화면으로 이동한다
     }
     public void CancelClicked()
