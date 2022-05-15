@@ -71,7 +71,7 @@ public class MessageRoom : MonoBehaviour
                 StartCoroutine(coroutine2);
                 StopCoroutine(coroutine1);
             }
-            yield return new WaitForSeconds(3.0f);
+            yield return new WaitForSeconds(2.0f);
         }
     }
     IEnumerator m2DbCheck()
@@ -107,7 +107,7 @@ public class MessageRoom : MonoBehaviour
                 m2ListPaint();
                 LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)ct.transform);
             }
-            yield return new WaitForSeconds(3.0f);
+            yield return new WaitForSeconds(2.0f);
         }
     }
     public void m2ListPaint()
