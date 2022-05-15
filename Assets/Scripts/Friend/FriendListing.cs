@@ -10,8 +10,6 @@ using UnityEngine.EventSystems;
 using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using Photon.Pun;
-using Photon.Realtime;
 using TMPro;
 [System.Serializable]
 public class Dbflist
@@ -22,12 +20,11 @@ public class Dbflist
     }
     public string id1, id2, buddy;
 }
-public class FriendListing : MonoBehaviourPunCallbacks
+public class FriendListing : MonoBehaviour
 {
     public Dictionary<string, GameObject> friendDict = new Dictionary<string, GameObject>();
-    public List<string> friendList = new List<string>();
     public List<Dbflist> dbflist = new List<Dbflist>();
-    IEnumerator coroutine1, coroutine2;
+    IEnumerator coroutine1;
     [SerializeField] GameObject friendUI;
     [SerializeField] GameObject friendPrefab;
     [SerializeField] Transform content;
@@ -36,21 +33,18 @@ public class FriendListing : MonoBehaviourPunCallbacks
     void Awake()
     {
         coroutine1 = dbFriendCheck();
-        coroutine2 = friendUpdate();
     }
     public void SetActiveFList()
     {
         if (friendUI.gameObject.activeSelf)
         {
             friendUI.gameObject.SetActive(false);
-            StopCoroutine(coroutine2);
             StopCoroutine(coroutine1);
         }
         else
         {
             friendUI.gameObject.SetActive(true);
             StartCoroutine(coroutine1);
-            StartCoroutine(coroutine2);
         }
     }
     IEnumerator dbFriendCheck()
@@ -67,7 +61,6 @@ public class FriendListing : MonoBehaviourPunCallbacks
             if (result != dbflist.Count.ToString())
             {
                 dbflist.Clear();
-                friendList.Clear();
                 WWWForm form1 = new WWWForm();
                 form1.AddField("command", "flistload");
                 form1.AddField("id1", File.ReadAllText(Application.persistentDataPath + "/Sync.txt"));
@@ -78,38 +71,26 @@ public class FriendListing : MonoBehaviourPunCallbacks
                 if (rdata != "[]")
                 {
                     dbflist = JsonConvert.DeserializeObject<List<Dbflist>>(rdata);
-                    for (int i = 0; i < dbflist.Count; i++)
-                    {
-                        friendList.Add(dbflist[i].id2);
-                    }
                 }
+                dbflistPaint();
             }
-            yield return new WaitForSeconds(1.0f);
+            yield return new WaitForSeconds(2.0f);
         }
     }
-    IEnumerator friendUpdate()
+    public void dbflistPaint()
     {
-        while (true)
+        for (int i = 0; i < dbflist.Count; i++)
         {
-            if (friendList.Count != 0)
-                PhotonNetwork.FindFriends(friendList.ToArray());
-            yield return new WaitForSeconds(1.0f);
-        }
-    }
-    public override void OnFriendListUpdate(List<FriendInfo> friendList)
-    {
-        foreach (var friend in friendList)
-        {
-            if (!friendDict.ContainsKey(friend.UserId))
+            if (!friendDict.ContainsKey(dbflist[i].id2))
             {
                 GameObject _friend = Instantiate(friendPrefab, content);
-                _friend.GetComponent<FriendData>().showFriend(friend.UserId, friend.IsOnline, friend.Room);
-                friendDict.Add(friend.UserId, _friend);
+                _friend.GetComponent<FriendData>().showFriend(dbflist[i].id2);
+                friendDict.Add(dbflist[i].id2, _friend);
             }
             else
             {
-                GameObject tempFriend = friendDict[friend.UserId];
-                tempFriend.GetComponent<FriendData>().showFriend(friend.UserId, friend.IsOnline, friend.Room);
+                GameObject tempFriend = friendDict[dbflist[i].id2];
+                tempFriend.GetComponent<FriendData>().showFriend(dbflist[i].id2);
             }
         }
     }

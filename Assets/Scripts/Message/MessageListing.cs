@@ -68,7 +68,7 @@ public class MessageListing : MonoBehaviour
                 StopCoroutine(coroutine2);
                 StopCoroutine(coroutine1);
             }
-            yield return new WaitForSeconds(3.0f);
+            yield return new WaitForSeconds(2.0f);
         }
     }
     IEnumerator m1DbCheck()
@@ -99,7 +99,7 @@ public class MessageListing : MonoBehaviour
                 }
                 m1ListPaint();
             }
-            yield return new WaitForSeconds(3.0f);
+            yield return new WaitForSeconds(2.0f);
         }
     }
     public void m1ListPaint()

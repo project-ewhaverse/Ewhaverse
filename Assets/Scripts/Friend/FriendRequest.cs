@@ -66,7 +66,7 @@ public class FriendRequest : MonoBehaviour
             {
                 StartCoroutine(requestUpdate());
             }
-            yield return new WaitForSeconds(1.0f);
+            yield return new WaitForSeconds(2.0f);
         }
     }
     IEnumerator requestUpdate()
