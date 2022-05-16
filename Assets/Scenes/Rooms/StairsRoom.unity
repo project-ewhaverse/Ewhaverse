@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4860,7 +4860,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d64c28fed6d47a4a93791959a5e15f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  friendList: []
   dbflist: []
   friendUI: {fileID: 1480405560}
   friendPrefab: {fileID: 2297641200010258977, guid: f483e4178d1a39444acc2cea456656bc, type: 3}
@@ -7538,6 +7537,10 @@ PrefabInstance:
       propertyPath: DeleteRoom
       value: 
       objectReference: {fileID: 1104682497}
+    - target: {fileID: 2029145674703868215, guid: e3e3e8c5e47e42049853ab0f7aa11278, type: 3}
+      propertyPath: maincamera
+      value: 
+      objectReference: {fileID: 1090757475}
     - target: {fileID: 2029145674703868215, guid: e3e3e8c5e47e42049853ab0f7aa11278, type: 3}
       propertyPath: startlocation
       value: 

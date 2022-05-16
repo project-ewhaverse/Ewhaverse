@@ -14,13 +14,13 @@ public class RoomListing : MonoBehaviourPunCallbacks
     private Dictionary<string, GameObject> roomDict = new Dictionary<string, GameObject>();
 
     //룸 표시 프리팹 & 프리팹이 차일드화시킬 부모 객체
-    [SerializeField]    private GameObject LoomListView;
     [SerializeField]    private GameObject roomPrefab;
     [SerializeField]    private Transform scrollContent;
 
     //룸 생성 설정
     public TMP_InputField roomname_text;
     public ToggleGroup room_theme;
+    public TMP_InputField max_player;
     private string theme_scene;
 
     //룸 테마 선택
@@ -51,6 +51,14 @@ public class RoomListing : MonoBehaviourPunCallbacks
             //랜덤 이름 부여
             roomname_text.text = $"ROOM_{Random.Range(1, 100):000}";
         }
+        //최대 인원
+        if(string.IsNullOrEmpty(max_player.text))
+        {
+            int i = 0;
+            string num = max_player.text;
+            if (int.TryParse(num, out i))
+                ro.MaxPlayers = (byte)(int.Parse(num));
+        }
 
         PhotonNetwork.CreateRoom(roomname_text.text, ro);
     }
@@ -67,18 +75,7 @@ public class RoomListing : MonoBehaviourPunCallbacks
 
     /*룸 목록이 업데이트될 때 호출*/
     public override void OnRoomListUpdate(List<RoomInfo> roomList)
-    {
-        bool check = true;
-
-        if (LoomListView.gameObject.activeSelf)
-            check = false;
-
-        if(check)
-        {
-            LoomListView.gameObject.SetActive(true);
-        }
-            
-        
+    {           
         GameObject tempRoom = null;
         foreach (var room in roomList)
         {
@@ -106,11 +103,6 @@ public class RoomListing : MonoBehaviourPunCallbacks
                     tempRoom.GetComponent<RoomData>().RoomInfo = room;
                 }
             }
-        }
-
-        if(check)
-        {
-            LoomListView.gameObject.SetActive(false);
         }
     }
 }
