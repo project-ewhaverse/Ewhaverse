@@ -3,15 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
-using UnityEngine.UI;
 using TMPro;
 
 
-public class RoomData : MonoBehaviour
+public class RoomData : MonoBehaviourPunCallbacks
 {
     private TMP_Text RoomInfoText;
     private RoomInfo _roomInfo;
-
 
     public RoomInfo RoomInfo
     {
@@ -36,11 +34,11 @@ public class RoomData : MonoBehaviour
     
     void OnEnterRoom(string roomName)
     {
-        RoomOptions room = new RoomOptions();
-        room.IsOpen = true;
-        room.IsVisible = true;
-        room.MaxPlayers = 10;
+        PhotonNetwork.JoinRoom(roomName);
+    }
 
-        PhotonNetwork.JoinOrCreateRoom(roomName, room, TypedLobby.Default);
+    public override void OnJoinRoomFailed(short returnCode, string message)
+    {
+        GameObject.Find("FailJoiningRoom").gameObject.SetActive(true);
     }
 }

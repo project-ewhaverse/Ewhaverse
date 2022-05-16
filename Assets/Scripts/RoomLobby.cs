@@ -6,13 +6,6 @@ using Photon.Pun;
 
 public class RoomLobby : MonoBehaviourPunCallbacks
 {
-    PlayerControl player;
-
-    void Start()
-    {
-
-    }
-
     public override void OnConnectedToMaster()
     {
         PhotonNetwork.JoinLobby();
@@ -22,6 +15,5 @@ public class RoomLobby : MonoBehaviourPunCallbacks
     public void BackToSquare()
     {
         PhotonNetwork.LoadLevel("Square");
-        PhotonNetwork.JoinLobby();
     }
 }
