@@ -20,6 +20,11 @@ public class RegisterScript : MonoBehaviour
     [SerializeField] string url;
     [SerializeField] string urla;
     [SerializeField] string authstr;
+
+    [SerializeField] GameObject register;
+    [SerializeField] GameObject registered;
+    [SerializeField] string userID;
+
     public void RegisterButtonaClick()
     {
         string addr = RegisterInputField2.text.ToString();
