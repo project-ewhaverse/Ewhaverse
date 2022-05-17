@@ -632,7 +632,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 20.25}
+  m_AnchoredPosition: {x: 0, y: -0.125}
   m_SizeDelta: {x: 305, y: 46}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &346246762
@@ -775,7 +775,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 120.25}
+  m_AnchoredPosition: {x: 0, y: 99.875}
   m_SizeDelta: {x: 305, y: 46}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &362656885
@@ -917,8 +917,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -125, y: -334}
-  m_SizeDelta: {x: 290, y: 80}
+  m_AnchoredPosition: {x: -145, y: -354.375}
+  m_SizeDelta: {x: 300, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &374773864
 MonoBehaviour:
@@ -945,7 +945,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 0.65, g: 0.65, b: 0.65, a: 1}
     m_PressedColor: {r: 0.6509804, g: 0.6509804, b: 0.6509804, a: 1}
     m_SelectedColor: {r: 0.75294125, g: 0.75294125, b: 0.75294125, a: 1}
-    m_DisabledColor: {r: 0, g: 0, b: 0, a: 0.5019608}
+    m_DisabledColor: {r: 0.78, g: 0.78, b: 0.78, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -1127,7 +1127,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 47.5, y: -262}
+  m_AnchoredPosition: {x: 47.5, y: -282.375}
   m_SizeDelta: {x: 400, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &477429092
@@ -1285,7 +1285,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -4.0510254, y: 57.024536}
+  m_AnchoredPosition: {x: 0, y: 56}
   m_SizeDelta: {x: 233.3562, y: 62.2871}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &696712629
@@ -1308,7 +1308,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uB098\uC758 \uC791\uC740 \uCEA0\uD37C\uC2A4"
+  m_text: "\uB098\uC758 \uB610 \uB2E4\uB978 \uCEA0\uD37C\uC2A4"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8e055e19e983b4747a4179e7f0556adb, type: 2}
   m_sharedMaterial: {fileID: 4423616623782615764, guid: 8e055e19e983b4747a4179e7f0556adb, type: 2}
@@ -1617,9 +1617,6 @@ MonoBehaviour:
   url: https://h73wm835d1.execute-api.ap-northeast-2.amazonaws.com/default/ewhaverse-ld2
   urla: https://725dh403n6.execute-api.ap-northeast-2.amazonaws.com/default/ewhaverse-lda
   authstr: 
-  register: {fileID: 0}
-  registered: {fileID: 0}
-  userID: 
 --- !u!1 &743211082
 GameObject:
   m_ObjectHideFlags: 0
@@ -1656,8 +1653,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 6.0255127, y: 277.14258}
-  m_SizeDelta: {x: 359.38, y: 92.9065}
+  m_AnchoredPosition: {x: 0, y: 249}
+  m_SizeDelta: {x: 464.8801, y: 116.2234}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &743211084
 MonoBehaviour:
@@ -1990,7 +1987,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -211.75}
+  m_AnchoredPosition: {x: 0, y: -232.125}
   m_SizeDelta: {x: 305, y: 46}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1006418580
@@ -2106,7 +2103,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1232085303}
   - component: {fileID: 1232085302}
-  - component: {fileID: 1232085301}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2114,14 +2110,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &1232085301
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1232085300}
-  m_Enabled: 1
 --- !u!20 &1232085302
 Camera:
   m_ObjectHideFlags: 0
@@ -2566,8 +2554,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 142.93294, y: -334}
-  m_SizeDelta: {x: 290, y: 80}
+  m_AnchoredPosition: {x: 145, y: -354.375}
+  m_SizeDelta: {x: 300, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1537228247
 MonoBehaviour:
@@ -2594,7 +2582,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 0.0035042488, g: 0.82, b: 0.66931623, a: 1}
     m_PressedColor: {r: 0.0035042488, g: 0.82, b: 0.66931623, a: 1}
     m_SelectedColor: {r: 0.003921569, g: 0.9176471, b: 0.7490196, a: 1}
-    m_DisabledColor: {r: 0, g: 0, b: 0, a: 0.5019608}
+    m_DisabledColor: {r: 0.78, g: 0.78, b: 0.78, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -2855,7 +2843,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -111.75}
+  m_AnchoredPosition: {x: 0, y: -132.125}
   m_SizeDelta: {x: 305, y: 46}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1806009772
@@ -2995,7 +2983,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -4.0510254, y: -55.14258}
+  m_AnchoredPosition: {x: 0, y: -54}
   m_SizeDelta: {x: 233.3562, y: 62.2871}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2053479553
@@ -3131,7 +3119,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 231.85, y: -114.33631}
+  m_AnchoredPosition: {x: 232, y: -134.7113}
   m_SizeDelta: {x: 158.7, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2071619379
@@ -3159,7 +3147,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 0.003921569, g: 0.91764706, b: 0.7490196, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.26666668, g: 0.26666668, b: 0.26666668, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:

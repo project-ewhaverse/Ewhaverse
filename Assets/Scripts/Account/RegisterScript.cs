@@ -21,9 +21,6 @@ public class RegisterScript : MonoBehaviour
     [SerializeField] string urla;
     [SerializeField] string authstr;
 
-    [SerializeField] GameObject register;
-    [SerializeField] GameObject registered;
-    [SerializeField] string userID;
 
     public void RegisterButtonaClick()
     {

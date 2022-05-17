@@ -74,7 +74,7 @@ public class ChatTest : MonoBehaviour, IChatClientListener
 
 	public void OnSubscribed(string[] channels, bool[] results)
 	{
-		AddLine(string.Format("채널 입장 ({0})", string.Join(",", channels)));
+		AddLine(string.Format("<color=#FFE9C7>채널 입장 ({0})</color>", string.Join(",", channels)));
 	}
 
 	public void OnUnsubscribed(string[] channels)

@@ -8,10 +8,6 @@ public class RoomLobby : MonoBehaviourPunCallbacks
 {
     PlayerControl player;
 
-    void Start()
-    {
-
-    }
 
     public override void OnConnectedToMaster()
     {
