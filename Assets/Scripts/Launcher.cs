@@ -11,6 +11,7 @@ public class Launcher : MonoBehaviourPunCallbacks
 
     public GameObject player_prefab;    //플레이어 프리팹
     public GameObject maincamera;       //메인 카메라
+    public PlayerInfo playerinfo;
 
     private bool isinsquare;    //광장 위치 여부
 
@@ -88,10 +89,10 @@ public class Launcher : MonoBehaviourPunCallbacks
             Player.transform.Find("Camera").Find("MainCamera").gameObject.SetActive(true);
             maincamera.gameObject.SetActive(false);
 
-            PlayerInfo.inlobby = true;      
+            //Playerinfo.inlobby = true;      
             PlayerInfo.FindPlayerObject();
-            Debug.Log(PlayerInfo.inlobby);
-            PlayerInfo.UpdateSquarePos();
+            //PlayerInfo.UpdateSquarePos();
+            playerinfo.Avatar();
         }
     }
 

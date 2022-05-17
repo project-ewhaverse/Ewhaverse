@@ -21,6 +21,18 @@ public class PlayerInfo : MonoBehaviourPunCallbacks
 
     private static float rot;
 
+    //아바타 정보
+    static int front;
+    static int back;
+    private static MeshFilter mesh_hair_front;
+    private static SkinnedMeshRenderer mesh_hair_back;
+
+    [Header("Avatar")]
+    [SerializeField] private Mesh[] hair_front;
+    [SerializeField] private Mesh[] hair_back;
+    //[SerializeField] private Mesh[] hairs;
+    //[SerializeField] private Mesh[] hairs;
+    //[SerializeField] private Mesh[] hairs;
 
     /*싱글턴 사용*/
     private void Awake()
@@ -42,8 +54,12 @@ public class PlayerInfo : MonoBehaviourPunCallbacks
         pos_y = 2f;
         pos_z = 0f;
         rot = 0f;
+
+        front = Random.Range(0, hair_front.Length);
+        back = Random.Range(0, hair_back.Length);
     }
 
+    /*
     // Update is called once per frame
     void Update()
     {
@@ -71,11 +87,14 @@ public class PlayerInfo : MonoBehaviourPunCallbacks
             }
         }
     }
+    */
 
     public static void FindPlayerObject()
     {
         my_player = GameObject.Find(PhotonNetwork.AuthValues.UserId).gameObject;
-        child = my_player.transform.Find("avatar_eyefin").gameObject;
+        child = my_player.transform.Find("avatar").gameObject;
+        mesh_hair_front = child.transform.Find("hair-front01").gameObject.GetComponent<MeshFilter>();
+        mesh_hair_back = child.transform.Find("hair-back01").gameObject.GetComponent<SkinnedMeshRenderer>();
     }
 
     public static void UpdateSquarePos()
@@ -89,5 +108,11 @@ public class PlayerInfo : MonoBehaviourPunCallbacks
             Debug.LogFormat("{0}, {1}, {2}", pos_x, pos_y, pos_z);
             inlobby = false;
         }
+    }
+
+    public void Avatar()
+    {
+        mesh_hair_front.mesh = hair_front[front];
+        mesh_hair_back.sharedMesh = hair_back[back];
     }
 }
