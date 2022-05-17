@@ -4,29 +4,22 @@ using System.IO;
 using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
-using UnityEngine.UI;
-
-using TMPro;
 
 public class Launcher : MonoBehaviourPunCallbacks
 {
     string gameVersion = "1";   //버전
 
-    public GameObject player_prefab;
-    public GameObject maincamera;
+    public GameObject player_prefab;    //플레이어 프리팹
+    public GameObject maincamera;       //메인 카메라
 
-    private bool isinsquare;
+    private bool isinsquare;    //광장 위치 여부
 
     void Awake()
     {
-        isinsquare = true;
-
-        //방장이 씬을 로딩하면, 나머지 사람들도 자동 싱크
-        PhotonNetwork.AutomaticallySyncScene = true;
-
-        //게임 버전
         PhotonNetwork.GameVersion = gameVersion;
+        PhotonNetwork.AutomaticallySyncScene = true;    //방장이 씬을 로딩하면, 나머지 사람들도 자동 싱크
 
+        isinsquare = true;  //첫 연결은 광장으로 연결해야하므로 true로 초기화
 
         //userID, 닉네임 설정
         if (!PhotonNetwork.IsConnected)
@@ -43,14 +36,12 @@ public class Launcher : MonoBehaviourPunCallbacks
     //마스터 서버 연결 성공시 자동 실행
     public override void OnConnectedToMaster()
     {
-        Debug.Log("서버 연결 성공!");
         PhotonNetwork.JoinLobby();
     }
 
     //마스터 서버 연결 실패시 자동 실행
     public override void OnDisconnected(DisconnectCause cause)
     {
-        Debug.Log("연결 중...");
         PhotonNetwork.ConnectUsingSettings();
     }
 
@@ -72,8 +63,6 @@ public class Launcher : MonoBehaviourPunCallbacks
 
     public override void OnJoinedLobby()
     {
-        Debug.Log("로비 입장");
-
         if (isinsquare)
             EnterSqaure();
     }
@@ -99,7 +88,7 @@ public class Launcher : MonoBehaviourPunCallbacks
             Player.transform.Find("Camera").Find("MainCamera").gameObject.SetActive(true);
             maincamera.gameObject.SetActive(false);
 
-            PlayerInfo.inlobby = true;
+            PlayerInfo.inlobby = true;      
             PlayerInfo.FindPlayerObject();
             Debug.Log(PlayerInfo.inlobby);
             PlayerInfo.UpdateSquarePos();
@@ -118,10 +107,5 @@ public class Launcher : MonoBehaviourPunCallbacks
     {
         PhotonNetwork.LoadLevel("RoomLobby");
         maincamera.gameObject.SetActive(true);
-    }
-
-    public void CreateRoom()
-    {
-        GameObject.Find("RoomListing").GetComponent<RoomListing>().CreateRoom();
     }
 }
