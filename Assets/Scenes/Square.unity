@@ -1994,6 +1994,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player_prefab: {fileID: 5272581566704171222, guid: 054a995b60f42d5499d09231cc338015, type: 3}
   maincamera: {fileID: 1426049718}
+  playerinfo: {fileID: 1011184960}
 --- !u!4 &806046560
 Transform:
   m_ObjectHideFlags: 0
@@ -3598,6 +3599,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e6c409578ef146498b4ba55f913f9db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hair_front:
+  - {fileID: -1456810324901106698, guid: b6b70b4371ab57b42a9996f5a3f29761, type: 3}
+  - {fileID: -5370015837428439248, guid: b6b70b4371ab57b42a9996f5a3f29761, type: 3}
+  - {fileID: 7383941233300807500, guid: b6b70b4371ab57b42a9996f5a3f29761, type: 3}
+  - {fileID: 86746888118307657, guid: b6b70b4371ab57b42a9996f5a3f29761, type: 3}
+  - {fileID: -6840933296197861588, guid: b6b70b4371ab57b42a9996f5a3f29761, type: 3}
+  hair_back:
+  - {fileID: 4128304943839600394, guid: b6b70b4371ab57b42a9996f5a3f29761, type: 3}
+  - {fileID: -1612783185833954111, guid: b6b70b4371ab57b42a9996f5a3f29761, type: 3}
+  - {fileID: 539123638616415928, guid: b6b70b4371ab57b42a9996f5a3f29761, type: 3}
+  - {fileID: -3440197697019517325, guid: b6b70b4371ab57b42a9996f5a3f29761, type: 3}
+  - {fileID: 8496843497225149100, guid: b6b70b4371ab57b42a9996f5a3f29761, type: 3}
 --- !u!1 &1027555419
 GameObject:
   m_ObjectHideFlags: 0
