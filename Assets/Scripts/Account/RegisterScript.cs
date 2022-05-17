@@ -20,6 +20,8 @@ public class RegisterScript : MonoBehaviour
     [SerializeField] string url;
     [SerializeField] string urla;
     [SerializeField] string authstr;
+
+
     public void RegisterButtonaClick()
     {
         string addr = RegisterInputField2.text.ToString();

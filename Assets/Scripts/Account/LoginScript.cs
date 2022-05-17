@@ -15,6 +15,7 @@ public class LoginScript : MonoBehaviour
     [SerializeField] InputField LoginInputField1;
     [SerializeField] InputField LoginInputField2;
     [SerializeField] string url;
+    [SerializeField] GameObject InfoText;
     public void LoginButton1Click() => StartCoroutine(LoginCoroutine("login"));
     public void LoginButton2Click() => SceneManager.LoadScene("RegisterScene");
     IEnumerator LoginCoroutine(string command)
@@ -32,6 +33,13 @@ public class LoginScript : MonoBehaviour
         if(!result.Contains("login failure"))
         {
             StartCoroutine(CInfoCoroutine("startcustom"));
+            
+        }
+		else
+		{
+            InfoText.SetActive(true);
+            LoginInputField2.text = "";
+
         }
     }
     IEnumerator CInfoCoroutine(string command)
