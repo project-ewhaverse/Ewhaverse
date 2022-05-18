@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.11452145, g: 0.33017218, b: 0.71408266, a: 1}
+  m_IndirectSpecularColor: {r: 0.11446454, g: 0.3301497, b: 0.7137864, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3861,7 +3861,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player_prefab: {fileID: 5272581566704171222, guid: 054a995b60f42d5499d09231cc338015, type: 3}
   maincamera: {fileID: 1426049718}
-  playerinfo: {fileID: 0}
+  playerinfo: {fileID: 1011184960}
 --- !u!4 &806046560
 Transform:
   m_ObjectHideFlags: 0
@@ -5877,8 +5877,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e6c409578ef146498b4ba55f913f9db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hair_front: []
-  hair_back: []
 --- !u!1 &1027555419
 GameObject:
   m_ObjectHideFlags: 0
