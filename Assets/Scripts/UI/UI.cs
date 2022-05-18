@@ -53,7 +53,7 @@ public class UI : MonoBehaviour
             case "VoiceChat":
                 if (this.recorder)
                 {
-                    this.recorder.TransmitEnabled = !toggle.isOn;
+                    this.recorder.TransmitEnabled = toggle.isOn;
                 }
                 break;
         }
