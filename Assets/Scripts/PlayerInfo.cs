@@ -10,29 +10,20 @@ public class PlayerInfo : MonoBehaviourPunCallbacks
 {
     public static PlayerInfo info;
 
-    static GameObject my_player;   //내 플레이어
-    static GameObject child;
+    GameObject my_player;   //내 플레이어
+    GameObject child;
 
-    public static bool inlobby;   //로비
+    bool inlobby;   //로비
 
-    private static float pos_x;    //transform.poition
-    private static float pos_y;
-    private static float pos_z;
+    private float pos_x;    //transform.poition
+    private float pos_y;
+    private float pos_z;
 
-    private static float rot;
+    private float rot;
 
     //아바타 정보
-    static int front;
-    static int back;
-    private static MeshFilter mesh_hair_front;
-    private static SkinnedMeshRenderer mesh_hair_back;
-
-    [Header("Avatar")]
-    [SerializeField] private Mesh[] hair_front;
-    [SerializeField] private Mesh[] hair_back;
-    //[SerializeField] private Mesh[] hairs;
-    //[SerializeField] private Mesh[] hairs;
-    //[SerializeField] private Mesh[] hairs;
+    int front;
+    int back;
 
     /*싱글턴 사용*/
     private void Awake()
@@ -55,8 +46,8 @@ public class PlayerInfo : MonoBehaviourPunCallbacks
         pos_z = 0f;
         rot = 0f;
 
-        front = Random.Range(0, hair_front.Length);
-        back = Random.Range(0, hair_back.Length);
+        front = Random.Range(0, 5);
+        back = Random.Range(0, 5);
     }
 
     /*
@@ -89,19 +80,19 @@ public class PlayerInfo : MonoBehaviourPunCallbacks
     }
     */
 
-    public static void FindPlayerObject()
+    public void FindPlayerObject()
     {
         my_player = GameObject.Find(PhotonNetwork.AuthValues.UserId).gameObject;
         child = my_player.transform.Find("avatar").gameObject;
-        mesh_hair_front = child.transform.Find("hair-front01").gameObject.GetComponent<MeshFilter>();
-        mesh_hair_back = child.transform.Find("hair-back01").gameObject.GetComponent<SkinnedMeshRenderer>();
+        
+        //pv = my_player.GetPhotonView();
     }
 
-    public static void UpdateSquarePos()
+    public void UpdateSquarePos()
     {
         //대광장 >> 로비 >> 대광장
         if(inlobby && PhotonNetwork.CurrentRoom.Name == "Square")
-        {
+        {        
             Debug.Log("대광장 >> 로비 >> 대광장");
             my_player.transform.position = new Vector3(pos_x, pos_y, pos_z);
             child.transform.rotation = Quaternion.Euler(0, rot, 0);
@@ -110,9 +101,8 @@ public class PlayerInfo : MonoBehaviourPunCallbacks
         }
     }
 
-    public void Avatar()
+    public (int, int) Get()
     {
-        mesh_hair_front.mesh = hair_front[front];
-        mesh_hair_back.sharedMesh = hair_back[back];
+        return (front, back);
     }
 }

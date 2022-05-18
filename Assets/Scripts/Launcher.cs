@@ -90,9 +90,9 @@ public class Launcher : MonoBehaviourPunCallbacks
             maincamera.gameObject.SetActive(false);
 
             //Playerinfo.inlobby = true;      
-            PlayerInfo.FindPlayerObject();
+            //playerinfo.FindPlayerObject();
             //PlayerInfo.UpdateSquarePos();
-            playerinfo.Avatar();
+
         }
     }
 
