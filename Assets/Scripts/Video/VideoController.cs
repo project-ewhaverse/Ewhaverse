@@ -8,8 +8,8 @@ using System;
 public class VideoController : MonoBehaviour
 {
     VideoPlayer videoPlayer;
-    static string time = "20:10";
-    static double runningTime = 10;
+    static string time = "13:00";
+    static double runningTime = 60;
 
     DateTime comp = Convert.ToDateTime(time);
     double diffsec;
