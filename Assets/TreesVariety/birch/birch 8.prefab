@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 198692}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.1009474, y: 0.5478842, z: 0.7176089}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.029415, y: 0.029415, z: 0.029415}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -65,6 +65,8 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -77,6 +79,7 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -89,6 +92,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!136 &136382903427678216
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -123,15 +127,15 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BumpSpecMap:
-        m_Texture: {fileID: 2800000, guid: 2cacbc58378564248935e5b6ea2dfa1a, type: 3}
+        m_Texture: {fileID: 2800000, guid: e8d5f77c5cefb224e84fef1c919640af, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 5e9f8f22b920ae84c87f587d806f54af, type: 3}
+        m_Texture: {fileID: 2800000, guid: 813c7524eb096e24b8f0e5683b8c5122, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _TranslucencyMap:
-        m_Texture: {fileID: 2800000, guid: ab98522a96a7a0f4f935105e2e140081, type: 3}
+        m_Texture: {fileID: 2800000, guid: 0066c7b9c17612143a7e75bbd7c1b623, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
@@ -142,6 +146,7 @@ Material:
     - _SpecColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _TreeInstanceColor: {r: 1, g: 1, b: 1, a: 1}
     - _TreeInstanceScale: {r: 1, g: 1, b: 1, a: 1}
+  m_BuildTextureStacks: []
 --- !u!21 &2148228
 Material:
   serializedVersion: 6
@@ -162,19 +167,19 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BumpSpecMap:
-        m_Texture: {fileID: 2800000, guid: 2cacbc58378564248935e5b6ea2dfa1a, type: 3}
+        m_Texture: {fileID: 2800000, guid: e8d5f77c5cefb224e84fef1c919640af, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 5e9f8f22b920ae84c87f587d806f54af, type: 3}
+        m_Texture: {fileID: 2800000, guid: 813c7524eb096e24b8f0e5683b8c5122, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ShadowTex:
-        m_Texture: {fileID: 2800000, guid: 9d124d88d6441cf48ada19c7a6ba3151, type: 3}
+        m_Texture: {fileID: 2800000, guid: 58a42ab23e90b4043986700d93110881, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _TranslucencyMap:
-        m_Texture: {fileID: 2800000, guid: ab98522a96a7a0f4f935105e2e140081, type: 3}
+        m_Texture: {fileID: 2800000, guid: 0066c7b9c17612143a7e75bbd7c1b623, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
@@ -188,6 +193,7 @@ Material:
     - _TranslucencyColor: {r: 0.73, g: 0.85, b: 0.41, a: 1}
     - _TreeInstanceColor: {r: 1, g: 1, b: 1, a: 1}
     - _TreeInstanceScale: {r: 1, g: 1, b: 1, a: 1}
+  m_BuildTextureStacks: []
 --- !u!43 &4319730
 Mesh:
   m_ObjectHideFlags: 0
@@ -358,6 +364,7 @@ Mesh:
   m_MeshMetrics[1]: 1
   m_MeshOptimizationFlags: 1
   m_StreamData:
+    serializedVersion: 2
     offset: 0
     size: 0
     path: 
@@ -374,7 +381,7 @@ MonoBehaviour:
   m_Name: Tree Data
   m_EditorClassIdentifier: 
   _uniqueID: 7215
-  materialHash: 57c2de1dac4920fbb7305652f8adec0f45449216
+  materialHash: e56ff1a1b03d4e093305fd8d5dc1b01245449216
   root:
     _uniqueID: 1
     seed: 154295
