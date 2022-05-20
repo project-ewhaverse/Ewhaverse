@@ -832,9 +832,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: avatar
       objectReference: {fileID: 0}
+    - target: {fileID: 1685386132549209374, guid: 9ea6457a265e0d2469bf8b14dffb8d87, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3411655677590384476, guid: 9ea6457a265e0d2469bf8b14dffb8d87, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219046055224970010, guid: 9ea6457a265e0d2469bf8b14dffb8d87, type: 3}
+      propertyPath: m_Mesh
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: 9ea6457a265e0d2469bf8b14dffb8d87, type: 3}
       propertyPath: m_Avatar
