@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using System;
+using System.IO;
 using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
 
-/*내 정보를 저장하는 클래스 
- */
+/*내 정보를 저장하는 클래스*/
 public class PlayerInfo : MonoBehaviourPunCallbacks
 {
     public static PlayerInfo info;
@@ -22,8 +23,11 @@ public class PlayerInfo : MonoBehaviourPunCallbacks
     private float rot;
 
     //아바타 정보
-    int front;
-    int back;
+    AvatarInfo avatarinfo = new AvatarInfo();
+
+
+    int front;  //delete
+    int back;   //delete
 
     /*싱글턴 사용*/
     private void Awake()
@@ -46,8 +50,9 @@ public class PlayerInfo : MonoBehaviourPunCallbacks
         pos_z = 0f;
         rot = 0f;
 
-        front = Random.Range(0, 5);
-        back = Random.Range(0, 5);
+        ReadAvatarInfo();
+        //front = Random.Range(0, 5);   //delete
+        //back = Random.Range(0, 5);    //delete
     }
 
     /*
@@ -84,8 +89,6 @@ public class PlayerInfo : MonoBehaviourPunCallbacks
     {
         my_player = GameObject.Find(PhotonNetwork.AuthValues.UserId).gameObject;
         child = my_player.transform.Find("avatar").gameObject;
-        
-        //pv = my_player.GetPhotonView();
     }
 
     public void UpdateSquarePos()
@@ -101,8 +104,44 @@ public class PlayerInfo : MonoBehaviourPunCallbacks
         }
     }
 
-    public (int, int) Get()
+    public (int, int) Get() //delete
     {
         return (front, back);
+    }
+
+    public void ReadAvatarInfo()
+    {
+        string result = File.ReadAllText(Application.persistentDataPath + "/CustomJson.txt");
+        string[] info = result.Split(new string[] { "," }, StringSplitOptions.None);
+        
+        //피부색
+        String[] skincolor = info[0].Split(new string[] { "/" }, StringSplitOptions.None);
+        avatarinfo.skin.r = float.Parse(skincolor[0]);
+        avatarinfo.skin.g = float.Parse(skincolor[1]);
+        avatarinfo.skin.b = float.Parse(skincolor[2]);
+        
+        //눈
+        String[] eyecolor = info[2].Split(new string[] { "/" }, StringSplitOptions.None);
+        avatarinfo.eye.type = int.Parse(info[1].Replace("Eye", ""));
+        avatarinfo.eye.r = float.Parse(eyecolor[0]);
+        avatarinfo.eye.g = float.Parse(eyecolor[1]);
+        avatarinfo.eye.b = float.Parse(eyecolor[2]);
+        
+        //입
+        avatarinfo.mouse.type = int.Parse(info[3].Replace("Mou", ""));
+
+        //머리
+        avatarinfo.hair.front_type = int.Parse(info[4].Replace("HaF", ""));
+        avatarinfo.hair.back_type = int.Parse(info[4].Replace("HaB", ""));  
+        String[] haircolor = info[4].Split(new string[] { "/" }, StringSplitOptions.None);
+        avatarinfo.hair.r = float.Parse(haircolor[0]);
+        avatarinfo.hair.g = float.Parse(haircolor[1]);
+        avatarinfo.hair.b = float.Parse(haircolor[2]);
+        
+        //옷
+        avatarinfo.cloth.top = int.Parse(info[6].Replace("Top", ""));
+        avatarinfo.cloth.bottom = int.Parse(info[7].Replace("Bot", ""));
+        avatarinfo.cloth.shoes = int.Parse(info[8].Replace("Sho", ""));
+        avatarinfo.cloth.acc = int.Parse(info[6].Replace("Ace", ""));
     }
 }
