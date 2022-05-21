@@ -1,10 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Photon.Pun;
 
-public class PlayerControl : MonoBehaviourPun
-{
+public class PlayerControlTest : MonoBehaviour
+{ 
     bool isWalking = false;
     bool isJumping = false;
     Vector3 velocity;
@@ -18,12 +17,13 @@ public class PlayerControl : MonoBehaviourPun
 
     [Header("Player")]
     [SerializeField] private Transform player;
-    [SerializeField] private float speed = 4f;
     [SerializeField] private float walkspeed = 4f;
     [SerializeField] private float runspeed = 8f;
-    [SerializeField] private float rotationSpeed = 10f;
+    [SerializeField] private float speed = 4f;
+    [SerializeField] private float rotationSpeed = 30f;
     [SerializeField] CharacterController controller;
     [SerializeField] Animator animator;
+    [SerializeField] private bool isRunning = false;
 
     [Header("Camera")]
     [SerializeField] private new Transform camera;
@@ -32,31 +32,17 @@ public class PlayerControl : MonoBehaviourPun
 
     [Header("Jump Settings")]
     [SerializeField] float Gravity = 9.81f;
-    [SerializeField] float jumpHeight = 3f;
-    [SerializeField] float jumpForwardAppliedForce = 1f;
-    [SerializeField] float airControl = .5f;
-    [SerializeField] bool isRunning = false;
+    [SerializeField] float jumpHeight = 1f;
+    [SerializeField] float jumpForwardAppliedForce = .5f;
+    [SerializeField] float airControl = .8f;
 
 
     [Header("Player Name")]
     [SerializeField] private TextMesh player_name;
 
-    private void Awake()
-    {
-        if(photonView!=null)
-            this.gameObject.name = photonView.Owner.NickName;
-    }
-
-    void Start()
-    {
-        if (photonView!=null && !photonView.IsMine)
-            this.enabled = false;
-
-        player_name.text = photonView.Owner.NickName;
-    }
 
     void FixedUpdate()
-    {
+	{
         if (Input.GetKeyDown(KeyCode.Return)) { chatenter = !chatenter; }
         CameraLookAt();
 
@@ -136,7 +122,7 @@ public class PlayerControl : MonoBehaviourPun
                     isWalking = true;
                     animator.SetBool("isWalking", true);
                 }
-
+                
             }
             else
             {
@@ -180,5 +166,6 @@ public class PlayerControl : MonoBehaviourPun
             velocity.y = Mathf.Sqrt(2 * Gravity * jumpHeight);
         }
     }
+
 
 }
