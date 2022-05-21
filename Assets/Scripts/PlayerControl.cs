@@ -11,12 +11,16 @@ public class PlayerControl : MonoBehaviourPun
     float hAxis;
     float vAxis;
     Vector3 moveVec;
+    Vector3 forward;
+    Vector3 right;
 
     private bool chatenter = false;
 
     [Header("Player")]
     [SerializeField] private Transform player;
     [SerializeField] private float speed = 4f;
+    [SerializeField] private float walkspeed = 4f;
+    [SerializeField] private float runspeed = 8f;
     [SerializeField] private float rotationSpeed = 10f;
     [SerializeField] CharacterController controller;
     [SerializeField] Animator animator;
@@ -28,11 +32,12 @@ public class PlayerControl : MonoBehaviourPun
 
     [Header("Jump Settings")]
     [SerializeField] float Gravity = 9.81f;
-    [SerializeField] float jumpHeight = 1f;
-    [SerializeField] float jumpForwardAppliedForce = .5f;
+    [SerializeField] float jumpHeight = 3f;
+    [SerializeField] float jumpForwardAppliedForce = 1f;
     [SerializeField] float airControl = .5f;
+    [SerializeField] bool isRunning = false;
 
-  
+
     [Header("Player Name")]
     [SerializeField] private TextMesh player_name;
 
@@ -50,45 +55,41 @@ public class PlayerControl : MonoBehaviourPun
         player_name.text = photonView.Owner.NickName;
     }
 
-    void Update()
+    void FixedUpdate()
     {
         if (Input.GetKeyDown(KeyCode.Return)) { chatenter = !chatenter; }
         CameraLookAt();
 
-    }
-
-    void FixedUpdate()
-    {
-
         if (!chatenter)
         {
-            Translate();
             Jump();
+            Translate();
         }
     }
 
     void Translate()
     {
+
         hAxis = Input.GetAxis("Horizontal");
         vAxis = Input.GetAxis("Vertical");
 
         if (isJumping)
         {
-            velocity.y -= Gravity * Time.deltaTime;
+            velocity.y -= Gravity * Time.fixedDeltaTime;
 
             if (hAxis != 0 || vAxis != 0)
             {
-                Vector3 forward = new Vector3(cameraArm.forward.x, 0f, cameraArm.forward.z).normalized;
-                Vector3 right = new Vector3(cameraArm.right.x, 0f, cameraArm.right.z).normalized;
+                forward = new Vector3(cameraArm.forward.x, 0f, cameraArm.forward.z).normalized;
+                right = new Vector3(cameraArm.right.x, 0f, cameraArm.right.z).normalized;
                 moveVec = forward * vAxis + right * hAxis;
-                controller.Move(velocity * Time.deltaTime + moveVec * speed * Time.deltaTime * airControl);
+                controller.Move(velocity * Time.fixedDeltaTime + moveVec * speed * Time.fixedDeltaTime * airControl);
 
                 Quaternion LookAt = Quaternion.LookRotation(moveVec);
-                player.rotation = Quaternion.Slerp(player.rotation, LookAt, Time.deltaTime * rotationSpeed);
+                player.rotation = Quaternion.Slerp(player.rotation, LookAt, Time.fixedDeltaTime * rotationSpeed);
             }
             else
             {
-                controller.Move(velocity * Time.deltaTime);
+                controller.Move(velocity * Time.fixedDeltaTime);
             }
 
 
@@ -104,13 +105,31 @@ public class PlayerControl : MonoBehaviourPun
         {
             if (hAxis != 0 || vAxis != 0)
             {
-                Vector3 forward = new Vector3(cameraArm.forward.x, 0f, cameraArm.forward.z).normalized;
-                Vector3 right = new Vector3(cameraArm.right.x, 0f, cameraArm.right.z).normalized;
+                if (Input.GetKey(KeyCode.LeftShift))
+                {
+                    if (!isRunning)
+                    {
+                        speed = runspeed;
+                        isRunning = true;
+                        animator.SetBool("isRunning", true);
+                    }
+                }
+                else if (isRunning)
+                {
+                    {
+                        speed = walkspeed;
+                        isRunning = false;
+                        animator.SetBool("isRunning", false);
+                    }
+                }
+
+                forward = new Vector3(cameraArm.forward.x, 0f, cameraArm.forward.z).normalized;
+                right = new Vector3(cameraArm.right.x, 0f, cameraArm.right.z).normalized;
                 moveVec = forward * vAxis + right * hAxis;
-                controller.Move(moveVec * speed * Time.deltaTime);
+                controller.Move(moveVec * speed * Time.fixedDeltaTime);
 
                 Quaternion LookAt = Quaternion.LookRotation(moveVec);
-                player.rotation = Quaternion.Slerp(player.rotation, LookAt, Time.deltaTime * rotationSpeed);
+                player.rotation = Quaternion.Slerp(player.rotation, LookAt, Time.fixedDeltaTime * rotationSpeed);
 
                 if (!isWalking)
                 {
