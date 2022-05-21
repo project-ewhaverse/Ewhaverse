@@ -507,17 +507,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 3782692526693024478}
-  speed: 4
-  walkspeed: 4
+  speed: 5
+  walkspeed: 5
   runspeed: 8
-  rotationSpeed: 10
+  rotationSpeed: 20
   controller: {fileID: 6874478349373957264}
   animator: {fileID: 7106396654918293668}
   camera: {fileID: 5556443898256999127}
   cameraArm: {fileID: 9208409707157729644}
   camSens: 2
   Gravity: 9.81
-  jumpHeight: 3
+  jumpHeight: 2
   jumpForwardAppliedForce: 1
   airControl: 0.5
   isRunning: 0
@@ -871,8 +871,11 @@ MonoBehaviour:
     SynchronizeType: 1
     Name: isJumping
   - Type: 9
-    SynchronizeType: 1
+    SynchronizeType: 0
     Name: jumpLoop
+  - Type: 4
+    SynchronizeType: 1
+    Name: isRunning
   m_SynchronizeLayers:
   - SynchronizeType: 0
     LayerIndex: 0
