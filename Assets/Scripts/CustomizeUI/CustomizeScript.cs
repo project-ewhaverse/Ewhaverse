@@ -31,9 +31,29 @@ public class CustomizeScript : MonoBehaviour
     IEnumerator coroutine1, coroutine2;
     public bool done;
     [SerializeField] public TMP_Text er, eg, eb, hr, hg, hb;
+    [SerializeField] private Mesh[] Eye1;
+    [SerializeField] private Mesh[] Eye2;
+    [SerializeField] private Mesh[] Mou;
+    [SerializeField] private Mesh[] HaF;
+    [SerializeField] private Mesh[] HaB;
+    [SerializeField] private Mesh[] Top;
+    [SerializeField] private Mesh[] Bot;
+    [SerializeField] private Mesh[] Sho;
+    [SerializeField] private Mesh[] Acc;
+    public SkinnedMeshRenderer SkinC;
+    public SkinnedMeshRenderer EyeB1;
+    public SkinnedMeshRenderer EyeL2;
+    public SkinnedMeshRenderer EyeC;
+    public SkinnedMeshRenderer Mouse;
+    public SkinnedMeshRenderer HairForC;
+    public SkinnedMeshRenderer HairBorC;
+    public SkinnedMeshRenderer TopD;
+    public SkinnedMeshRenderer Bottom;
+    public SkinnedMeshRenderer Shoes;
+    public SkinnedMeshRenderer Accessory;
     void Start()
     {
-        //가입 시 DB에 "0.1/0.1/0.1,Eye0,0.1/0.1/0.1,Mou0,HaF0,HaB0,0.1/0.1/0.1,Top0,Bot0,Sho0,Acc0"이 저장된다
+        //가입 시 DB에 "1/1/1,Eye0,1/1/1,Mou0,HaF0,HaB0,0/0/0,Top0,Bot0,Sho0,Acc0"이 저장된다
         //로그인 때에 DB로부터 CustomJson.txt에 저장해둔다
         //CustomJson.txt의 내용을 가공해서 customlist에 추가한다
         coroutine1 = CustomCoroutine("startcustom");
@@ -155,6 +175,22 @@ public class CustomizeScript : MonoBehaviour
         tempindex = customlist.FindIndex(x => x.name == info[10]);
         customlist[tempindex].isusing = true;
         //그린다
+        string[] skinc = info[0].Split(new string[] { "/" }, StringSplitOptions.None);
+        SkinC.material.color = new Color(float.Parse(skinc[0]), float.Parse(skinc[1]), float.Parse(skinc[2]));
+        EyeB1.sharedMesh = Eye1[int.Parse(info[1].Substring(3, 1))];
+        EyeL2.sharedMesh = Eye2[int.Parse(info[1].Substring(3, 1))];
+        string[] eyec = info[2].Split(new string[] { "/" }, StringSplitOptions.None);
+        EyeC.material.color = new Color(float.Parse(eyec[0]), float.Parse(eyec[1]), float.Parse(eyec[2]));
+        Mouse.sharedMesh = Mou[int.Parse(info[3].Substring(3, 1))];
+        HairForC.sharedMesh = HaF[int.Parse(info[4].Substring(3, 1))];
+        HairBorC.sharedMesh = HaB[int.Parse(info[5].Substring(3, 1))];
+        string[] hairc = info[6].Split(new string[] { "/" }, StringSplitOptions.None);
+        HairForC.material.color = new Color(float.Parse(hairc[0]), float.Parse(hairc[1]), float.Parse(hairc[2]));
+        HairBorC.material.color = new Color(float.Parse(hairc[0]), float.Parse(hairc[1]), float.Parse(hairc[2]));
+        //TopD.sharedMesh = Top[int.Parse(info[7].Substring(3, 1))];
+        //Bottom.sharedMesh = Bot[int.Parse(info[8].Substring(3, 1))];
+        //Shoes.sharedMesh = Sho[int.Parse(info[9].Substring(3, 1))];
+        //Accessory.sharedMesh = Acc[int.Parse(info[10].Substring(3, 1))];
     }
     public void ConfirmProcess()
     {
@@ -225,6 +261,7 @@ public class CustomizeScript : MonoBehaviour
         //info[3]: Mouse, Mou0, 5, 7-11
         //info[4]: HairF, HaF0, 5, 12-16
         //info[5]: HairB, HaB0, 5, 17-21
+        //그린다
         viewentity = EventSystem.current.currentSelectedGameObject;
         int tmpindex;
         tmpindex = customlist.FindIndex(x => x.name == viewentity.name);
@@ -233,6 +270,8 @@ public class CustomizeScript : MonoBehaviour
             for (int i = 1; i <= 5; i++)
             {
                 customlist[i].isusing = false;
+                EyeB1.sharedMesh = Eye1[int.Parse(customlist[tmpindex].name.Substring(3, 1))];
+                EyeL2.sharedMesh = Eye2[int.Parse(customlist[tmpindex].name.Substring(3, 1))];
             }
         }
         else if (tmpindex >= 7 & tmpindex <= 11)
@@ -240,6 +279,7 @@ public class CustomizeScript : MonoBehaviour
             for (int i = 7; i <= 11; i++)
             {
                 customlist[i].isusing = false;
+                Mouse.sharedMesh = Mou[int.Parse(customlist[tmpindex].name.Substring(3, 1))];
             }
         }
         else if (tmpindex >= 12 & tmpindex <= 16)
@@ -247,6 +287,7 @@ public class CustomizeScript : MonoBehaviour
             for (int i = 12; i <= 16; i++)
             {
                 customlist[i].isusing = false;
+                HairForC.sharedMesh = HaF[int.Parse(customlist[tmpindex].name.Substring(3, 1))];
             }
         }
         else if (tmpindex >= 17 & tmpindex <= 21)
@@ -254,10 +295,10 @@ public class CustomizeScript : MonoBehaviour
             for (int i = 17; i <= 21; i++)
             {
                 customlist[i].isusing = false;
+                HairBorC.sharedMesh = HaB[int.Parse(customlist[tmpindex].name.Substring(3, 1))];
             }
         }
         customlist[tmpindex].isusing = true;
-        //그린다
     }
     public void DressEntityClicked()
     {
@@ -277,6 +318,22 @@ public class CustomizeScript : MonoBehaviour
         }
         customlist[tmpindex1].isusing = true;
         //그린다
+        if (tmpindex2 == 0)
+        {
+            //TopD.sharedMesh = Top[int.Parse(customlist[tmpindex1].name.Substring(3, 1))];
+        }
+        else if (tmpindex2 == 1)
+        {
+            //Bottom.sharedMesh = Bot[int.Parse(customlist[tmpindex1].name.Substring(3, 1))];
+        }
+        else if (tmpindex2 == 2)
+        {
+            //Shoes.sharedMesh = Sho[int.Parse(customlist[tmpindex1].name.Substring(3, 1))];
+        }
+        else if (tmpindex2 == 3)
+        {
+            //Accessory.sharedMesh = Acc[int.Parse(customlist[tmpindex1].name.Substring(3, 1))];
+        }
     }
     public void SkinEntityClicked()
     {
@@ -285,6 +342,8 @@ public class CustomizeScript : MonoBehaviour
         viewentity = EventSystem.current.currentSelectedGameObject;
         customlist[0].name = viewentity.name;
         //그린다
+        string[] skinc = customlist[0].name.Split(new string[] { "/" }, StringSplitOptions.None);
+        SkinC.material.color = new Color(float.Parse(skinc[0]), float.Parse(skinc[1]), float.Parse(skinc[2]));
     }
     public void PickerEntityClicked()
     {
@@ -311,6 +370,11 @@ public class CustomizeScript : MonoBehaviour
             customlist[22].name = tempstring;
         }
         //그린다
+        string[] eyec = customlist[6].name.Split(new string[] { "/" }, StringSplitOptions.None);
+        EyeC.material.color = new Color(float.Parse(eyec[0]), float.Parse(eyec[1]), float.Parse(eyec[2]));
+        string[] hairc = customlist[22].name.Split(new string[] { "/" }, StringSplitOptions.None);
+        HairForC.material.color = new Color(float.Parse(hairc[0]), float.Parse(hairc[1]), float.Parse(hairc[2]));
+        HairBorC.material.color = new Color(float.Parse(hairc[0]), float.Parse(hairc[1]), float.Parse(hairc[2]));
     }
     public void ConfirmClicked()
     {
@@ -319,9 +383,11 @@ public class CustomizeScript : MonoBehaviour
         ConfirmProcess();
         StartCoroutine(coroutine2);
         //화면 전환한다
+        SceneManager.LoadScene("Square");
     }
     public void CancelClicked()
     {
         //취소되면 화면 전환한다
+        SceneManager.LoadScene("Square");
     }
 }
