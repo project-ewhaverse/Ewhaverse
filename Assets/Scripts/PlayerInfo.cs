@@ -5,6 +5,7 @@ using System.IO;
 using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
+using ExitGames.Client.Photon;
 
 /*내 정보를 저장하는 클래스*/
 public class PlayerInfo : MonoBehaviourPunCallbacks
@@ -39,6 +40,8 @@ public class PlayerInfo : MonoBehaviourPunCallbacks
         }
         info = this;
         DontDestroyOnLoad(gameObject);
+
+        PhotonPeer.RegisterType(typeof(AvatarInfo), 0, AvatarInfo.Serialize, AvatarInfo.Deserialize);
     }
 
     // Start is called before the first frame update
