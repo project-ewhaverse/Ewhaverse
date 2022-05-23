@@ -3835,7 +3835,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40c3cca74e621b44596b76bddd9d03c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  panel: {fileID: 0}
+  panel: {fileID: 457391378}
 --- !u!4 &364772024
 Transform:
   m_ObjectHideFlags: 0
@@ -13287,7 +13287,7 @@ PrefabInstance:
     - target: {fileID: 2029145674703868215, guid: e3e3e8c5e47e42049853ab0f7aa11278, type: 3}
       propertyPath: motioncontroller
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2072649371}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e3e3e8c5e47e42049853ab0f7aa11278, type: 3}
 --- !u!114 &960558477 stripped
@@ -29064,7 +29064,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 237bad74349602141b69126003a8edcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  recorder: {fileID: 0}
+  recorder: {fileID: 2354537954936406946}
 --- !u!1001 &2079184177
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30416,3 +30416,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: af57e00293d394942bb00e280028550b, type: 3}
+--- !u!114 &2354537954936406946 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2354537955276666081, guid: af57e00293d394942bb00e280028550b, type: 3}
+  m_PrefabInstance: {fileID: 2354537954936406945}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91175dcc15224463780e01a8a98b1b60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
