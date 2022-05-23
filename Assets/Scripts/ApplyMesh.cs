@@ -29,8 +29,6 @@ public class ApplyMesh : MonoBehaviour
     [SerializeField] private Mesh[] shoes;
     //[SerializeField] private Mesh[] acc;
 
-
-
     void Start()
     {
         photonview = PhotonView.Get(this);
@@ -55,15 +53,17 @@ public class ApplyMesh : MonoBehaviour
     }
 
     [PunRPC]
-    void Apply(float r, float g, float b, int hf, int hb)
+    
+    void Apply(float r, float g, float b, int hf, int hb)//AvatarInfo avatar) 
     {
         //ÇÇºÎ»ö
-        mesh_skin.material.color = new Color(r, g, b);
+        mesh_skin.materials[0].color = new Color(r, g, b);
+        mesh_skin.materials[1].color = new Color(r, g, b);
+        //mesh_skin.material.color = new Color(avatar.skin.r, avatar.skin.g, avatar.skin.b);
+
         //´«
         //mesh_eye.sharedMesh = eye[avatar.eye.type];
-        //mesh_eye.sharedMesh = eye[e];
-
-        //»ö
+        //mesh_eye.
 
         //ÀÔ
         //mesh_mouse.sharedMesh = mouse[avatar.mouse.type];
@@ -73,15 +73,14 @@ public class ApplyMesh : MonoBehaviour
         //mesh_hair_back.sharedMesh = hair_back[avatar.hair.back_type];
         mesh_hair_front.sharedMesh = hair_front[hf];
         mesh_hair_back.sharedMesh = hair_back[hb];
+        //mesh_hair_front.material.color = new Color(avatar.hair.r, avatar.hair.g, avatar.hair.b);
+        //mesh_hair_back.material.color = new Color(avatar.hair.r, avatar.hair.g, avatar.hair.b);
 
         //¿Ê
         //mesh_top.sharedMesh = top[avatar.cloth.top];
-        //mesh_bottom.sharedMesh = top[avatar.cloth.bottom];
-        //mesh_shoes.sharedMesh = top[avatar.cloth.shoes];
-        //mesh_acc.sharedMesh = top[avatar.cloth.acc];
-        //mesh_top.sharedMesh = top[t];
-        //mesh_bottom.sharedMesh = bottom[bot];
-        //mesh_shoes.sharedMesh = shoes[s];
+        //mesh_bottom.sharedMesh = bottom[avatar.cloth.bottom];
+        //mesh_shoes.sharedMesh = shoes[avatar.cloth.shoes];
+        //mesh_acc.sharedMesh = acc[avatar.cloth.acc];
 
     }
 }
