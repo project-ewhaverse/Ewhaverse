@@ -119,10 +119,10 @@ public class PlayerInfo : MonoBehaviourPunCallbacks
         avatarinfo.skin.r = float.Parse(skincolor[0]);
         avatarinfo.skin.g = float.Parse(skincolor[1]);
         avatarinfo.skin.b = float.Parse(skincolor[2]);
-        
+
         //´«
-        String[] eyecolor = info[2].Split(new string[] { "/" }, StringSplitOptions.None);
         avatarinfo.eye.type = int.Parse(info[1].Replace("Eye", ""));
+        String[] eyecolor = info[2].Split(new string[] { "/" }, StringSplitOptions.None);
         avatarinfo.eye.r = float.Parse(eyecolor[0]);
         avatarinfo.eye.g = float.Parse(eyecolor[1]);
         avatarinfo.eye.b = float.Parse(eyecolor[2]);
@@ -132,17 +132,17 @@ public class PlayerInfo : MonoBehaviourPunCallbacks
 
         //¸Ó¸®
         avatarinfo.hair.front_type = int.Parse(info[4].Replace("HaF", ""));
-        avatarinfo.hair.back_type = int.Parse(info[4].Replace("HaB", ""));  
-        String[] haircolor = info[4].Split(new string[] { "/" }, StringSplitOptions.None);
+        avatarinfo.hair.back_type = int.Parse(info[5].Replace("HaB", ""));
+        String[] haircolor = info[6].Split(new string[] { "/" }, StringSplitOptions.None);
         avatarinfo.hair.r = float.Parse(haircolor[0]);
         avatarinfo.hair.g = float.Parse(haircolor[1]);
         avatarinfo.hair.b = float.Parse(haircolor[2]);
         
         //¿Ê
-        avatarinfo.cloth.top = int.Parse(info[6].Replace("Top", ""));
-        avatarinfo.cloth.bottom = int.Parse(info[7].Replace("Bot", ""));
-        avatarinfo.cloth.shoes = int.Parse(info[8].Replace("Sho", ""));
-        avatarinfo.cloth.acc = int.Parse(info[9].Replace("Acc", ""));
+        avatarinfo.cloth.top = int.Parse(info[7].Replace("Top", ""));
+        avatarinfo.cloth.bottom = int.Parse(info[8].Replace("Bot", ""));
+        avatarinfo.cloth.shoes = int.Parse(info[9].Replace("Sho", ""));
+        avatarinfo.cloth.acc = int.Parse(info[10].Replace("Acc", ""));
 
         Debug.Log(avatarinfo.hair.front_type);
         Debug.Log(avatarinfo.hair.back_type);
