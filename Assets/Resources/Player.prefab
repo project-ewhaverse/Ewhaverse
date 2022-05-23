@@ -612,6 +612,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33d5931722b4d5542b8cc99f8b45cbcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mesh_skin: {fileID: 7192634065677116503}
   mesh_eye: {fileID: 5327922044631028017}
   mesh_hair_front: {fileID: 5376938878272290373}
   mesh_hair_back: {fileID: 1553968463943940161}
@@ -816,9 +817,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8da1d3195d6409c478021cdd353e4308, type: 3}
---- !u!4 &394564879455081140 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8da1d3195d6409c478021cdd353e4308, type: 3}
+--- !u!1 &1022904281507006478 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8da1d3195d6409c478021cdd353e4308, type: 3}
   m_PrefabInstance: {fileID: 212654171604563295}
   m_PrefabAsset: {fileID: 0}
 --- !u!95 &6024103805044263118 stripped
@@ -826,14 +827,19 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 8da1d3195d6409c478021cdd353e4308, type: 3}
   m_PrefabInstance: {fileID: 212654171604563295}
   m_PrefabAsset: {fileID: 0}
+--- !u!137 &7192634065677116503 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -2224178687032405752, guid: 8da1d3195d6409c478021cdd353e4308, type: 3}
+  m_PrefabInstance: {fileID: 212654171604563295}
+  m_PrefabAsset: {fileID: 0}
 --- !u!137 &5327922044631028017 stripped
 SkinnedMeshRenderer:
   m_CorrespondingSourceObject: {fileID: -3817949633661229970, guid: 8da1d3195d6409c478021cdd353e4308, type: 3}
   m_PrefabInstance: {fileID: 212654171604563295}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1022904281507006478 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8da1d3195d6409c478021cdd353e4308, type: 3}
+--- !u!4 &394564879455081140 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8da1d3195d6409c478021cdd353e4308, type: 3}
   m_PrefabInstance: {fileID: 212654171604563295}
   m_PrefabAsset: {fileID: 0}
 --- !u!137 &5376938878272290373 stripped
