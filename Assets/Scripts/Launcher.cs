@@ -12,6 +12,7 @@ public class Launcher : MonoBehaviourPunCallbacks
     public GameObject player_prefab;    //플레이어 프리팹
     public GameObject maincamera;       //메인 카메라
     public PlayerInfo playerinfo;
+    public Motion motioncontroller;
 
     private bool isinsquare;    //광장 위치 여부
 
@@ -88,6 +89,7 @@ public class Launcher : MonoBehaviourPunCallbacks
             GameObject Player = (GameObject)PhotonNetwork.Instantiate(player_prefab.name, new Vector3(0f, 2f, 0f), Quaternion.identity, 0);
             Player.transform.Find("Camera").Find("MainCamera").gameObject.SetActive(true);
             maincamera.gameObject.SetActive(false);
+            motioncontroller.animator = Player.transform.Find("avatar").GetComponent<Animator>();
 
             //Playerinfo.inlobby = true;      
             //playerinfo.FindPlayerObject();

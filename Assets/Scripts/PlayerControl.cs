@@ -38,7 +38,7 @@ public class PlayerControl : MonoBehaviourPun
     [SerializeField] bool isRunning = false;
 
 
-    [Header("Player Name")]
+   [Header("Player Name")]
     [SerializeField] private TextMesh player_name;
 
     private void Awake()
@@ -134,6 +134,7 @@ public class PlayerControl : MonoBehaviourPun
                 if (!isWalking)
                 {
                     isWalking = true;
+                    animator.SetInteger("motion", 0);
                     animator.SetBool("isWalking", true);
                 }
 
@@ -174,6 +175,7 @@ public class PlayerControl : MonoBehaviourPun
     {
         if (Input.GetKey(KeyCode.Space) && !isJumping)
         {
+            animator.SetInteger("motion", 0);
             animator.SetBool("isJumping", true);
             isJumping = true;
             velocity = controller.velocity * jumpForwardAppliedForce;
