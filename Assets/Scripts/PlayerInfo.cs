@@ -50,9 +50,9 @@ public class PlayerInfo : MonoBehaviourPunCallbacks
         pos_z = 0f;
         rot = 0f;
 
-        ReadAvatarInfo();
-        //front = Random.Range(0, 5);   //delete
-        //back = Random.Range(0, 5);    //delete
+        //ReadAvatarInfo();
+        front = UnityEngine.Random.Range(0, 5);   //delete
+        back = UnityEngine.Random.Range(0, 5);    //delete
     }
 
     /*
