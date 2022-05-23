@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class Motion : MonoBehaviour
 {
     public Animator animator;
@@ -23,4 +24,5 @@ public class Motion : MonoBehaviour
     {
         animator.SetInteger("motion", num);
     }
+
 }
