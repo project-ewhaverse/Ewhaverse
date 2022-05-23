@@ -20,6 +20,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
     public Button DeleteRoom;       //방장일 때 방 삭제할 수 있는 버튼
     public Transform startlocation; //아바타 생성될 위치
     PhotonView photonview;          //RPC를 사용하기 위한 포톤 뷰
+    public Motion motioncontroller;
 
     void Start()
     {
@@ -36,6 +37,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
             GameObject Player = (GameObject)PhotonNetwork.Instantiate(this.playerPrefab.name, startlocation.position, Quaternion.identity, 0);
             Player.transform.Find("Camera").Find("MainCamera").gameObject.SetActive(true);
             maincamera.gameObject.SetActive(false);
+            motioncontroller.animator = Player.transform.Find("avatar").GetComponent<Animator>();
         }
 
         //방장이라면
