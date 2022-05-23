@@ -2,10 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Photon.Voice.Unity;
+using Photon.Voice.PUN;
 
 public class OverThePlayer : MonoBehaviour
 {
     private Canvas canvas;
+    public Image recorderSprite; // 말할때 내 위에 뜨는 이미지
+    public Image speakerSprite; // 나에게 들릴때 상대방 위에 뜨는 이미지
+    public PhotonVoiceView photonVoiceView;
 
     // Start is called before the first frame update
     void Awake()
@@ -16,7 +21,11 @@ public class OverThePlayer : MonoBehaviour
 	{
         this.canvas.worldCamera = Camera.main;
     }
-
+    private void Update()
+    {
+        this.recorderSprite.enabled = this.photonVoiceView.IsRecording; // 내가 말하는 중일때 아이콘 띄우기
+        this.speakerSprite.enabled = this.photonVoiceView.IsSpeaking; // 상대방으로서 말하는 중일때 아이콘 띄우기
+    }
     private void LateUpdate()
     {
         //if (this.canvas.worldCamera == null) { this.canvas.worldCamera = Camera.main; return; } 
