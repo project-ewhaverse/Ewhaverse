@@ -53,7 +53,7 @@ public class CustomizeScript : MonoBehaviour
     public SkinnedMeshRenderer Accessory;
     void Start()
     {
-        //가입 시 DB에 "1/1/1,Eye0,1/1/1,Mou0,HaF0,HaB0,0/0/0,Top0,Bot0,Sho0,Acc0"이 저장된다
+        //가입 시 DB에 "1/1/1,Eye0,1/1/1,Mou0,HaF2,HaB3,0/0/0,Top0,Bot0,Sho0,Acc0"이 저장된다
         //로그인 때에 DB로부터 CustomJson.txt에 저장해둔다
         //CustomJson.txt의 내용을 가공해서 customlist에 추가한다
         coroutine1 = CustomCoroutine("startcustom");
@@ -177,11 +177,11 @@ public class CustomizeScript : MonoBehaviour
         //그린다
         string[] skinc = info[0].Split(new string[] { "/" }, StringSplitOptions.None);
         SkinC.material.color = new Color(float.Parse(skinc[0]), float.Parse(skinc[1]), float.Parse(skinc[2]));
-        EyeB1.sharedMesh = Eye1[int.Parse(info[1].Substring(3, 1))];
-        EyeL2.sharedMesh = Eye2[int.Parse(info[1].Substring(3, 1))];
+        //EyeB1.sharedMesh = Eye1[int.Parse(info[1].Substring(3, 1))];
+        //EyeL2.sharedMesh = Eye2[int.Parse(info[1].Substring(3, 1))];
         string[] eyec = info[2].Split(new string[] { "/" }, StringSplitOptions.None);
         EyeC.material.color = new Color(float.Parse(eyec[0]), float.Parse(eyec[1]), float.Parse(eyec[2]));
-        Mouse.sharedMesh = Mou[int.Parse(info[3].Substring(3, 1))];
+        //Mouse.sharedMesh = Mou[int.Parse(info[3].Substring(3, 1))];
         HairForC.sharedMesh = HaF[int.Parse(info[4].Substring(3, 1))];
         HairBorC.sharedMesh = HaB[int.Parse(info[5].Substring(3, 1))];
         string[] hairc = info[6].Split(new string[] { "/" }, StringSplitOptions.None);
@@ -270,8 +270,8 @@ public class CustomizeScript : MonoBehaviour
             for (int i = 1; i <= 5; i++)
             {
                 customlist[i].isusing = false;
-                EyeB1.sharedMesh = Eye1[int.Parse(customlist[tmpindex].name.Substring(3, 1))];
-                EyeL2.sharedMesh = Eye2[int.Parse(customlist[tmpindex].name.Substring(3, 1))];
+                //EyeB1.sharedMesh = Eye1[int.Parse(customlist[tmpindex].name.Substring(3, 1))];
+                //EyeL2.sharedMesh = Eye2[int.Parse(customlist[tmpindex].name.Substring(3, 1))];
             }
         }
         else if (tmpindex >= 7 & tmpindex <= 11)
@@ -279,7 +279,7 @@ public class CustomizeScript : MonoBehaviour
             for (int i = 7; i <= 11; i++)
             {
                 customlist[i].isusing = false;
-                Mouse.sharedMesh = Mou[int.Parse(customlist[tmpindex].name.Substring(3, 1))];
+                //Mouse.sharedMesh = Mou[int.Parse(customlist[tmpindex].name.Substring(3, 1))];
             }
         }
         else if (tmpindex >= 12 & tmpindex <= 16)
