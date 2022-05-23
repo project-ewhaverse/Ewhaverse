@@ -23,7 +23,7 @@ public class OverThePlayer : MonoBehaviour
     }
     private void Update()
     {
-        this.recorderSprite.enabled = this.photonVoiceView.IsRecording; // 내가 말하는 중일때 아이콘 띄우기
+        //this.recorderSprite.enabled = this.photonVoiceView.IsRecording; // 내가 말하는 중일때 아이콘 띄우기
         this.speakerSprite.enabled = this.photonVoiceView.IsSpeaking; // 상대방으로서 말하는 중일때 아이콘 띄우기
     }
     private void LateUpdate()
