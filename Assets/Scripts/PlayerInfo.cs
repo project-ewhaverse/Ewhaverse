@@ -23,7 +23,7 @@ public class PlayerInfo : MonoBehaviourPunCallbacks
     private float rot;
 
     //아바타 정보
-    AvatarInfo avatarinfo = new AvatarInfo();
+    public AvatarInfo avatarinfo = new AvatarInfo();
 
 
     int front;  //delete
@@ -142,6 +142,11 @@ public class PlayerInfo : MonoBehaviourPunCallbacks
         avatarinfo.cloth.top = int.Parse(info[6].Replace("Top", ""));
         avatarinfo.cloth.bottom = int.Parse(info[7].Replace("Bot", ""));
         avatarinfo.cloth.shoes = int.Parse(info[8].Replace("Sho", ""));
-        avatarinfo.cloth.acc = int.Parse(info[6].Replace("Ace", ""));
+        avatarinfo.cloth.acc = int.Parse(info[9].Replace("Acc", ""));
+
+        Debug.Log(avatarinfo.hair.front_type);
+        Debug.Log(avatarinfo.hair.back_type);
     }
+
+
 }

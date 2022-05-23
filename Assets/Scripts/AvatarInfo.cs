@@ -1,30 +1,30 @@
 //ÇÇºÎ
-struct Skin
+public struct Skin
 {
     public float r, g, b;
 };
 
 //´«
-struct Eye
+public struct Eye
 {
     public int type;
     public float r, g, b;
 }
 
 //ÀÔ
-struct Mouse
+public struct Mouse
 {
     public int type;
 }
 
-struct Hair
+public struct Hair
 {
     public int front_type;
     public int back_type;
     public float r, g, b;
 }
 
-struct Cloth
+public struct Cloth
 {
     public int top;
     public int bottom;
@@ -32,7 +32,7 @@ struct Cloth
     public int acc;
 }
 
-class AvatarInfo
+public class AvatarInfo
 {
     public Skin skin;
     public Eye eye;
