@@ -3,20 +3,20 @@ using System.Collections.Generic;
 using System;
 using System.IO;
 
-//ÇÇºÎ
+//í”¼ë¶€
 public struct Skin
 {
     public float r, g, b;
 };
 
-//´«
+//ëˆˆ
 public struct Eye
 {
     public int type;
     public float r, g, b;
 }
 
-//ÀÔ
+//ì…
 public struct Mouse
 {
     public int type;
@@ -47,13 +47,13 @@ public class AvatarInfo
 
     
     
-    //Á÷·ÄÈ­
+    //ì§ë ¬í™”
     public static byte[] Serialize(object ava)
     {
         AvatarInfo info = (AvatarInfo)ava;
 
 
-        //½ºÆ®¸²¿¡ ÇÊ¿äÇÑ ¸Ş¸ğ¸® »çÀÌÁî(Byte)
+        //ìŠ¤íŠ¸ë¦¼ì— í•„ìš”í•œ ë©”ëª¨ë¦¬ ì‚¬ì´ì¦ˆ(Byte)
         int s = sizeof(float) * 3;
         int e = sizeof(int) + sizeof(float) * 3;
         int m = sizeof(int);
@@ -61,7 +61,7 @@ public class AvatarInfo
         int c = sizeof(int) * 4;
         MemoryStream ms = new MemoryStream(s + e + m + h + c);
 
-        //°¢ º¯¼öµéÀ» Byte Çü½ÄÀ¸·Î º¯È¯, ¸¶Áö¸·Àº °³º° »çÀÌÁî
+        //ê° ë³€ìˆ˜ë“¤ì„ Byte í˜•ì‹ìœ¼ë¡œ ë³€í™˜, ë§ˆì§€ë§‰ì€ ê°œë³„ ì‚¬ì´ì¦ˆ
         ms.Write(BitConverter.GetBytes(info.skin.r), 0, sizeof(float));
         ms.Write(BitConverter.GetBytes(info.skin.g), 0, sizeof(float));
         ms.Write(BitConverter.GetBytes(info.skin.b), 0, sizeof(float));
@@ -87,7 +87,7 @@ public class AvatarInfo
         return ms.ToArray();
     }
 
-    //¿ªÁ÷·ÄÈ­
+    //ì—­ì§ë ¬í™”
     public static object Deserialize(byte[] bytes)
     {
         AvatarInfo info = new AvatarInfo();
