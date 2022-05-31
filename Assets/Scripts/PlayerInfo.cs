@@ -27,9 +27,6 @@ public class PlayerInfo : MonoBehaviourPunCallbacks
     public AvatarInfo avatarinfo = new AvatarInfo();
 
 
-    int front;  //delete
-    int back;   //delete
-
     /*╫л╠шео ╩Г©К*/
     private void Awake()
     {
@@ -53,9 +50,6 @@ public class PlayerInfo : MonoBehaviourPunCallbacks
         pos_z = 0f;
         rot = 0f;
 
-        //ReadAvatarInfo();
-        front = UnityEngine.Random.Range(0, 5);   //delete
-        back = UnityEngine.Random.Range(0, 5);    //delete
     }
 
     /*
@@ -107,10 +101,6 @@ public class PlayerInfo : MonoBehaviourPunCallbacks
         }
     }
 
-    public (int, int) Get() //delete
-    {
-        return (front, back);
-    }
 
     public void ReadAvatarInfo()
     {
