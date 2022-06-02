@@ -12,7 +12,6 @@ public class MouseInteraction : MonoBehaviour
     private string othername;
     //public RectTransform panel_transform;
     [SerializeField] string url1, url2;
-    [SerializeField] GameObject FoneUI, FtwoUI;
     [SerializeField] GameObject MsgUI;
     private void Update()
     {
@@ -52,8 +51,6 @@ public class MouseInteraction : MonoBehaviour
     public void RequestFriend()
     {
         StartCoroutine(FriendCoroutine("reqadd", othername));
-        FoneUI.gameObject.SetActive(true);
-        FtwoUI.gameObject.SetActive(true);
     }
     IEnumerator FriendCoroutine(string command, string othername)
     {
