@@ -1,20 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using System.Web;
 using UnityEngine;
+using UnityEngine.Networking;
 using Photon.Pun;
 using Photon.Realtime;
-
 public class MouseInteraction : MonoBehaviour
 {
     public GameObject panel;
     private string othername;
     //public RectTransform panel_transform;
-
+    [SerializeField] string url1, url2;
+    [SerializeField] GameObject FoneUI, FtwoUI;
+    [SerializeField] GameObject MsgUI;
     private void Update()
     {
         GetMouseInput();
     }
-
     void GetMouseInput()
     {
         if (Input.GetMouseButtonUp(1))
@@ -46,19 +49,44 @@ public class MouseInteraction : MonoBehaviour
             panel.SetActive(false);
         }
     }
-
-    
-
-    //친구 요청 버튼 실행
     public void RequestFriend()
     {
-        Debug.Log(othername);
+        StartCoroutine(FriendCoroutine("reqadd", othername));
+        FoneUI.gameObject.SetActive(true);
+        FtwoUI.gameObject.SetActive(true);
     }
-
-    //1:1 메시지 요청 버튼 실행
-    public void RequestOnetoOneMessage()
+    IEnumerator FriendCoroutine(string command, string othername)
     {
-        //othername으로 하시면 돼요!
+        WWWForm form = new WWWForm();
+        form.AddField("command", command);
+        form.AddField("id1", File.ReadAllText(Application.persistentDataPath + "/Sync.txt"));
+        form.AddField("id2", othername);
+        UnityWebRequest www = UnityWebRequest.Post(url1, form);
+        yield return www.SendWebRequest();
+        string result = UnityWebRequest.UnEscapeURL(www.downloadHandler.text);
+        print(result);
+    }
+    public void RequestMessage()
+    {
+        string id1 = File.ReadAllText(Application.persistentDataPath + "/Sync.txt");
+        string id2 = othername;
+        if (id1 != id2)
+        {
+            StartCoroutine(MessageCoroutine(id2));
+            File.WriteAllText(Application.persistentDataPath + "/SyncM1.txt", id2);
+            MsgUI.gameObject.SetActive(true);
+        }
+    }
+    IEnumerator MessageCoroutine(string id2)
+    {
+        WWWForm form = new WWWForm();
+        form.AddField("command", "m1add");
+        form.AddField("id1", File.ReadAllText(Application.persistentDataPath + "/Sync.txt"));
+        form.AddField("id2", id2);
+        UnityWebRequest www = UnityWebRequest.Post(url2, form);
+        yield return www.SendWebRequest();
+        string result = www.downloadHandler.text;
+        print(result);
     }
 }
 
