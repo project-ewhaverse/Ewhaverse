@@ -92,7 +92,7 @@ public class FriendRequest : MonoBehaviour
         {
             tmplist.Add(reqid2);
         }
-        if(tmplist.Count > dbrlist.Count)
+        if (tmplist.Count > dbrlist.Count)
         {
             for (int i = 0; i < tmplist.Count; i++)
             {
@@ -142,37 +142,12 @@ public class FriendRequest : MonoBehaviour
             StartCoroutine(ReqBtnCoroutine("reqaddcancel"));
         }
     }
-    public void ClickAcceptBtn()
-    {
-        string id1 = File.ReadAllText(Application.persistentDataPath + "/Sync.txt");
-        string id2 = acceptFriend.text;
-        if (id1 != id2)
-        {
-            StartCoroutine(ReqBtnCoroutine("reqaccept"));
-        }
-    }
-    public void ClickRejectBtn()
-    {
-        string id1 = File.ReadAllText(Application.persistentDataPath + "/Sync.txt");
-        string id2 = acceptFriend.text;
-        if (id1 != id2)
-        {
-            StartCoroutine(ReqBtnCoroutine("reqreject"));
-        }
-    }
     IEnumerator ReqBtnCoroutine(string command)
     {
         WWWForm form = new WWWForm();
         form.AddField("command", command);
         form.AddField("id1", File.ReadAllText(Application.persistentDataPath + "/Sync.txt"));
-        if (command.Contains("reqadd"))
-        {
-            form.AddField("id2", addFriend.text);
-        }
-        else
-        {
-            form.AddField("id2", acceptFriend.text);
-        }
+        form.AddField("id2", addFriend.text);
         UnityWebRequest www = UnityWebRequest.Post(url, form);
         yield return www.SendWebRequest();
         string result = UnityWebRequest.UnEscapeURL(www.downloadHandler.text);
