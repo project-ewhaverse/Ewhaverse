@@ -12,16 +12,14 @@ public class PlayerInfo : MonoBehaviourPunCallbacks
 {
     public static PlayerInfo info;
 
-    GameObject my_player;   //내 플레이어
+    static GameObject my_player;   //내 플레이어
     GameObject child;
 
-    bool inlobby;   //로비
+    public static bool is_customizing;    //커스터마이징 씬 확인
 
-    private float pos_x;    //transform.poition
-    private float pos_y;
-    private float pos_z;
-
-    private float rot;
+    private static float pos_x;    //transform.poition
+    private static float pos_y;
+    private static float pos_z;
 
     //아바타 정보
     public AvatarInfo avatarinfo = new AvatarInfo();
@@ -44,61 +42,37 @@ public class PlayerInfo : MonoBehaviourPunCallbacks
     // Start is called before the first frame update
     void Start()
     {
-        inlobby = true;
+        is_customizing = false;
         pos_x = 0f;
         pos_y = 2f;
         pos_z = 0f;
-        rot = 0f;
-
     }
-
-    /*
-    // Update is called once per frame
-    void Update()
+  
+    //커스터마이징씬 누를 때 위치 기억
+    public static void PresentLoca()
     {
-
-        if (PhotonNetwork.InLobby)
-            inlobby = true;
-        else if(PhotonNetwork.InRoom)
-        { 
-            if(PhotonNetwork.CurrentRoom.Name == "Square")
+        if (PhotonNetwork.CurrentRoom.Name == "Square")
+        {
+            if (my_player != null)
             {
-                if(my_player != null)
-                {
-                    pos_x = my_player.transform.position.x;
-                    pos_y = my_player.transform.position.y;
-                    pos_z = my_player.transform.position.z;
-                    rot = child.transform.rotation.eulerAngles.y;
-                }                
-            }
-            else
-            {
-                inlobby = false;
-                pos_x = 0f;
-                pos_y = 2f;
-                pos_z = 0f;
+                pos_x = my_player.transform.position.x;
+                pos_y = my_player.transform.position.y;
+                pos_z = my_player.transform.position.z;
             }
         }
+        Debug.LogFormat("{0}, {1}, {2}", pos_x, pos_y, pos_z);
     }
-    */
 
-    public void FindPlayerObject()
+    public static void FindPlayerObject()
     {
         my_player = GameObject.Find(PhotonNetwork.AuthValues.UserId).gameObject;
-        child = my_player.transform.Find("avatar").gameObject;
+        //child = my_player.transform.Find("avatar").gameObject;
     }
 
-    public void UpdateSquarePos()
-    {
-        //대광장 >> 로비 >> 대광장
-        if(inlobby && PhotonNetwork.CurrentRoom.Name == "Square")
-        {        
-            Debug.Log("대광장 >> 로비 >> 대광장");
-            my_player.transform.position = new Vector3(pos_x, pos_y, pos_z);
-            child.transform.rotation = Quaternion.Euler(0, rot, 0);
-            Debug.LogFormat("{0}, {1}, {2}", pos_x, pos_y, pos_z);
-            inlobby = false;
-        }
+    public static void UpdateSquarePos()
+    {       
+        my_player.transform.position = new Vector3(pos_x, pos_y, pos_z);
+            //child.transform.rotation = Quaternion.Euler(0, rot, 0);
     }
 
 
@@ -137,8 +111,6 @@ public class PlayerInfo : MonoBehaviourPunCallbacks
         avatarinfo.cloth.shoes = int.Parse(info[9].Replace("Sho", ""));
         avatarinfo.cloth.acc = int.Parse(info[10].Replace("Acc", ""));
 
-        Debug.Log(avatarinfo.hair.front_type);
-        Debug.Log(avatarinfo.hair.back_type);
     }
 
 

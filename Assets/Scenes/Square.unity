@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.11454216, g: 0.33014435, b: 0.71421117, a: 1}
+  m_IndirectSpecularColor: {r: 0.11446454, g: 0.3301497, b: 0.7137864, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6875,8 +6875,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1428397424}
-        m_TargetAssemblyTypeName: gotoCustom, Assembly-CSharp
+      - m_Target: {fileID: 806046559}
+        m_TargetAssemblyTypeName: Launcher, Assembly-CSharp
         m_MethodName: CustomBtnClicked
         m_Mode: 1
         m_Arguments:
@@ -11328,7 +11328,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player_prefab: {fileID: 5272581566704171222, guid: 054a995b60f42d5499d09231cc338015, type: 3}
   maincamera: {fileID: 1426049718}
-  playerinfo: {fileID: 1011184960}
   motioncontroller: {fileID: 1875025554}
 --- !u!4 &806046560
 Transform:

@@ -4,6 +4,7 @@ using System.IO;
 using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
+using UnityEngine.SceneManagement;
 
 public class Launcher : MonoBehaviourPunCallbacks
 {
@@ -11,17 +12,13 @@ public class Launcher : MonoBehaviourPunCallbacks
 
     public GameObject player_prefab;    //플레이어 프리팹
     public GameObject maincamera;       //메인 카메라
-    public PlayerInfo playerinfo;
     public Motion motioncontroller;
 
-    private bool isinsquare;    //광장 위치 여부
 
     void Awake()
     {
         PhotonNetwork.GameVersion = gameVersion;
         PhotonNetwork.AutomaticallySyncScene = true;    //방장이 씬을 로딩하면, 나머지 사람들도 자동 싱크
-
-        isinsquare = true;  //첫 연결은 광장으로 연결해야하므로 true로 초기화
 
         //userID, 닉네임 설정
         if (!PhotonNetwork.IsConnected)
@@ -32,6 +29,7 @@ public class Launcher : MonoBehaviourPunCallbacks
 
         if (PhotonNetwork.InLobby)
             EnterSqaure();
+        Debug.Log(PhotonNetwork.InLobby);
     }
 
 
@@ -65,8 +63,7 @@ public class Launcher : MonoBehaviourPunCallbacks
 
     public override void OnJoinedLobby()
     {
-        if (isinsquare)
-            EnterSqaure();
+        EnterSqaure();
     }
 
     //대광장 입장
@@ -83,7 +80,7 @@ public class Launcher : MonoBehaviourPunCallbacks
     public override void OnJoinedRoom()
     {
         //대광장 플레이어 생성
-        if (player_prefab != null && isinsquare)
+        if (player_prefab != null)
         {
             Debug.Log("대광장 입장!");
             GameObject Player = (GameObject)PhotonNetwork.Instantiate(player_prefab.name, new Vector3(0f, 2f, 0f), Quaternion.identity, 0);
@@ -91,24 +88,36 @@ public class Launcher : MonoBehaviourPunCallbacks
             maincamera.gameObject.SetActive(false);
             motioncontroller.animator = Player.transform.Find("avatar").GetComponent<Animator>();
 
-            //Playerinfo.inlobby = true;      
-            //playerinfo.FindPlayerObject();
-            //PlayerInfo.UpdateSquarePos();
-
+            PlayerInfo.FindPlayerObject();
+            if (PlayerInfo.is_customizing)
+            {
+                PlayerInfo.UpdateSquarePos();
+                PlayerInfo.is_customizing = false;
+            }
         }
     }
 
     public void LeaveSquare()
     {
-        if (isinsquare)
-            PhotonNetwork.LeaveRoom();
-
-        isinsquare = false;
+        PhotonNetwork.LeaveRoom();
     }
 
     public override void OnLeftRoom()
     {
-        PhotonNetwork.LoadLevel("RoomLobby");
         maincamera.gameObject.SetActive(true);
+        
+        if (PlayerInfo.is_customizing)
+            SceneManager.LoadScene("Customize");
+        else
+            SceneManager.LoadScene("RoomLobby");
+        
+    }
+
+    //커스터마이징
+    public void CustomBtnClicked()
+    {
+        PlayerInfo.is_customizing = true;
+        PlayerInfo.PresentLoca();
+        LeaveSquare();
     }
 }
