@@ -47,18 +47,15 @@ public class ApplyMesh : MonoBehaviour
         photonview.RPC("Apply", RpcTarget.AllBuffered, avatar); 
         //photonview.RPC("Apply", RpcTarget.AllBuffered, avatar.skin.r, avatar.skin.g, avatar.skin.b, avatar.hair.front_type, avatar.hair.back_type);
 
-        //(front_idx, back_idx) = info.Get();
         //Debug.Log((front_idx, back_idx));
         //photonview.RPC("Apply", RpcTarget.AllBuffered, front_idx, back_idx);
     }
 
     [PunRPC]
     
-    void Apply(AvatarInfo avatar) //float r, float g, float b, int hf, int hb)
+    void Apply(AvatarInfo avatar)
     {
         //피부색
-        //mesh_skin.materials[0].color = new Color(r, g, b);
-        //mesh_skin.materials[1].color = new Color(r, g, b);
         mesh_skin.materials[0].color = mesh_skin.materials[1].color =  new Color(avatar.skin.r, avatar.skin.g, avatar.skin.b);
 
         //눈
@@ -71,8 +68,6 @@ public class ApplyMesh : MonoBehaviour
         //머리
         mesh_hair_front.sharedMesh = hair_front[avatar.hair.front_type];
         mesh_hair_back.sharedMesh = hair_back[avatar.hair.back_type];
-        //mesh_hair_front.sharedMesh = hair_front[hf];
-        //mesh_hair_back.sharedMesh = hair_back[hb];
         mesh_hair_front.material.color = new Color(avatar.hair.r, avatar.hair.g, avatar.hair.b);
         mesh_hair_back.material.color = new Color(avatar.hair.r, avatar.hair.g, avatar.hair.b);
 
