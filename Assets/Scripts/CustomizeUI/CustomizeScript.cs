@@ -176,7 +176,8 @@ public class CustomizeScript : MonoBehaviour
         customlist[tempindex].isusing = true;
         //그린다
         string[] skinc = info[0].Split(new string[] { "/" }, StringSplitOptions.None);
-        SkinC.material.color = new Color(float.Parse(skinc[0]), float.Parse(skinc[1]), float.Parse(skinc[2]));
+        SkinC.materials[0].color = new Color(float.Parse(skinc[0]), float.Parse(skinc[1]), float.Parse(skinc[2]));
+        SkinC.materials[1].color = new Color(float.Parse(skinc[0]), float.Parse(skinc[1]), float.Parse(skinc[2]));
         //EyeB1.sharedMesh = Eye1[int.Parse(info[1].Substring(3, 1))];
         //EyeL2.sharedMesh = Eye2[int.Parse(info[1].Substring(3, 1))];
         string[] eyec = info[2].Split(new string[] { "/" }, StringSplitOptions.None);
@@ -343,7 +344,8 @@ public class CustomizeScript : MonoBehaviour
         customlist[0].name = viewentity.name;
         //그린다
         string[] skinc = customlist[0].name.Split(new string[] { "/" }, StringSplitOptions.None);
-        SkinC.material.color = new Color(float.Parse(skinc[0]), float.Parse(skinc[1]), float.Parse(skinc[2]));
+        SkinC.materials[0].color = new Color(float.Parse(skinc[0]), float.Parse(skinc[1]), float.Parse(skinc[2]));
+        SkinC.materials[1].color = new Color(float.Parse(skinc[0]), float.Parse(skinc[1]), float.Parse(skinc[2]));
     }
     public void PickerEntityClicked()
     {
