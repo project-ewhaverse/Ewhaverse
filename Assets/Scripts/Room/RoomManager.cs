@@ -72,7 +72,8 @@ public class RoomManager : MonoBehaviourPunCallbacks
     //방을 나갈 때 실행되는 콜백
     public override void OnLeftRoom()
     {
-        SceneManager.LoadScene("RoomLobby");  //로비 로드
+        //SceneManager.LoadScene("RoomLobby");  //로비 로드
+        PhotonNetwork.LoadLevel("RoomLobby");
         maincamera.gameObject.SetActive(true);
     }
 }
