@@ -45,10 +45,6 @@ public class ApplyMesh : MonoBehaviour
         AvatarInfo avatar = info.avatarinfo;
 
         photonview.RPC("Apply", RpcTarget.AllBuffered, avatar); 
-        //photonview.RPC("Apply", RpcTarget.AllBuffered, avatar.skin.r, avatar.skin.g, avatar.skin.b, avatar.hair.front_type, avatar.hair.back_type);
-
-        //Debug.Log((front_idx, back_idx));
-        //photonview.RPC("Apply", RpcTarget.AllBuffered, front_idx, back_idx);
     }
 
     [PunRPC]
@@ -72,9 +68,9 @@ public class ApplyMesh : MonoBehaviour
         mesh_hair_back.material.color = new Color(avatar.hair.r, avatar.hair.g, avatar.hair.b);
 
         //¿Ê
-        //mesh_top.sharedMesh = top[avatar.cloth.top];
-        //mesh_bottom.sharedMesh = bottom[avatar.cloth.bottom];
-        //mesh_shoes.sharedMesh = shoes[avatar.cloth.shoes];
+        mesh_top.sharedMesh = top[avatar.cloth.top];
+        mesh_bottom.sharedMesh = bottom[avatar.cloth.bottom];
+        mesh_shoes.sharedMesh = shoes[avatar.cloth.shoes];
         //mesh_acc.sharedMesh = acc[avatar.cloth.acc];
 
     }
