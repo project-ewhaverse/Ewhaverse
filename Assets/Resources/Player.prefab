@@ -667,7 +667,6 @@ MonoBehaviour:
   mesh_top: {fileID: 7184842599239354051}
   mesh_bottom: {fileID: 6392806087910733160}
   mesh_shoes: {fileID: 7139942746018476089}
-  mesh_acc: {fileID: 0}
   eye:
   - {fileID: -7599093120081749023, guid: b6b70b4371ab57b42a9996f5a3f29761, type: 3}
   - {fileID: -7599093120081749023, guid: b6b70b4371ab57b42a9996f5a3f29761, type: 3}
@@ -698,7 +697,6 @@ MonoBehaviour:
   - {fileID: 8697922905998756424, guid: 8da1d3195d6409c478021cdd353e4308, type: 3}
   - {fileID: 8697922905998756424, guid: 8da1d3195d6409c478021cdd353e4308, type: 3}
   - {fileID: 8697922905998756424, guid: 8da1d3195d6409c478021cdd353e4308, type: 3}
-  acc: []
 --- !u!1 &7313768626715194217
 GameObject:
   m_ObjectHideFlags: 0

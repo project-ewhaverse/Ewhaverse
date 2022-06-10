@@ -55,9 +55,13 @@ public class PlayerControl : MonoBehaviourPun
         player_name.text = photonView.Owner.NickName;
     }
 
-    void FixedUpdate()
+    private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Return)) { chatenter = !chatenter; }
+    }
+    void FixedUpdate()
+    {
+        
         CameraLookAt();
 
         if (!chatenter)
